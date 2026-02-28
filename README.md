@@ -1,11 +1,7 @@
 <br />
 <p align="center">
   <a href="https://indobase.io">
-        <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/supabase-logo-wordmark--dark.svg">
-      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/supabase-logo-wordmark--light.svg">
-      <img alt="Indobase Logo" width="300" src="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/logo-preview.jpg">
-    </picture>
+
   </a>
 
   <h1 align="center">Indobase JS SDK</h1>
