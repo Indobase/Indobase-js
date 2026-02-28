@@ -1,7 +1,7 @@
-import { AuthClient } from '@supabase/auth-js'
+import { AuthClient } from '@indobase/auth-js'
 import { SupabaseAuthClientOptions } from './types'
 
-export class SupabaseAuthClient extends AuthClient {
+export class IndobaseAuthClient extends AuthClient {
   constructor(options: SupabaseAuthClientOptions) {
     super(options)
   }

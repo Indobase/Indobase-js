@@ -1,15 +1,15 @@
 import { useEffect, useRef, useState } from 'react'
-import { AuthClient } from '@supabase/auth-js'
-import type { Session, UserIdentity, Provider } from '@supabase/auth-js'
+import { AuthClient } from '@indobase/auth-js'
+import type { Session, UserIdentity, Provider } from '@indobase/auth-js'
 
-const supabaseURL = import.meta.env.VITE_SUPABASE_URL
-const supabasePublishableKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_DEFAULT_KEY
+const indobaseURL = import.meta.env.VITE_INDOBASE_URL
+const indobasePublishableKey = import.meta.env.VITE_INDOBASE_PUBLISHABLE_DEFAULT_KEY
 
 const auth = new AuthClient({
-  url: `${supabaseURL}/auth/v1`,
+  url: `${indobaseURL}/auth/v1`,
   headers: {
     accept: 'json',
-    apikey: supabasePublishableKey,
+    apikey: indobasePublishableKey,
   },
 })
 
@@ -230,7 +230,8 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white p-4 shadow sm:rounded-lg mb-10">
+          <h1 className="text-center text-3xl font-bold text-indigo-600 mb-6">Indobase Auth</h1>
+          <div className="bg-white p-4 shadow sm:rounded-lg mb-10">
           <p className="block text-sm font-medium leading-5 text-gray-700">Active session</p>
           <pre
             className="p-2 text-xs overflow-scroll bg-gray-200 max-h-100 rounded"

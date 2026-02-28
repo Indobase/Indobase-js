@@ -1,16 +1,16 @@
 {
-  "name": "@supabase/storage-js",
+  "name": "@indobase/storage-js",
   "version": "0.0.0",
-  "description": "Isomorphic storage client for Supabase.",
+  "description": "Isomorphic storage client for Indobase.",
   "keywords": [
     "javascript",
     "typescript",
-    "supabase"
+    "indobase"
   ],
-  "homepage": "https://github.com/supabase/supabase-js/tree/master/packages/core/storage-js",
-  "bugs": "https://github.com/supabase/supabase-js/issues",
+  "homepage": "https://github.com/indobase/indobase-js/tree/master/packages/core/storage-js",
+  "bugs": "https://github.com/indobase/indobase-js/issues",
   "license": "MIT",
-  "author": "Supabase",
+  "author": "Indobase",
   "files": [
     "dist",
     "src"
@@ -35,7 +35,7 @@
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/supabase/supabase-js.git",
+    "url": "https://github.com/indobase/indobase-js.git",
     "directory": "packages/core/storage-js"
   },
   "scripts": {

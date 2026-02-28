@@ -1,5 +1,5 @@
 {
-  "name": "@supabase/realtime-js",
+  "name": "@indobase/realtime-js",
   "targets": {
     "test:e2e": {
       "executor": "nx:run-commands",

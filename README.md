@@ -1,19 +1,19 @@
 <br />
 <p align="center">
-  <a href="https://supabase.io">
+  <a href="https://indobase.io">
         <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/supabase-logo-wordmark--dark.svg">
       <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/supabase-logo-wordmark--light.svg">
-      <img alt="Supabase Logo" width="300" src="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/logo-preview.jpg">
+      <img alt="Indobase Logo" width="300" src="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/logo-preview.jpg">
     </picture>
   </a>
 
-  <h1 align="center">Supabase JS SDK</h1>
+  <h1 align="center">Indobase JS SDK</h1>
 
   <p align="center">
-    <a href="https://supabase.com/docs/guides/getting-started">Guides</a>
+    <a href="https://indobase.com/docs/guides/getting-started">Guides</a>
     ·
-    <a href="https://supabase.com/docs/reference/javascript/introduction">Reference Docs</a>
+    <a href="https://indobase.com/docs/reference/javascript/introduction">Reference Docs</a>
   </p>
 </p>
 
@@ -39,26 +39,26 @@
 
 ## 📦 Libraries
 
-This monorepo contains the complete suite of Supabase JavaScript SDK:
+This monorepo contains the complete suite of Indobase JavaScript SDK:
 
 | Library                                                    | Description                           |
 | ---------------------------------------------------------- | ------------------------------------- |
-| **[@supabase/supabase-js](./packages/core/supabase-js)**   | Main isomorphic SDK for Supabase      |
-| **[@supabase/auth-js](./packages/core/auth-js)**           | Authentication SDK                    |
-| **[@supabase/postgrest-js](./packages/core/postgrest-js)** | PostgREST SDK for database operations |
-| **[@supabase/realtime-js](./packages/core/realtime-js)**   | Real-time subscriptions SDK           |
-| **[@supabase/storage-js](./packages/core/storage-js)**     | File storage SDK                      |
-| **[@supabase/functions-js](./packages/core/functions-js)** | Edge Functions SDK                    |
+| **[@indobase/supabase-js](./packages/core/supabase-js)**   | Main isomorphic SDK for Indobase      |
+| **[@indobase/auth-js](./packages/core/auth-js)**           | Authentication SDK                    |
+| **[@indobase/postgrest-js](./packages/core/postgrest-js)** | PostgREST SDK for database operations |
+| **[@indobase/realtime-js](./packages/core/realtime-js)**   | Real-time subscriptions SDK           |
+| **[@indobase/storage-js](./packages/core/storage-js)**     | File storage SDK                      |
+| **[@indobase/functions-js](./packages/core/functions-js)** | Edge Functions SDK                    |
 
 ## Support Policy
 
-This section outlines the scope of support for various runtime environments in Supabase JavaScript client.
+This section outlines the scope of support for various runtime environments in Indobase JavaScript client.
 
 ### Node.js
 
 We only support Node.js versions that are in **Active LTS** or **Maintenance** status as defined by the [official Node.js release schedule](https://nodejs.org/en/about/previous-releases#release-schedule). This means we support versions that are currently receiving long-term support and critical bug fixes.
 
-When a Node.js version reaches end-of-life and is no longer in Active LTS or Maintenance status, Supabase will drop it in a **minor release**, and **this won't be considered a breaking change**.
+When a Node.js version reaches end-of-life and is no longer in Active LTS or Maintenance status, Indobase will drop it in a **minor release**, and **this won't be considered a breaking change**.
 
 > ⚠️ **Node.js 18 Deprecation Notice**
 >
@@ -70,7 +70,7 @@ When a Node.js version reaches end-of-life and is no longer in Active LTS or Mai
 
 We support Deno versions that are currently receiving active development and security updates. We follow the [official Deno release schedule](https://docs.deno.com/runtime/fundamentals/stability_and_releases/) and only support versions from the `stable` and `lts` release channels.
 
-When a Deno version reaches end-of-life and is no longer receiving security updates, Supabase will drop it in a **minor release**, and **this won't be considered a breaking change**.
+When a Deno version reaches end-of-life and is no longer receiving security updates, Indobase will drop it in a **minor release**, and **this won't be considered a breaking change**.
 
 ### Browsers
 
@@ -91,14 +91,14 @@ We support Cloudflare Workers runtime environments. Cloudflare Workers provides 
 ### Important Notes
 
 - **Experimental features**: Features marked as experimental may be removed or changed without notice
-- **Build warnings**: If you see `UNUSED_EXTERNAL_IMPORT` warnings from Vite/Nuxt, see the [supabase-js README](./packages/core/supabase-js/README.md#known-build-warnings) — these are false positives
+- **Build warnings**: If you see `UNUSED_EXTERNAL_IMPORT` warnings from Vite/Nuxt, see the [indobase-js README](./packages/core/supabase-js/README.md#known-build-warnings) — these are false positives
 
 ## 🚀 Quick Start
 
 ### Installation
 
 ```bash
-npm install @supabase/supabase-js
+npm install @indobase/supabase-js
 ```
 
 Read more in each package's README file.
@@ -181,12 +181,12 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 - **Documentation**: [supabase.com/docs](https://supabase.com/docs)
 - **Community**: [GitHub Discussions](https://github.com/supabase/supabase/discussions)
 - **Issues**: [GitHub Issues](https://github.com/supabase/supabase-js/issues)
-- **Discord**: [Supabase Discord](https://discord.supabase.com)
+- **Discord**: [Indobase Discord](https://discord.supabase.com)
 
 ---
 
 <div align="center">
 
-**[Website](https://supabase.com) • [Documentation](https://supabase.com/docs) • [Community](https://github.com/supabase/supabase/discussions) • [Twitter](https://twitter.com/supabase)**
+**[Website](https://indobase.com) • [Documentation](https://indobase.com/docs) • [Community](https://github.com/indobase/indobase/discussions) • [Twitter](https://twitter.com/indobase)**
 
 </div>

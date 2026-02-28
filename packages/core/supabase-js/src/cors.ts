@@ -34,12 +34,12 @@
  * - apikey: Project API key
  * - content-type: Standard HTTP content type
  */
-const SUPABASE_HEADERS = ['authorization', 'x-client-info', 'apikey', 'content-type'].join(', ')
+const INDOBASE_HEADERS = ['authorization', 'x-client-info', 'apikey', 'content-type'].join(', ')
 
 /**
  * All HTTP methods used by the Supabase SDK
  */
-const SUPABASE_METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'].join(', ')
+const INDOBASE_METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'].join(', ')
 
 /**
  * Type representing CORS headers as a record of header names to values
@@ -70,6 +70,6 @@ export type CorsHeaders = Record<string, string>
  */
 export const corsHeaders: CorsHeaders = {
   'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': SUPABASE_HEADERS,
-  'Access-Control-Allow-Methods': SUPABASE_METHODS,
+  'Access-Control-Allow-Headers': INDOBASE_HEADERS,
+  'Access-Control-Allow-Methods': INDOBASE_METHODS,
 }

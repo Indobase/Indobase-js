@@ -1,5 +1,5 @@
 {
-  "name": "@supabase/realtime-js",
+  "name": "@indobase/realtime-js",
   "version": "0.0.0-automated",
   "description": "Listen to realtime updates to your PostgreSQL database",
   "keywords": [
@@ -9,10 +9,10 @@
     "javascript",
     "typescript",
     "firebase",
-    "supabase"
+    "indobase"
   ],
-  "homepage": "https://github.com/supabase/supabase-js/tree/master/packages/core/realtime-js",
-  "bugs": "https://github.com/supabase/supabase-js/issues",
+  "homepage": "https://github.com/indobase/indobase-js/tree/master/packages/core/realtime-js",
+  "bugs": "https://github.com/indobase/indobase-js/issues",
   "files": [
     "dist",
     "src"
@@ -22,10 +22,10 @@
   "types": "dist/module/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/supabase/supabase-js.git",
+    "url": "https://github.com/indobase/indobase-js.git",
     "directory": "packages/core/realtime-js"
   },
-  "author": "Supabase",
+  "author": "Indobase",
   "license": "MIT",
   "scripts": {
     "build": "npm run build:main && npm run build:module",

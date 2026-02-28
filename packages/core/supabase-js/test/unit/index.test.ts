@@ -1,8 +1,8 @@
-import { createClient } from '../../src/index'
-import SupabaseClient from '../../src/SupabaseClient'
+import { createIndobaseClient } from '../../src/index'
+import IndobaseClient from '../../src/SupabaseClient'
 
-// Mock the SupabaseClient constructor
-jest.mock('../../src/SupabaseClient')
+// Mock the IndobaseClient constructor
+jest.mock('../../src/IndobaseClient')
 
 describe('index module', () => {
   const originalProcess = global.process
@@ -25,36 +25,36 @@ describe('index module', () => {
   })
 
   describe('createClient', () => {
-    test('should create a new SupabaseClient instance', () => {
-      const mockSupabaseClient = SupabaseClient as jest.MockedClass<typeof SupabaseClient>
-      mockSupabaseClient.mockImplementation(() => ({}) as any)
+    test('should create a new IndobaseClient instance', () => {
+      const mockIndobaseClient = IndobaseClient as jest.MockedClass<typeof IndobaseClient>
+      mockIndobaseClient.mockImplementation(() => ({}) as any)
 
-      const supabaseUrl = 'https://test.supabase.co'
-      const supabaseKey = 'test-key'
+      const indobaseUrl = 'https://test.indobase.co'
+      const indobaseKey = 'test-key'
       const options = { auth: { autoRefreshToken: false } }
 
-      const client = createClient(supabaseUrl, supabaseKey, options)
+      const client = createIndobaseClient(indobaseUrl, indobaseKey, options)
 
-      expect(mockSupabaseClient).toHaveBeenCalledWith(supabaseUrl, supabaseKey, options)
+      expect(mockIndobaseClient).toHaveBeenCalledWith(indobaseUrl, indobaseKey, options)
       expect(client).toBeDefined()
     })
 
     test('should create client without options', () => {
-      const mockSupabaseClient = SupabaseClient as jest.MockedClass<typeof SupabaseClient>
-      mockSupabaseClient.mockImplementation(() => ({}) as any)
+      const mockIndobaseClient = IndobaseClient as jest.MockedClass<typeof IndobaseClient>
+      mockIndobaseClient.mockImplementation(() => ({}) as any)
 
-      const supabaseUrl = 'https://test.supabase.co'
-      const supabaseKey = 'test-key'
+      const indobaseUrl = 'https://test.indobase.co'
+      const indobaseKey = 'test-key'
 
-      const client = createClient(supabaseUrl, supabaseKey)
+      const client = createIndobaseClient(indobaseUrl, indobaseKey)
 
-      expect(mockSupabaseClient).toHaveBeenCalledWith(supabaseUrl, supabaseKey, undefined)
+      expect(mockIndobaseClient).toHaveBeenCalledWith(indobaseUrl, indobaseKey, undefined)
       expect(client).toBeDefined()
     })
 
     test('should work with generic types', () => {
-      const mockSupabaseClient = SupabaseClient as jest.MockedClass<typeof SupabaseClient>
-      mockSupabaseClient.mockImplementation(() => ({}) as any)
+      const mockIndobaseClient = IndobaseClient as jest.MockedClass<typeof IndobaseClient>
+      mockIndobaseClient.mockImplementation(() => ({}) as any)
 
       interface TestDatabase {
         public: {
@@ -68,12 +68,12 @@ describe('index module', () => {
         }
       }
 
-      const supabaseUrl = 'https://test.supabase.co'
-      const supabaseKey = 'test-key'
+      const indobaseUrl = 'https://test.indobase.co'
+      const indobaseKey = 'test-key'
 
-      const client = createClient<TestDatabase>(supabaseUrl, supabaseKey)
+      const client = createIndobaseClient<TestDatabase>(indobaseUrl, indobaseKey)
 
-      expect(mockSupabaseClient).toHaveBeenCalledWith(supabaseUrl, supabaseKey, undefined)
+      expect(mockIndobaseClient).toHaveBeenCalledWith(indobaseUrl, indobaseKey, undefined)
       expect(client).toBeDefined()
     })
   })

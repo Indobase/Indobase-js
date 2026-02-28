@@ -63,7 +63,7 @@ export default class GoTrueAdminApi {
    *
    * const admin = new GoTrueAdminApi({
    *   url: 'https://xyzcompany.supabase.co/auth/v1',
-   *   headers: { Authorization: `Bearer ${process.env.SUPABASE_SERVICE_ROLE_KEY}` },
+   *   headers: { Authorization: `Bearer ${process.env.INDOBASE_SERVICE_ROLE_KEY}` },
    * })
    * ```
    */

@@ -1,5 +1,5 @@
 {
-  "name": "@supabase/supabase-js",
+  "name": "@indobase/supabase-js",
   "targets": {
     "test": {
       "inputs": ["testing", "^production"]

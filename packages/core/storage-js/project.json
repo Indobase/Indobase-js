@@ -1,5 +1,5 @@
 {
-  "name": "@supabase/storage-js",
+  "name": "@indobase/storage-js",
   "targets": {
     "test:clean-pre": {
       "executor": "nx:run-commands",

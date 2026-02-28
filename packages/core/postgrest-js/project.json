@@ -1,5 +1,5 @@
 {
-  "name": "@supabase/postgrest-js",
+  "name": "@indobase/postgrest-js",
   "targets": {
     "test:clean-pre": {
       "executor": "nx:run-commands",

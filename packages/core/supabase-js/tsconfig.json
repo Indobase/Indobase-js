@@ -9,6 +9,7 @@
     "outDir": "dist/main",
     "sourceMap": true,
     "target": "ES2017",
+    "lib": ["es2022", "dom"],
 
     "strict": true,
 

@@ -1,16 +1,16 @@
 {
-  "name": "@supabase/supabase-js",
+  "name": "@indobase/supabase-js",
   "version": "0.0.0-automated",
-  "description": "Isomorphic Javascript SDK for Supabase",
+  "description": "Isomorphic Javascript SDK for Indobase",
   "keywords": [
     "javascript",
     "typescript",
-    "supabase"
+    "indobase"
   ],
-  "homepage": "https://github.com/supabase/supabase-js/tree/master/packages/core/supabase-js",
-  "bugs": "https://github.com/supabase/supabase-js/issues",
+  "homepage": "https://github.com/indobase/indobase-js/tree/master/packages/core/supabase-js",
+  "bugs": "https://github.com/indobase/indobase-js/issues",
   "license": "MIT",
-  "author": "Supabase",
+  "author": "Indobase",
   "files": [
     "dist",
     "src"
@@ -45,7 +45,7 @@
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/supabase/supabase-js.git",
+    "url": "https://github.com/indobase/indobase-js.git",
     "directory": "packages/core/supabase-js"
   },
   "scripts": {
@@ -87,6 +87,8 @@
     "@supabase/storage-js": "*"
   },
   "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.3.2",
     "jsr": "^0.13.5",
     "puppeteer": "^24.9.0"
   },

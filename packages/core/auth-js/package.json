@@ -1,18 +1,18 @@
 {
-  "name": "@supabase/auth-js",
+  "name": "@indobase/auth-js",
   "version": "0.0.0",
   "private": false,
-  "description": "Official SDK for Supabase Auth",
+  "description": "Official SDK for Indobase Auth",
   "keywords": [
     "auth",
-    "supabase",
+    "indobase",
     "auth",
     "authentication"
   ],
-  "homepage": "https://github.com/supabase/supabase-js/tree/master/packages/core/auth-js",
-  "bugs": "https://github.com/supabase/supabase-js/issues",
+  "homepage": "https://github.com/indobase/indobase-js/tree/master/packages/core/auth-js",
+  "bugs": "https://github.com/indobase/indobase-js/issues",
   "license": "MIT",
-  "author": "Supabase",
+  "author": "Indobase",
   "files": [
     "dist",
     "src"
@@ -22,7 +22,7 @@
   "types": "dist/module/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/supabase/supabase-js.git",
+    "url": "https://github.com/indobase/indobase-js.git",
     "directory": "packages/core/auth-js"
   },
   "scripts": {

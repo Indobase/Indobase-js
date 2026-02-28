@@ -1,5 +1,5 @@
 {
-  "name": "@supabase/auth-js",
+  "name": "@indobase/auth-js",
   "targets": {
     "test:generate-keys": {
       "executor": "nx:run-commands",
@@ -14,7 +14,7 @@
     "test:clean-pre": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "npx supabase stop --no-backup --workdir test || true",
+        "command": "npx indobase stop --no-backup --workdir test || true",
         "cwd": "{projectRoot}"
       }
     },
