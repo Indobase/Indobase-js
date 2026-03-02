@@ -1,22 +1,31 @@
 {
-  "extends": "./tsconfig.base.json",
-  "compileOnSave": false,
-  "files": [],
-  "references": [
-    {
-      "path": "./packages/core/functions-js"
-    },
-    {
-      "path": "./packages/core/postgrest-js"
-    },
-    {
-      "path": "./packages/core/realtime-js"
-    },
-    {
-      "path": "./packages/core/storage-js"
-    },
-    {
-      "path": "./packages/core/auth-js"
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "lib": ["ES2022"],
+    "moduleResolution": "bundler",
+    "declaration": true,
+    "declarationMap": true,
+    "strict": true,
+    "noEmitOnError": false,
+    "skipLibCheck": false,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": ".",
+    "paths": {
+      "@indobase/supabase-js": ["./packages/core/supabase-js/src/index.ts"],
+      "@indobase/auth-js": ["./packages/core/auth-js/src/index.ts"],
+      "@indobase/postgrest-js": ["./packages/core/postgrest-js/src/index.ts"],
+      "@indobase/functions-js": ["./packages/core/functions-js/src/index.ts"],
+      "@indobase/realtime-js": ["./packages/core/realtime-js/src/index.ts"],
+      "@indobase/storage-js": ["./packages/core/storage-js/src/index.ts"]
     }
-  ]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts", "test", "packages"]
 }
