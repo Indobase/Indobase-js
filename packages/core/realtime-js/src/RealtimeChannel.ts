@@ -189,9 +189,9 @@ export default class RealtimeChannel {
    *
    * @example
    * ```ts
-   * import RealtimeClient from '@supabase/realtime-js'
+   * import RealtimeClient from '@indobase/realtime-js'
    *
-   * const client = new RealtimeClient('https://xyzcompany.supabase.co/realtime/v1', {
+   * const client = new RealtimeClient('https://xyzcompany.indobase.fun/realtime/v1', {
    *   params: { apikey: 'public-anon-key' },
    * })
    * const channel = new RealtimeChannel('realtime:public:messages', { config: {} }, client)
@@ -457,7 +457,7 @@ export default class RealtimeChannel {
     callback: (payload: RealtimePostgresChangesPayload<T>) => void
   ): RealtimeChannel
   /**
-   * The following is placed here to display on supabase.com/docs/reference/javascript/subscribe.
+   * The following is placed here to display on indobase.com/docs/reference/javascript/subscribe.
    * @param type One of "broadcast", "presence", or "postgres_changes".
    * @param filter Custom object specific to the Realtime feature detailing which payloads to receive.
    * @param callback Function to be invoked when event handler is triggered.

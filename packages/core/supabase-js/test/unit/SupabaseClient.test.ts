@@ -1,11 +1,11 @@
-import { PostgrestClient } from '@supabase/postgrest-js'
-import { createClient, SupabaseClient } from '../../src/index'
+import { PostgrestClient } from '@indobase/postgrest-js'
+import { createClient, IndobaseClient } from '../../src/index'
 import { Database } from '../types'
 
 const URL = 'http://localhost:3000'
 const KEY = 'some.fake.key'
 
-describe('SupabaseClient', () => {
+describe('IndobaseClient', () => {
   test('it should create a client with third-party auth accessToken', async () => {
     const client = createClient(URL, KEY, {
       accessToken: async () => {
@@ -14,35 +14,35 @@ describe('SupabaseClient', () => {
     })
 
     expect(() => client.auth.getUser()).toThrow(
-      '@supabase/supabase-js: Supabase Client is configured with the accessToken option, accessing supabase.auth.getUser is not possible'
+      'Indobase Client is configured with accessToken, accessing indobase.auth.getUser is not allowed'
     )
   })
 
   test('it should create the client connection', async () => {
-    const supabase = createClient(URL, KEY)
-    expect(supabase).toBeDefined()
-    expect(supabase).toBeInstanceOf(SupabaseClient)
+    const indobase = createClient(URL, KEY)
+    expect(indobase).toBeDefined()
+    expect(indobase).toBeInstanceOf(IndobaseClient)
   })
 
   test('it should throw an error if no valid params are provided', async () => {
-    expect(() => createClient('', KEY)).toThrow('supabaseUrl is required.')
-    expect(() => createClient(URL, '')).toThrow('supabaseKey is required.')
+    expect(() => createClient('', KEY)).toThrow('indobaseUrl is required.')
+    expect(() => createClient(URL, '')).toThrow('indobaseKey is required.')
   })
 
-  test('should validate supabaseUrl', () => {
-    expect(() => createClient('https://xyz123.supabase.co', KEY)).not.toThrow()
+  test('should validate indobaseUrl', () => {
+    expect(() => createClient('https://xyz123.indobase.fun', KEY)).not.toThrow()
     expect(() => createClient('http://localhost:54321', KEY)).not.toThrow()
     expect(() => createClient('http://[invalid', KEY)).toThrow(
-      'Invalid supabaseUrl: Provided URL is malformed.'
+      'Invalid indobaseUrl: Provided URL is malformed.'
     )
     expect(() =>
       createClient('postgresql://postgre:password@db.test.co:5432/postgres', KEY)
-    ).toThrow('Invalid supabaseUrl: Must be a valid HTTP or HTTPS URL.')
+    ).toThrow('Invalid indobaseUrl: Must be a valid HTTP or HTTPS URL.')
     expect(() => createClient('http:/localhost:3000', KEY)).toThrow(
-      'Invalid supabaseUrl: Must be a valid HTTP or HTTPS URL.'
+      'Invalid indobaseUrl: Must be a valid HTTP or HTTPS URL.'
     )
 
-    expect(() => createClient('  https://xyz123.supabase.co  ', KEY)).not.toThrow()
+    expect(() => createClient('  https://xyz123.indobase.fun  ', KEY)).not.toThrow()
     expect(() => createClient('http://user:pass@localhost:54321', KEY)).not.toThrow()
   })
 
@@ -62,7 +62,7 @@ describe('SupabaseClient', () => {
       expect(client.rest.url).toEqual('http://localhost:3000/rest/v1')
     })
 
-    test('should preserve paths in supabaseUrl', () => {
+    test('should preserve paths in indobaseUrl', () => {
       const baseUrlWithPath = 'http://localhost:3000/custom/base'
       const client = createClient(baseUrlWithPath, KEY)
 
@@ -91,7 +91,6 @@ describe('SupabaseClient', () => {
     test('should have custom header set', () => {
       const customHeader = { 'X-Test-Header': 'value' }
       const request = createClient(URL, KEY, { global: { headers: customHeader } }).rpc('')
-      //@ts-expect-error headers is protected attribute
       const requestHeader = request.headers.get('X-Test-Header')
       expect(requestHeader).toBe(customHeader['X-Test-Header'])
     })
@@ -99,18 +98,15 @@ describe('SupabaseClient', () => {
     test('should merge custom headers with default headers', () => {
       const customHeader = { 'X-Test-Header': 'value' }
       const request = createClient(URL, KEY, { global: { headers: customHeader } }).rpc('')
-
-      //@ts-expect-error headers is protected attribute
       const requestHeader = request.headers.get('X-Test-Header')
       expect(requestHeader).toBe(customHeader['X-Test-Header'])
-      //@ts-expect-error headers is protected attribute
       expect(request.headers.get('X-Client-Info')).not.toBeNull()
     })
   })
 
   describe('Storage Key', () => {
     test('should use default storage key based on project ref', () => {
-      const client = createClient('https://project-ref.supabase.co', KEY)
+      const client = createClient('https://project-ref.indobase.fun', KEY)
       // @ts-ignore
       expect(client.storageKey).toBe('sb-project-ref-auth-token')
     })
@@ -245,7 +241,7 @@ describe('SupabaseClient', () => {
         expect(customAccessTokenFn).toHaveBeenCalled()
       })
 
-      test('should fallback to supabaseKey when no session available', async () => {
+      test('should fallback to indobaseKey when no session available', async () => {
         const client = createClient(URL, KEY)
 
         client.auth.getSession = jest.fn().mockResolvedValue({
@@ -435,7 +431,7 @@ describe('SupabaseClient', () => {
         })
       })
 
-      test('should use supabaseKey fallback in fetchWithAuth', async () => {
+      test('should use indobaseKey fallback in fetchWithAuth', async () => {
         const mockFetch = jest.fn().mockResolvedValue({
           ok: true,
           json: () => Promise.resolve({}),

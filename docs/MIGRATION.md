@@ -528,7 +528,7 @@ The monorepo is an internal development tool. It makes it easier for contributor
 
 - **Migration Issues**: Create a [new GitHub issue](https://github.com/supabase/supabase-js/issues/new/choose) and add `[migration]` in the title
 - **Questions**: Check out the [GitHub Discussion](https://github.com/orgs/supabase/discussions/39197) on the monorepo transition
-- **Discord**: [Supabase Discord](https://discord.supabase.com) in #contributing channel
+- **Discord**: [Indobase Discord](https://discord.indobase.fun) in #contributing channel
 
 ### Resources
 
@@ -537,7 +537,7 @@ The monorepo is an internal development tool. It makes it easier for contributor
 
 ### Important Links
 
-- **Supabase JS Monorepo**: <https://github.com/supabase/supabase-js>
+- **Indobase JS Monorepo**: <https://github.com/indobase/indobase-js>
 - **Old Repos** (archived/read-only):
   - <https://github.com/supabase/auth-js>
   - <https://github.com/supabase/postgrest-js>
@@ -549,6 +549,6 @@ The monorepo is an internal development tool. It makes it easier for contributor
 
 ## Welcome to the Monorepo
 
-Thank you for your patience during this transition, and thank you for contributing to Supabase! 💚
+Thank you for your patience during this transition, and thank you for contributing to Indobase! 💚
 
 > **Note**: We will update this document as we learn from the migration process.

@@ -2,14 +2,14 @@
 
 **Important:** The test suite includes tests for multiple runtime environments (Node.js, Deno, Bun, Expo, Next.js). Each environment has its own test runner and specific requirements.
 
-## Single Supabase Instance Workflow
+## Single Indobase Instance Workflow
 
-**Key Concept:** Tests are designed to use a **single, shared Supabase instance** that you start once and reuse across multiple test runs. This approach is more efficient and mirrors real-world usage.
+**Key Concept:** Tests are designed to use a **single, shared Indobase instance** that you start once and reuse across multiple test runs. This approach is more efficient and mirrors real-world usage.
 
 ### Quick Start
 
 ```bash
-# 1. Setup Supabase ONCE (includes database, storage, AND edge functions)
+# 1. Setup Indobase ONCE (includes database, storage, AND edge functions)
 npx nx test:supabase:setup supabase-js
 
 # 2. Run any tests (in any order, multiple times)
@@ -25,21 +25,21 @@ npx nx test:supabase:stop supabase-js
 
 The setup command performs these steps automatically:
 
-1. ✅ Starts Supabase local development stack (all containers)
+1. ✅ Starts Indobase local development stack (all containers)
 2. ✅ Serves Edge Functions in the background (fixes 503 errors)
 3. ✅ Resets database and applies migrations
 4. ✅ Creates test storage bucket
 5. ✅ Exports `SUPABASE_ANON_KEY` and `SUPABASE_SERVICE_ROLE_KEY` environment variables
 6. ✅ Verifies everything is working (database, storage, functions)
 
-**Important:** Tests do NOT automatically restart Supabase. You control when it starts and stops.
+**Important:** Tests do NOT automatically restart Indobase. You control when it starts and stops.
 
 ## Test Scripts Overview
 
 | Script                     | Description                               | Requirements                           |
 | -------------------------- | ----------------------------------------- | -------------------------------------- |
-| `test:supabase:setup`      | **Setup Supabase once** for all tests     | Docker running, Supabase CLI installed |
-| `test:supabase:stop`       | **Cleanup** Supabase after testing        | None                                   |
+| `test:supabase:setup`      | **Setup Indobase once** for all tests     | Docker running, Supabase CLI installed |
+| `test:supabase:stop`       | **Cleanup** Indobase after testing        | None                                   |
 | `test`                     | Runs unit tests + type checking           | None                                   |
 | `test:all`                 | Unit + integration + browser tests        | **Run setup first**                    |
 | `test:run`                 | Jest unit tests only                      | None                                   |
@@ -58,7 +58,7 @@ The setup command performs these steps automatically:
 ## Prerequisites for Local Testing
 
 1. **Docker** must be installed and running
-2. **Supabase CLI** must be installed (`brew install supabase/tap/supabase` - [for other platforms read here](https://supabase.com/docs/guides/local-development/cli/getting-started?queryGroups=platform&platform=macos#installing-the-supabase-cli))
+2. **Supabase CLI** must be installed (`brew install supabase/tap/supabase` - [for other platforms read here](https://indobase.com/docs/guides/local-development/cli/getting-started?queryGroups=platform&platform=macos#installing-the-supabase-cli))
 3. **jq** must be installed for parsing JSON output (`brew install jq` on macOS)
 4. **Run the setup command** before any integration tests (see Quick Start above)
 
@@ -81,7 +81,7 @@ npx nx test:coverage supabase-js
 
 ### Local Testing (Basic Integration Tests)
 
-Use the single Supabase instance workflow:
+Use the single Indobase instance workflow:
 
 ```bash
 # 1. Setup once (exports keys automatically)
@@ -105,7 +105,7 @@ If you need manual control or want to export keys in your shell:
 # Navigate to the supabase-js package directory
 cd packages/core/supabase-js
 
-# Start Supabase
+# Start Indobase
 npx supabase start
 
 # Serve edge functions in background (if needed)

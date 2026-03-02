@@ -290,7 +290,7 @@ export default class GoTrueClient {
    * import { GoTrueClient } from '@supabase/auth-js'
    *
    * const auth = new GoTrueClient({
-   *   url: 'https://xyzcompany.supabase.co/auth/v1',
+   *   url: 'https://xyzcompany.indobase.fun/auth/v1',
    *   headers: { apikey: 'public-anon-key' },
    *   storageKey: 'supabase-auth',
    * })

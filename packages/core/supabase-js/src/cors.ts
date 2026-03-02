@@ -1,13 +1,13 @@
 /**
- * Canonical CORS configuration for Supabase Edge Functions
+ * Canonical CORS configuration for Indobase Edge Functions
  *
- * This module exports CORS headers that stay synchronized with the Supabase SDK.
+ * This module exports CORS headers that stay synchronized with the Indobase SDK.
  * When new headers are added to the SDK, they are automatically included here,
  * preventing CORS errors in Edge Functions.
  *
  * @example Basic usage
  * ```typescript
- * import { corsHeaders } from '@supabase/supabase-js/cors'
+ * import { corsHeaders } from '@indobase/supabase-js/cors'
  *
  * Deno.serve(async (req) => {
  *   if (req.method === 'OPTIONS') {
@@ -25,7 +25,7 @@
  */
 
 /**
- * All custom headers sent by the Supabase SDK.
+ * All custom headers sent by the Indobase SDK.
  * These headers need to be included in CORS configuration to prevent preflight failures.
  *
  * Headers:
@@ -37,7 +37,7 @@
 const INDOBASE_HEADERS = ['authorization', 'x-client-info', 'apikey', 'content-type'].join(', ')
 
 /**
- * All HTTP methods used by the Supabase SDK
+ * All HTTP methods used by the Indobase SDK
  */
 const INDOBASE_METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'].join(', ')
 
@@ -47,14 +47,14 @@ const INDOBASE_METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'].jo
 export type CorsHeaders = Record<string, string>
 
 /**
- * Default CORS headers for Supabase Edge Functions.
+ * Default CORS headers for Indobase Edge Functions.
  *
- * Includes all headers sent by Supabase client libraries and allows all standard HTTP methods.
+ * Includes all headers sent by Indobase client libraries and allows all standard HTTP methods.
  * Use this for simple CORS configurations with wildcard origin.
  *
  * @example
  * ```typescript
- * import { corsHeaders } from '@supabase/supabase-js/cors'
+ * import { corsHeaders } from '@indobase/supabase-js/cors'
  *
  * Deno.serve(async (req) => {
  *   if (req.method === 'OPTIONS') {

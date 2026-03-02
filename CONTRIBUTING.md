@@ -284,7 +284,7 @@ npx nx test <package> --coverage
 
 ### TypeScript API Documentation
 
-We automatically generate TypeScript API documentation that is used by the main [Supabase documentation site](https://supabase.com/docs). The process works as follows:
+We automatically generate TypeScript API documentation that is used by the main [Indobase documentation site](https://indobase.fun/docs). The process works as follows:
 
 1. **TypeDoc generates JSON specifications** from TypeScript source code
 2. **GitHub Actions publishes** these specs to GitHub Pages on every push to `master`
@@ -333,7 +333,7 @@ Official releases are handled by maintainers using Nx Release. You can read more
 
 ### Resources
 
-- **Documentation**: [supabase.com/docs](https://supabase.com/docs)
+- **Documentation**: [indobase.fun/docs](https://indobase.fun/docs)
 - **Community**: [GitHub Discussions](https://github.com/supabase/supabase/discussions)
 - **Issues**: [GitHub Issues](https://github.com/supabase/supabase-js/issues)
 - **Discord**: [Supabase Discord](https://discord.supabase.com)

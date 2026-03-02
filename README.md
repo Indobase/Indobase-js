@@ -15,10 +15,10 @@
 
 <div align="center">
 
-[![Build](https://github.com/supabase/supabase-js/workflows/CI/badge.svg)](https://github.com/supabase/supabase-js/actions?query=branch%3Amaster)
-[![Package](https://img.shields.io/npm/v/@supabase/supabase-js)](https://www.npmjs.com/package/@supabase/postgrest-js)
-[![License: MIT](https://img.shields.io/npm/l/@supabase/supabase-js)](#license)
-[![pkg.pr.new](https://pkg.pr.new/badge/supabase/supabase-js)](https://pkg.pr.new/~/supabase/supabase-js)
+[![Build](https://github.com/indobase/indobase-js/workflows/CI/badge.svg)](https://github.com/indobase/indobase-js/actions?query=branch%3Amaster)
+[![Package](https://img.shields.io/npm/v/@indobase/supabase-js)](https://www.npmjs.com/package/@indobase/supabase-js)
+[![License: MIT](https://img.shields.io/npm/l/@indobase/supabase-js)](#license)
+[![pkg.pr.new](https://pkg.pr.new/badge/indobase/indobase-js)](https://pkg.pr.new/~/indobase/indobase-js)
 
 </div>
 
@@ -154,7 +154,7 @@ npm audit signatures
 Quick example for a single package install:
 
 ```bash
-npm install @supabase/auth-js
+npm install @indobase/auth-js
 npm audit signatures
 ```
 
@@ -174,10 +174,9 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 ## 🆘 Support
 
-- **Documentation**: [supabase.com/docs](https://supabase.com/docs)
-- **Community**: [GitHub Discussions](https://github.com/supabase/supabase/discussions)
-- **Issues**: [GitHub Issues](https://github.com/supabase/supabase-js/issues)
-- **Discord**: [Indobase Discord](https://discord.supabase.com)
+- **Documentation**: [indobase.com/docs](https://indobase.com/docs)
+- **Community**: [GitHub Discussions](https://github.com/indobase/indobase/discussions)
+- **Issues**: [GitHub Issues](https://github.com/indobase/indobase-js/issues)
 
 ---
 

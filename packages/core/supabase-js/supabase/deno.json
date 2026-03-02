@@ -1,13 +1,13 @@
 {
   "lock": false,
   "imports": {
-    "@supabase/supabase-js": "https://esm.sh/pr/supabase/supabase-js/@supabase/supabase-js@{COMMIT_HASH}?target=deno",
-    "@supabase/supabase-js/": "https://esm.sh/pr/supabase/supabase-js/@supabase/supabase-js@{COMMIT_HASH}/",
-    "@supabase/supabase-js/cors": "https://esm.sh/pr/supabase/supabase-js/@supabase/supabase-js@{COMMIT_HASH}/dist/cors.mjs",
-    "@supabase/realtime-js": "https://esm.sh/pr/supabase/supabase-js/@supabase/realtime-js@{COMMIT_HASH}?target=deno",
-    "@supabase/functions-js": "https://esm.sh/pr/supabase/supabase-js/@supabase/functions-js@{COMMIT_HASH}?target=deno",
-    "@supabase/postgrest-js": "https://esm.sh/pr/supabase/supabase-js/@supabase/postgrest-js@{COMMIT_HASH}?target=deno",
-    "@supabase/auth-js": "https://esm.sh/pr/supabase/supabase-js/@supabase/auth-js@{COMMIT_HASH}?target=deno",
-    "@supabase/storage-js": "https://esm.sh/pr/supabase/supabase-js/@supabase/storage-js@{COMMIT_HASH}?target=deno"
+    "@indobase/supabase-js": "../dist/index.mjs",
+    "@indobase/supabase-js/": "../dist/",
+    "@indobase/supabase-js/cors": "../dist/cors.mjs",
+    "@indobase/realtime-js": "../../realtime-js/dist/index.mjs",
+    "@indobase/functions-js": "../../functions-js/dist/module/index.js",
+    "@indobase/postgrest-js": "../../postgrest-js/dist/index.mjs",
+    "@indobase/auth-js": "../../auth-js/dist/module/index.js",
+    "@indobase/storage-js": "../../storage-js/dist/index.mjs"
   }
 }

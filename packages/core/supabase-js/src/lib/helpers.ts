@@ -1,5 +1,5 @@
 // helpers.ts
-import { SupabaseClientOptions } from './types'
+import { IndobaseClientOptions } from './types'
 
 export function uuid() {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
@@ -21,9 +21,9 @@ export function applySettingDefaults<
     ? 'public'
     : string & keyof Database,
 >(
-  options: SupabaseClientOptions<SchemaName>,
-  defaults: SupabaseClientOptions<any>
-): Required<SupabaseClientOptions<SchemaName>> {
+  options: IndobaseClientOptions<SchemaName>,
+  defaults: IndobaseClientOptions<any>
+): Required<IndobaseClientOptions<SchemaName>> {
   const {
     db: dbOptions,
     auth: authOptions,
@@ -37,7 +37,7 @@ export function applySettingDefaults<
     global: DEFAULT_GLOBAL_OPTIONS,
   } = defaults
 
-  const result: Required<SupabaseClientOptions<SchemaName>> = {
+  const result: Required<IndobaseClientOptions<SchemaName>> = {
     db: {
       ...DEFAULT_DB_OPTIONS,
       ...dbOptions,
@@ -73,26 +73,26 @@ export function applySettingDefaults<
 }
 
 /**
- * Validates a Supabase client URL
+ * Validates an Indobase client URL
  *
- * @param {string} supabaseUrl - The Supabase client URL string.
+ * @param {string} indobaseUrl - The Indobase client URL string.
  * @returns {URL} - The validated base URL.
  * @throws {Error}
  */
-export function validateSupabaseUrl(supabaseUrl: string): URL {
-  const trimmedUrl = supabaseUrl?.trim()
+export function validateIndobaseUrl(indobaseUrl: string): URL {
+  const trimmedUrl = indobaseUrl?.trim()
 
   if (!trimmedUrl) {
-    throw new Error('supabaseUrl is required.')
+    throw new Error('indobaseUrl is required.')
   }
 
   if (!trimmedUrl.match(/^https?:\/\//i)) {
-    throw new Error('Invalid supabaseUrl: Must be a valid HTTP or HTTPS URL.')
+    throw new Error('Invalid indobaseUrl: Must be a valid HTTP or HTTPS URL.')
   }
 
   try {
     return new URL(ensureTrailingSlash(trimmedUrl))
   } catch {
-    throw Error('Invalid supabaseUrl: Provided URL is malformed.')
+    throw Error('Invalid indobaseUrl: Provided URL is malformed.')
   }
 }

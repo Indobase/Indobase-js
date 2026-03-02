@@ -7,7 +7,7 @@ import { GetRpcFunctionFilterBuilderByArgs } from './types/common/rpc'
  * PostgREST client.
  *
  * @typeParam Database - Types for the schema from the [type
- * generator](https://supabase.com/docs/reference/javascript/next/typescript-support)
+ * generator](https://indobase.com/docs/reference/javascript/next/typescript-support)
  *
  * @typeParam SchemaName - Postgres schema to switch to. Must be a string
  * literal, the same one passed to the constructor. If the schema is not
@@ -15,23 +15,14 @@ import { GetRpcFunctionFilterBuilderByArgs } from './types/common/rpc'
  */
 export default class PostgrestClient<
   Database = any,
-  ClientOptions extends ClientServerOptions = Database extends {
-    __InternalSupabase: infer I extends ClientServerOptions
-  }
+  ClientOptions extends ClientServerOptions = Database extends { __InternalIndobase: infer I extends ClientServerOptions }
     ? I
     : {},
-  SchemaName extends string &
-    keyof Omit<Database, '__InternalSupabase'> = 'public' extends keyof Omit<
-    Database,
-    '__InternalSupabase'
-  >
+  SchemaName extends string & keyof Omit<Database, '__InternalIndobase'> = 'public' extends keyof Omit<Database, '__InternalIndobase'>
     ? 'public'
-    : string & keyof Omit<Database, '__InternalSupabase'>,
-  Schema extends GenericSchema = Omit<
-    Database,
-    '__InternalSupabase'
-  >[SchemaName] extends GenericSchema
-    ? Omit<Database, '__InternalSupabase'>[SchemaName]
+    : string & keyof Omit<Database, '__InternalIndobase'>,
+  Schema extends GenericSchema = Omit<Database, '__InternalIndobase'>[SchemaName] extends GenericSchema
+    ? Omit<Database, '__InternalIndobase'>[SchemaName]
     : any,
 > {
   url: string
@@ -53,9 +44,9 @@ export default class PostgrestClient<
    * @param options.urlLengthLimit - Maximum URL length in characters before warnings/errors are triggered. Defaults to 8000.
    * @example
    * ```ts
-   * import PostgrestClient from '@supabase/postgrest-js'
+   * import PostgrestClient from '@indobase/postgrest-js'
    *
-   * const postgrest = new PostgrestClient('https://xyzcompany.supabase.co/rest/v1', {
+   * const postgrest = new PostgrestClient('https://xyzcompany.indobase.fun/rest/v1', {
    *   headers: { apikey: 'public-anon-key' },
    *   schema: 'public',
    *   timeout: 30000, // 30 second timeout
@@ -156,11 +147,11 @@ export default class PostgrestClient<
   /**
    * Select a schema to query or perform an function (rpc) call.
    *
-   * The schema needs to be on the list of exposed schemas inside Supabase.
+   * The schema needs to be on the list of exposed schemas inside Indobase.
    *
    * @param schema - The schema to query
    */
-  schema<DynamicSchema extends string & keyof Omit<Database, '__InternalSupabase'>>(
+  schema<DynamicSchema extends string & keyof Omit<Database, '__InternalIndobase'>>(
     schema: DynamicSchema
   ): PostgrestClient<
     Database,

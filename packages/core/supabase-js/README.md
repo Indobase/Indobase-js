@@ -1,32 +1,25 @@
 <br />
 <p align="center">
-  <a href="https://supabase.io">
-        <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/supabase-logo-wordmark--dark.svg">
-      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/supabase-logo-wordmark--light.svg">
-      <img alt="Supabase Logo" width="300" src="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/logo-preview.jpg">
-    </picture>
+  <a href="https://indobase.io">
   </a>
 
-  <h1 align="center">Supabase JS SDK</h1>
+  <h1 align="center">Indobase JS SDK</h1>
 
-  <h3 align="center">Isomorphic JavaScript SDK for Supabase - combining Auth, Database, Storage, Functions, and Realtime.</h3>
+  <h3 align="center">Isomorphic JavaScript SDK for Indobase - combining Auth, Database, Storage, Functions, and Realtime.</h3>
 
   <p align="center">
-    <a href="https://supabase.com/docs/guides/getting-started">Guides</a>
+    <a href="https://indobase.com/docs/guides/getting-started">Guides</a>
     ·
-    <a href="https://supabase.com/docs/reference/javascript/start">Reference Docs</a>
-    ·
-    <a href="https://supabase.github.io/supabase-js/supabase-js/v2/spec.json">TypeDoc</a>
+    <a href="https://indobase.com/docs/reference/javascript/introduction">Reference Docs</a>
   </p>
 </p>
 
 <div align="center">
 
-[![Build](https://github.com/supabase/supabase-js/workflows/CI/badge.svg)](https://github.com/supabase/supabase-js/actions?query=branch%3Amaster)
-[![Package](https://img.shields.io/npm/v/@supabase/supabase-js)](https://www.npmjs.com/package/@supabase/supabase-js)
-[![License: MIT](https://img.shields.io/npm/l/@supabase/supabase-js)](#license)
-[![pkg.pr.new](https://pkg.pr.new/badge/supabase/supabase-js)](https://pkg.pr.new/~/supabase/supabase-js)
+[![Build](https://github.com/indobase/indobase-js/workflows/CI/badge.svg)](https://github.com/indobase/indobase-js/actions?query=branch%3Amaster)
+[![Package](https://img.shields.io/npm/v/@indobase/supabase-js)](https://www.npmjs.com/package/@indobase/supabase-js)
+[![License: MIT](https://img.shields.io/npm/l/@indobase/supabase-js)](#license)
+[![pkg.pr.new](https://pkg.pr.new/badge/indobase/indobase-js)](https://pkg.pr.new/~/indobase/indobase-js)
 
 </div>
 
@@ -35,75 +28,73 @@
 First of all, you need to install the library:
 
 ```sh
-npm install @supabase/supabase-js
+npm install @indobase/supabase-js
 ```
 
 Then you're able to import the library and establish the connection with the database:
 
 ```js
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@indobase/supabase-js'
 
-// Create a single supabase client for interacting with your database
-const supabase = createClient('https://xyzcompany.supabase.co', 'public-anon-key')
+const client = createClient('https://xyzcompany.indobase.fun', 'public-anon-key')
 ```
 
 ### UMD
 
-You can use plain `<script>`s to import supabase-js from CDNs, like:
+You can use plain `<script>`s to import the SDK from CDNs, like:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@indobase/supabase-js@2"></script>
 ```
 
 or even:
 
 ```html
-<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script src="https://unpkg.com/@indobase/supabase-js@2"></script>
 ```
 
-Then you can use it from a global `supabase` variable:
+Then you can use it from a global `indobase` variable:
 
 ```html
 <script>
-  const { createClient } = supabase
-  const _supabase = createClient('https://xyzcompany.supabase.co', 'public-anon-key')
+  const { createClient } = indobase
+  const client = createClient('https://xyzcompany.indobase.fun', 'public-anon-key')
 
-  console.log('Supabase Instance: ', _supabase)
+  console.log('Indobase client: ', client)
   // ...
 </script>
 ```
 
 ### ESM
 
-You can use `<script type="module">` to import supabase-js from CDNs, like:
+You can use `<script type="module">` to import the SDK from CDNs, like:
 
 ```html
 <script type="module">
-  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
-  const supabase = createClient('https://xyzcompany.supabase.co', 'public-anon-key')
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@indobase/supabase-js/+esm'
+  const client = createClient('https://xyzcompany.indobase.fun', 'public-anon-key')
 
-  console.log('Supabase Instance: ', supabase)
+  console.log('Indobase client: ', client)
   // ...
 </script>
 ```
 
 ### Deno
 
-You can use supabase-js in the Deno runtime via [JSR](https://jsr.io/@supabase/supabase-js):
+You can use the SDK in the Deno runtime via [JSR](https://jsr.io/@indobase/supabase-js):
 
 ```js
-import { createClient } from 'jsr:@supabase/supabase-js@2'
+import { createClient } from 'jsr:@indobase/supabase-js@2'
 ```
 
 ### Custom `fetch` implementation
 
-`supabase-js` uses the [`cross-fetch`](https://www.npmjs.com/package/cross-fetch) library to make HTTP requests, but an alternative `fetch` implementation can be provided as an option. This is most useful in environments where `cross-fetch` is not compatible, for instance Cloudflare Workers:
+The SDK uses the [`cross-fetch`](https://www.npmjs.com/package/cross-fetch) library to make HTTP requests, but an alternative `fetch` implementation can be provided as an option. This is most useful in environments where `cross-fetch` is not compatible, for instance Cloudflare Workers:
 
 ```js
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@indobase/supabase-js'
 
-// Provide a custom `fetch` implementation as an option
-const supabase = createClient('https://xyzcompany.supabase.co', 'public-anon-key', {
+const client = createClient('https://xyzcompany.indobase.fun', 'public-anon-key', {
   global: {
     fetch: (...args) => fetch(...args),
   },
@@ -112,13 +103,13 @@ const supabase = createClient('https://xyzcompany.supabase.co', 'public-anon-key
 
 ## Support Policy
 
-This section outlines the scope of support for various runtime environments in Supabase JavaScript client.
+This section outlines the scope of support for various runtime environments in Indobase JavaScript client.
 
 ### Node.js
 
 We only support Node.js versions that are in **Active LTS** or **Maintenance** status as defined by the [official Node.js release schedule](https://nodejs.org/en/about/previous-releases#release-schedule). This means we support versions that are currently receiving long-term support and critical bug fixes.
 
-When a Node.js version reaches end-of-life and is no longer in Active LTS or Maintenance status, Supabase will drop it in a **minor release**, and **this won't be considered a breaking change**.
+When a Node.js version reaches end-of-life and is no longer in Active LTS or Maintenance status, Indobase will drop it in a **minor release**, and **this won't be considered a breaking change**.
 
 > ⚠️ **Node.js 18 Deprecation Notice**
 >
@@ -130,7 +121,7 @@ When a Node.js version reaches end-of-life and is no longer in Active LTS or Mai
 
 We support Deno versions that are currently receiving active development and security updates. We follow the [official Deno release schedule](https://docs.deno.com/runtime/fundamentals/stability_and_releases/) and only support versions from the `stable` and `lts` release channels.
 
-When a Deno version reaches end-of-life and is no longer receiving security updates, Supabase will drop it in a **minor release**, and **this won't be considered a breaking change**.
+When a Deno version reaches end-of-life and is no longer receiving security updates, Indobase will drop it in a **minor release**, and **this won't be considered a breaking change**.
 
 ### Browsers
 
@@ -159,17 +150,17 @@ We support Cloudflare Workers runtime environments. Cloudflare Workers provides 
 When bundling your app, you may see warnings like:
 
 ```
-"PostgrestError" is imported from external module "@supabase/postgrest-js" but never used in "...supabase-js/dist/index.mjs".
-"FunctionRegion", "FunctionsError", "FunctionsFetchError", "FunctionsHttpError" and "FunctionsRelayError" are imported from external module "@supabase/functions-js" but never used in "...".
+"PostgrestError" is imported from external module "@indobase/postgrest-js" but never used in "...indobase-js/dist/index.mjs".
+"FunctionRegion", "FunctionsError", "FunctionsFetchError", "FunctionsHttpError" and "FunctionsRelayError" are imported from external module "@indobase/functions-js" but never used in "..."
 ```
 
 **This is a false positive — your bundle is fine.** Here is why it happens:
 
-`@supabase/supabase-js` re-exports `PostgrestError`, `FunctionsError`, and related symbols so you can import them directly from `@supabase/supabase-js`. However, our build tool merges all imports from the same package into a single import statement in the built output:
+`@indobase/supabase-js` re-exports `PostgrestError`, `FunctionsError`, and related symbols so you can import them directly from `@indobase/supabase-js`. However, our build tool merges all imports from the same package into a single import statement in the built output:
 
 ```js
 // dist/index.mjs (simplified)
-import { PostgrestClient, PostgrestError } from '@supabase/postgrest-js'
+import { PostgrestClient, PostgrestError } from '@indobase/postgrest-js'
 //       ^ used internally    ^ re-exported for you
 ```
 
@@ -186,7 +177,7 @@ export default {
   build: {
     rollupOptions: {
       onwarn(warning, warn) {
-        if (warning.code === 'UNUSED_EXTERNAL_IMPORT' && warning.exporter?.includes('@supabase/'))
+        if (warning.code === 'UNUSED_EXTERNAL_IMPORT' && warning.exporter?.includes('@indobase/'))
           return
         warn(warning)
       },
@@ -203,7 +194,7 @@ export default defineNuxtConfig({
     build: {
       rollupOptions: {
         onwarn(warning, warn) {
-          if (warning.code === 'UNUSED_EXTERNAL_IMPORT' && warning.exporter?.includes('@supabase/'))
+          if (warning.code === 'UNUSED_EXTERNAL_IMPORT' && warning.exporter?.includes('@indobase/'))
             return
           warn(warning)
         },

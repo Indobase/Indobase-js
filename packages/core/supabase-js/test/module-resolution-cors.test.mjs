@@ -5,9 +5,9 @@
  * It tests that all expected exports are available and functional.
  */
 
-import { corsHeaders } from '@supabase/supabase-js/cors'
+import { corsHeaders } from '@indobase/supabase-js/cors'
 
-console.log('Testing @supabase/supabase-js/cors ESM exports...')
+console.log('Testing @indobase/supabase-js/cors ESM exports...')
 
 // Test 1: corsHeaders is exported and has correct structure
 if (!corsHeaders) {
@@ -74,4 +74,4 @@ if (mergedResponse.headers.get('Content-Type') !== 'application/json') {
 
 console.log('✓ Merged CORS headers work with Response API')
 
-console.log('\n✅ All ESM module resolution tests passed for @supabase/supabase-js/cors')
+console.log('\n✅ All ESM module resolution tests passed for @indobase/supabase-js/cors')

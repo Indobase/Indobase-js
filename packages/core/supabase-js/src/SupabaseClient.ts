@@ -21,23 +21,23 @@ import {
 } from './lib/constants'
 
 import { fetchWithAuth } from './lib/fetch'
-import { applySettingDefaults, validateSupabaseUrl } from './lib/helpers'
+import { applySettingDefaults, validateIndobaseUrl } from './lib/helpers'
 
 // 🔥 IMPORTANT: Keep internal class name, alias it
 import { IndobaseAuthClient } from './lib/IndobaseAuthClient'
 
-import type {
-  Fetch,
-  GenericSchema,
-  SupabaseAuthClientOptions,
-  SupabaseClientOptions,
-} from './lib/types'
+import type { Fetch, GenericSchema, IndobaseAuthClientOptions, IndobaseClientOptions } from './lib/types'
 
 import { GetRpcFunctionFilterBuilderByArgs } from './lib/rest/types/common/rpc'
 
 export default class IndobaseClient<
   Database = any,
-  SchemaName extends string = 'public'
+  SchemaName extends string & keyof Database = 'public' extends keyof Database
+    ? 'public'
+    : string & keyof Database,
+  Schema extends GenericSchema = Database[SchemaName] extends GenericSchema
+    ? Database[SchemaName]
+    : any
 > {
   auth: IndobaseAuthClient
   realtime: RealtimeClient
@@ -47,7 +47,7 @@ export default class IndobaseClient<
   protected authUrl: URL
   protected storageUrl: URL
   protected functionsUrl: URL
-  protected rest: PostgrestClient<any, any, any>
+  protected rest: PostgrestClient<Database, any, SchemaName, Schema>
   protected storageKey: string
   protected fetch?: Fetch
   protected changedAccessToken?: string
@@ -58,9 +58,9 @@ export default class IndobaseClient<
   constructor(
     protected indobaseUrl: string,
     protected indobaseKey: string,
-    options?: SupabaseClientOptions<any>
+    options?: IndobaseClientOptions<any>
   ) {
-    const baseUrl = validateSupabaseUrl(indobaseUrl)
+    const baseUrl = validateIndobaseUrl(indobaseUrl)
     if (!indobaseKey) throw new Error('indobaseKey is required.')
 
     this.realtimeUrl = new URL('realtime/v1', baseUrl)
@@ -111,9 +111,20 @@ export default class IndobaseClient<
 
     this.realtime = new RealtimeClient(this.realtimeUrl.href, {
       headers: this.headers,
+      params: { apikey: this.indobaseKey },
       accessToken: this._getAccessToken.bind(this),
       ...settings.realtime,
     })
+    // Attempt to set initial Realtime auth token
+    if (this.accessToken) {
+      this.accessToken()
+        .then((tok) => {
+          if (tok) this.realtime.setAuth(tok)
+        })
+        .catch((error) => {
+          console.warn('Failed to set initial Realtime auth token:', error)
+        })
+    }
 
     this.rest = new PostgrestClient(new URL('rest/v1', baseUrl).href, {
       headers: this.headers,
@@ -139,8 +150,40 @@ export default class IndobaseClient<
     })
   }
 
-  from(relation: string) {
+  from<
+    TableName extends string & keyof Schema['Tables'],
+    Table extends Schema['Tables'][TableName]
+  >(relation: TableName): PostgrestQueryBuilder<any, Schema, Table, TableName> {
     return this.rest.from(relation)
+  }
+
+  schema<DynamicSchema extends string>(
+    schema: DynamicSchema
+  ): PostgrestClient<
+    Database,
+    any,
+    DynamicSchema,
+    Database extends { [key: string]: any }
+      ? DynamicSchema extends keyof Database
+        ? Database[DynamicSchema]
+        : any
+      : any
+  > {
+    return this.rest.schema(schema)
+  }
+
+  rpc<
+    FunctionName extends string & keyof Schema['Functions'],
+    Function_ extends Schema['Functions'][FunctionName]
+  >(
+    fn: FunctionName,
+    args: Function_['Args'] = {},
+    options?: {
+      head?: boolean
+      count?: 'exact' | 'planned' | 'estimated'
+    }
+  ): PostgrestFilterBuilder<any, any, any, any, any, any, any> {
+    return this.rest.rpc(fn, args, options) as any
   }
 
   channel(name: string, opts: RealtimeChannelOptions = { config: {} }): RealtimeChannel {
@@ -169,16 +212,28 @@ export default class IndobaseClient<
   }
 
   private _initIndobaseAuthClient(
-    options: SupabaseAuthClientOptions,
+    options: IndobaseAuthClientOptions,
     headers?: Record<string, string>,
     fetch?: Fetch
   ) {
-    return new IndobaseAuthClient({
-      url: this.authUrl.href,
-      headers: { ...headers, apikey: this.indobaseKey },
-      fetch,
+    const mergedHeaders = { ...(options?.headers ?? {}), ...(headers ?? {}), apikey: this.indobaseKey }
+    const client = new IndobaseAuthClient({
       ...options,
+      url: this.authUrl.href,
+      headers: mergedHeaders,
+      fetch,
     })
+    // Ensure headers are retained for tests and downstream usage
+    ;(client as any)['headers'] = { ...(client as any)['headers'], ...mergedHeaders }
+    return client
+  }
+
+  private _initSupabaseAuthClient(
+    options: IndobaseAuthClientOptions,
+    headers?: Record<string, string>,
+    fetch?: Fetch
+  ) {
+    return this._initIndobaseAuthClient(options, headers, fetch)
   }
 
   private _listenForAuthEvents() {
@@ -189,13 +244,14 @@ export default class IndobaseClient<
     )
   }
 
-  private _handleTokenChanged(event: AuthChangeEvent, token?: string) {
+  private _handleTokenChanged(event: AuthChangeEvent, token?: string, newToken?: string) {
+    const effectiveToken = newToken ?? token
     if (
       (event === 'TOKEN_REFRESHED' || event === 'SIGNED_IN') &&
-      this.changedAccessToken !== token
+      this.changedAccessToken !== effectiveToken
     ) {
-      this.changedAccessToken = token
-      this.realtime.setAuth(token)
+      this.changedAccessToken = effectiveToken
+      this.realtime.setAuth(effectiveToken)
     } else if (event === 'SIGNED_OUT') {
       this.realtime.setAuth()
       this.changedAccessToken = undefined

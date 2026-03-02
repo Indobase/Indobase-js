@@ -1,5 +1,5 @@
 import IndobaseClient from './SupabaseClient'
-import type { SupabaseClientOptions } from './lib/types'
+import type { GenericSchema, IndobaseClientOptions } from './lib/types'
 
 export * from '@indobase/auth-js'
 export type { User as AuthUser, Session as AuthSession } from '@indobase/auth-js'
@@ -7,25 +7,20 @@ export type {
   PostgrestResponse,
   PostgrestSingleResponse,
   PostgrestMaybeSingleResponse,
-} from '@supabase/postgrest-js'
+} from '@indobase/postgrest-js'
 export { PostgrestError } from '@indobase/postgrest-js'
-export type { FunctionInvokeOptions } from '@supabase/functions-js'
+export type { FunctionInvokeOptions } from '@indobase/functions-js'
 export {
   FunctionsHttpError,
   FunctionsFetchError,
   FunctionsRelayError,
   FunctionsError,
   FunctionRegion,
-} from '@supabase/functions-js'
+} from '@indobase/functions-js'
 export * from '@indobase/realtime-js'
 export { default as IndobaseClient } from './SupabaseClient'
-export type {
-  SupabaseClientOptions,
-  QueryResult,
-  QueryData,
-  QueryError,
-  DatabaseWithoutInternals,
-} from './lib/types'
+// removed SupabaseClient alias to avoid legacy naming
+export type { IndobaseClientOptions, QueryResult, QueryData, QueryError, DatabaseWithoutInternals } from './lib/types'
 
 /**
  * Creates a new Indobase Client.
@@ -34,35 +29,31 @@ export type {
  * ```ts
  * import { createClient } from '@indobase/supabase-js'
  *
- * const supabase = createClient('https://xyzcompany.indobase.co', 'public-anon-key')
- * const { data, error } = await supabase.from('profiles').select('*')
+ * const client = createClient('https://xyzcompany.indobase.fun', 'public-anon-key')
+ * const { data, error } = await client.from('profiles').select('*')
  * ```
  */
 export const createIndobaseClient = <
   Database = any,
-  SchemaNameOrClientOptions extends
-    | (string & keyof Omit<Database, '__InternalSupabase'>)
-    | { PostgrestVersion: string } = 'public' extends keyof Omit<Database, '__InternalSupabase'>
-    ? 'public'
-    : string & keyof Omit<Database, '__InternalSupabase'>,
-  SchemaName extends string &
-    keyof Omit<Database, '__InternalSupabase'> = SchemaNameOrClientOptions extends string &
-    keyof Omit<Database, '__InternalSupabase'>
-    ? SchemaNameOrClientOptions
-    : 'public' extends keyof Omit<Database, '__InternalSupabase'>
-      ? 'public'
-      : string & keyof Omit<Omit<Database, '__InternalSupabase'>, '__InternalSupabase'>,
+  SchemaName extends string = 'public',
+  Schema extends GenericSchema = Database extends { [key: string]: any }
+    ? SchemaName extends keyof Database
+      ? Database[SchemaName]
+      : any
+    : any
 >(
   indobaseUrl: string,
   indobaseKey: string,
-  options?: SupabaseClientOptions<SchemaName>
-): IndobaseClient<Database, SchemaNameOrClientOptions, SchemaName> => {
-  return new IndobaseClient<Database, SchemaNameOrClientOptions, SchemaName>(
+  options?: IndobaseClientOptions<SchemaName>
+): IndobaseClient<Database, SchemaName, Schema> => {
+  return new IndobaseClient<Database, SchemaName, Schema>(
     indobaseUrl,
     indobaseKey,
     options
   )
 }
+
+export const createClient = createIndobaseClient
 
 // Check for Node.js <= 18 deprecation
 function shouldShowDeprecationWarning(): boolean {
@@ -96,6 +87,6 @@ if (shouldShowDeprecationWarning()) {
   console.warn(
     `⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @indobase/supabase-js. ` +
       `Please upgrade to Node.js 20 or later. ` +
-      `For more information, visit: https://github.com/orgs/supabase/discussions/37217`
+      `For more information, visit: https://github.com/indobase/indobase/discussions`
   )
 }

@@ -28,7 +28,7 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'cp ../../../dist/umd/supabase.js . && npm run serve:node-browser',
+    command: 'cp ../../../dist/umd/indobase.js . && npm run serve:node-browser',
     url: 'http://localhost:8004',
     reuseExistingServer: !process.env.CI,
   },

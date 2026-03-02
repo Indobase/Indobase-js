@@ -13,13 +13,13 @@ test('Keeps trailing slash of URL if already present', () => {
 })
 
 test('Adds trailing slash to URL with path if missing', () => {
-  const input = 'http://localhost:3000/path/to/supabase'
-  const expected = 'http://localhost:3000/path/to/supabase/'
+  const input = 'http://localhost:3000/path/to/indobase'
+  const expected = 'http://localhost:3000/path/to/indobase/'
   expect(ensureTrailingSlash(input)).toBe(expected)
 })
 
 test('Keeps trailing slash of URL with path if already present', () => {
-  const input = 'http://localhost:3000/path/to/supabase/'
-  const expected = 'http://localhost:3000/path/to/supabase/'
+  const input = 'http://localhost:3000/path/to/indobase/'
+  const expected = 'http://localhost:3000/path/to/indobase/'
   expect(ensureTrailingSlash(input)).toBe(expected)
 })

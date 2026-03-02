@@ -1,5 +1,5 @@
 import { assert } from 'console'
-import { createClient, RealtimeChannel, SupabaseClient } from '../src/index'
+import { createClient, RealtimeChannel, IndobaseClient } from '../src/index'
 import { sign } from 'jsonwebtoken'
 // These tests assume that a local Supabase server is already running
 // Start a local Supabase instance with 'supabase start' before running these tests
@@ -27,9 +27,9 @@ const supabase = createClient(SUPABASE_URL, ANON_KEY, {
 })
 
 describe('Supabase Integration Tests', () => {
-  test('should connect to Supabase instance', async () => {
+  test('should connect to Indobase instance', async () => {
     expect(supabase).toBeDefined()
-    expect(supabase).toBeInstanceOf(SupabaseClient)
+    expect(supabase).toBeInstanceOf(IndobaseClient)
   })
 
   describe('PostgREST', () => {
@@ -270,7 +270,7 @@ describe('Supabase Integration Tests', () => {
     let channel: RealtimeChannel
     let email: string
     let password: string
-    let supabase: SupabaseClient
+    let supabase: IndobaseClient
 
     beforeEach(async () => {
       // Create client with specific version

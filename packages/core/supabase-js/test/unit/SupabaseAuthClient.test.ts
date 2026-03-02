@@ -1,4 +1,4 @@
-import { SupabaseAuthClient } from '../../src/lib/SupabaseAuthClient'
+import { IndobaseAuthClient } from '../../src/lib/IndobaseAuthClient'
 import SupabaseClient from '../../src/SupabaseClient'
 import { DEFAULT_HEADERS } from '../../src/lib/constants'
 
@@ -20,22 +20,22 @@ const settings = { ...DEFAULT_OPTIONS }
 const authSettings = { ...settings.global, ...settings.auth }
 
 test('it should create a new instance of the class', () => {
-  const authClient = new SupabaseAuthClient(authSettings)
-  expect(authClient).toBeInstanceOf(SupabaseAuthClient)
+  const authClient = new IndobaseAuthClient(authSettings)
+  expect(authClient).toBeInstanceOf(IndobaseAuthClient)
 })
 
 test('_initSupabaseAuthClient should overwrite authHeaders if headers are provided', () => {
-  const authClient = new SupabaseClient('https://example.supabase.com', 'supabaseKey')[
+  const authClient = new SupabaseClient('https://example.indobase.fun', 'indobaseKey')[
     '_initSupabaseAuthClient'
   ](authSettings, {
     Authorization: 'Bearer custom-auth-header',
   })
   expect(authClient['headers']['Authorization']).toBe('Bearer custom-auth-header')
-  expect(authClient['headers']['apikey']).toBe('supabaseKey')
+  expect(authClient['headers']['apikey']).toBe('indobaseKey')
 })
 
 test('_initSupabaseAuthClient should pass through throwOnError option', () => {
-  const client = new SupabaseClient('https://example.supabase.com', 'supabaseKey')
+  const client = new SupabaseClient('https://example.indobase.fun', 'indobaseKey')
   const authClient = client['_initSupabaseAuthClient'](
     { ...authSettings, throwOnError: true },
     undefined,
@@ -46,7 +46,7 @@ test('_initSupabaseAuthClient should pass through throwOnError option', () => {
 })
 
 test('createClient should accept auth.throwOnError and wire it to auth client', () => {
-  const supa = new SupabaseClient('https://example.supabase.com', 'supabaseKey', {
+  const supa = new SupabaseClient('https://example.indobase.fun', 'indobaseKey', {
     auth: { throwOnError: true },
   })
   expect((supa.auth as any).isThrowOnErrorEnabled()).toBe(true)

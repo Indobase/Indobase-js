@@ -13,9 +13,9 @@
   <h3 align="center">JavaScript SDK to interact with Supabase Edge Functions.</h3>
 
   <p align="center">
-    <a href="https://supabase.com/docs/guides/functions">Guides</a>
+    <a href="https://indobase.com/docs/guides/functions">Guides</a>
     ·
-    <a href="https://supabase.com/docs/reference/javascript/functions-invoke">Reference Docs</a>
+    <a href="https://indobase.com/docs/reference/javascript/functions-invoke">Reference Docs</a>
     ·
     <a href="https://supabase.github.io/supabase-js/functions-js/v2/spec.json">TypeDoc</a>
   </p>
@@ -44,15 +44,15 @@
 ### Installation
 
 ```bash
-npm install @supabase/functions-js
+npm install @indobase/functions-js
 ```
 
 ### Usage
 
 ```js
-import { FunctionsClient } from '@supabase/functions-js'
+import { FunctionsClient } from '@indobase/functions-js'
 
-const functionsUrl = 'https://<project_ref>.supabase.co/functions/v1'
+const functionsUrl = 'https://<project_ref>.indobase.fun/functions/v1'
 const anonKey = '<anon_key>'
 
 const functions = new FunctionsClient(functionsUrl, {
@@ -69,7 +69,7 @@ const { data, error } = await functions.invoke('hello-world', {
 
 ## Development
 
-This package is part of the [Supabase JavaScript monorepo](https://github.com/supabase/supabase-js). To work on this package:
+This package is part of the [Indobase JavaScript monorepo](https://github.com/indobase/indobase-js). To work on this package:
 
 ### Building
 

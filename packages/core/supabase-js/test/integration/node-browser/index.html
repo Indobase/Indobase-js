@@ -2,7 +2,7 @@
 <html>
   <body>
     <pre id="log" data-testid="log" style="font-family: monospace"></pre>
-    <script src="http://localhost:8004/supabase.js"></script>
+    <script src="http://localhost:8004/indobase.js"></script>
     <script>
       const log = (msg) => {
         document.getElementById('log').textContent += msg + '\n'
@@ -29,13 +29,13 @@
       try {
         log('Attempting to access createClient...')
 
-        // Check if supabase is available
-        if (typeof window.supabase === 'undefined') {
-          throw new Error('window.supabase is not defined')
+        // Check if indobase is available
+        if (typeof window.indobase === 'undefined') {
+          throw new Error('window.indobase is not defined')
         }
-        log('Supabase UMD loaded successfully')
+        log('Indobase UMD loaded successfully')
 
-        const { createClient } = window.supabase
+        const { createClient } = window.indobase
         log('createClient function available')
 
         // Intercept WebSocket constructor
@@ -83,7 +83,7 @@
 
         // Verify all clients are bundled (catches AuthClient null bug from 2.86.1)
         log('Verifying bundled clients...')
-        const testClient = createClient('https://example.supabase.co', 'test-key')
+        const testClient = createClient('https://example.indobase.fun', 'test-key')
         if (!testClient.auth) throw new Error('auth client missing (AuthClient null bug)')
         if (typeof testClient.auth.signUp !== 'function') throw new Error('auth.signUp missing')
         if (typeof testClient.auth.getSession !== 'function')
@@ -94,7 +94,7 @@
         if (typeof testClient.channel !== 'function') throw new Error('realtime client missing')
         log('All clients bundled correctly')
 
-        log('Creating Supabase client with WebSocket transport and vsn: ' + vsn + '...')
+        log('Creating Indobase client with WebSocket transport and vsn: ' + vsn + '...')
         const supabase = createClient(
           'http://127.0.0.1:54321',
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0',

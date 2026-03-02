@@ -15,9 +15,9 @@ export class StorageClient extends StorageBucketApi {
    * @category File Buckets
    * @example
    * ```ts
-   * import { StorageClient } from '@supabase/storage-js'
+   * import { StorageClient } from '@indobase/storage-js'
    *
-   * const storage = new StorageClient('https://xyzcompany.supabase.co/storage/v1', {
+   * const storage = new StorageClient('https://xyzcompany.indobase.fun/storage/v1', {
    *   apikey: 'public-anon-key',
    * })
    * const avatars = storage.from('avatars')

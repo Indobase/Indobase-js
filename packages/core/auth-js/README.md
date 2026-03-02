@@ -10,12 +10,12 @@
 
   <h1 align="center">Supabase Auth JS SDK</h1>
 
-  <h3 align="center">An isomorphic JavaScript SDK for the <a href="https://github.com/supabase/auth">Supabase Auth</a> API.</h3>
+  <h3 align="center">An isomorphic JavaScript SDK for the <a href="https://github.com/indobase/auth">Indobase Auth</a> API.</h3>
 
   <p align="center">
-    <a href="https://supabase.com/docs/guides/auth">Guides</a>
+    <a href="https://indobase.com/docs/guides/auth">Guides</a>
     ·
-    <a href="https://supabase.com/docs/reference/javascript/auth-signup">Reference Docs</a>
+    <a href="https://indobase.com/docs/reference/javascript/auth-signup">Reference Docs</a>
     ·
     <a href="https://supabase.github.io/supabase-js/auth-js/v2/spec.json">TypeDoc</a>
   </p>
@@ -44,29 +44,29 @@
 Install
 
 ```bash
-npm install --save @supabase/auth-js
+npm install --save @indobase/auth-js
 ```
 
 Usage
 
 ```js
-import { AuthClient } from '@supabase/auth-js'
+import { AuthClient } from '@indobase/auth-js'
 
 const GOTRUE_URL = 'http://localhost:9999'
 
 const auth = new AuthClient({ url: GOTRUE_URL })
 ```
 
-- `signUp()`: https://supabase.com/docs/reference/javascript/auth-signup
-- `signIn()`: https://supabase.com/docs/reference/javascript/auth-signin
-- `signOut()`: https://supabase.com/docs/reference/javascript/auth-signout
+- `signUp()`: https://indobase.com/docs/reference/javascript/auth-signup
+- `signIn()`: https://indobase.com/docs/reference/javascript/auth-signin
+- `signOut()`: https://indobase.com/docs/reference/javascript/auth-signout
 
 ### Custom `fetch` implementation
 
 `auth-js` uses the [`cross-fetch`](https://www.npmjs.com/package/cross-fetch) library to make HTTP requests, but an alternative `fetch` implementation can be provided as an option. This is most useful in environments where `cross-fetch` is not compatible, for instance Cloudflare Workers:
 
 ```js
-import { AuthClient } from '@supabase/auth-js'
+import { AuthClient } from '@indobase/auth-js'
 
 const AUTH_URL = 'http://localhost:9999'
 
@@ -75,7 +75,7 @@ const auth = new AuthClient({ url: AUTH_URL, fetch: fetch })
 
 ## Development
 
-This package is part of the [Supabase JavaScript monorepo](https://github.com/supabase/supabase-js). To work on this package:
+This package is part of the [Indobase JavaScript monorepo](https://github.com/indobase/indobase-js). To work on this package:
 
 ### Building
 
@@ -111,7 +111,7 @@ The auth-js package has two test suites:
 
 #### Prerequisites
 
-- **Supabase CLI** - Required for main test suite ([installation guide](https://supabase.com/docs/guides/cli))
+- **Indobase CLI** - Required for main test suite ([installation guide](https://indobase.com/docs/guides/cli))
 - **Docker** - Required for edge case tests
 
 #### Running Tests

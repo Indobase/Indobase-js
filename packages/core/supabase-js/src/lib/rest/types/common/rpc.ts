@@ -1,7 +1,7 @@
 /**
  * AUTO-GENERATED FILE - DO NOT EDIT
  *
- * This file is automatically synchronized from @supabase/postgrest-js
+ * This file is automatically synchronized from @indobase/postgrest-js
  * Source: packages/core/postgrest-js/src/types/common/
  *
  * To update this file, modify the source in postgrest-js and run:

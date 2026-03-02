@@ -13,9 +13,9 @@
   <h3 align="center">Isomorphic JavaScript SDK for <a href="https://postgrest.org">PostgREST</a> with an ORM-like interface.</h3>
 
   <p align="center">
-    <a href="https://supabase.com/docs/guides/database">Guides</a>
+    <a href="https://indobase.com/docs/guides/database">Guides</a>
     ·
-    <a href="https://supabase.com/docs/reference/javascript/select">Reference Docs</a>
+    <a href="https://indobase.com/docs/reference/javascript/select">Reference Docs</a>
     ·
     <a href="https://supabase.github.io/supabase-js/postgrest-js/v2/spec.json">TypeDoc</a>
   </p>
@@ -35,29 +35,29 @@
 Install
 
 ```bash
-npm install @supabase/postgrest-js
+npm install @indobase/postgrest-js
 ```
 
 Usage
 
 ```js
-import { PostgrestClient } from '@supabase/postgrest-js'
+import { PostgrestClient } from '@indobase/postgrest-js'
 
 const REST_URL = 'http://localhost:3000'
 const postgrest = new PostgrestClient(REST_URL)
 ```
 
-- [select()](https://supabase.com/docs/reference/javascript/select)
-- [insert()](https://supabase.com/docs/reference/javascript/insert)
-- [update()](https://supabase.com/docs/reference/javascript/update)
-- [delete()](https://supabase.com/docs/reference/javascript/delete)
+- [select()](https://indobase.com/docs/reference/javascript/select)
+- [insert()](https://indobase.com/docs/reference/javascript/insert)
+- [update()](https://indobase.com/docs/reference/javascript/update)
+- [delete()](https://indobase.com/docs/reference/javascript/delete)
 
 #### Custom `fetch` implementation
 
 `postgrest-js` uses the [`cross-fetch`](https://www.npmjs.com/package/cross-fetch) library to make HTTP requests, but an alternative `fetch` implementation can be provided as an option. This is most useful in environments where `cross-fetch` is not compatible, for instance Cloudflare Workers:
 
 ```js
-import { PostgrestClient } from '@supabase/postgrest-js'
+import { PostgrestClient } from '@indobase/postgrest-js'
 
 const REST_URL = 'http://localhost:3000'
 const postgrest = new PostgrestClient(REST_URL, {
@@ -67,7 +67,7 @@ const postgrest = new PostgrestClient(REST_URL, {
 
 ## Development
 
-This package is part of the [Supabase JavaScript monorepo](https://github.com/supabase/supabase-js). To work on this package:
+This package is part of the [Indobase JavaScript monorepo](https://github.com/indobase/indobase-js). To work on this package:
 
 ### Building
 
@@ -87,7 +87,7 @@ npx nx docs postgrest-js
 
 ### Testing
 
-**Supabase CLI Required!** The `postgrest-js` tests use the [Supabase CLI](https://supabase.com/docs/guides/local-development/cli/getting-started) to run a local PostgreSQL database and PostgREST server.
+**Indobase CLI Required!** The `postgrest-js` tests use the [Indobase CLI](https://indobase.com/docs/guides/local-development/cli/getting-started) to run a local PostgreSQL database and PostgREST server.
 
 #### Quick Start
 
@@ -173,7 +173,7 @@ The generated types are written to `test/types.generated.ts`.
 
 #### Prerequisites
 
-- **Supabase CLI** must be installed ([instructions](https://supabase.com/docs/guides/local-development/cli/getting-started)) or can be used through `npx` (`npx supabase`)
+- **Indobase CLI** must be installed ([instructions](https://indobase.com/docs/guides/local-development/cli/getting-started)) or can be used through `npx` (`npx supabase`)
 - **Docker** must be installed and running (Supabase CLI uses Docker under the hood)
 - **Port 54321** - PostgREST API
 - **Port 54322** - PostgreSQL database

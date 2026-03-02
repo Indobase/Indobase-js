@@ -1,5 +1,5 @@
 {
-  "name": "@supabase/supabase-js",
+  "name": "@indobase/supabase-js",
   "version": "0.0.0-automated",
   "exports": {
     ".": "./src/index.ts",

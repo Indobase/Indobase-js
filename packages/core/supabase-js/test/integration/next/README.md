@@ -27,7 +27,7 @@
   - Server
   - It just works!
 - supabase-ssr. A package to configure Supabase Auth to use cookies
-- Password-based authentication block installed via the [Supabase UI Library](https://supabase.com/ui/docs/nextjs/password-based-auth)
+- Password-based authentication block installed via the [Indobase UI Library](https://indobase.com/ui/docs/nextjs/password-based-auth)
 - Styling with [Tailwind CSS](https://tailwindcss.com)
 - Components with [shadcn/ui](https://ui.shadcn.com/)
 - Optional deployment with [Supabase Vercel Integration and Vercel deploy](#deploy-your-own)
@@ -51,7 +51,7 @@ If you wish to just develop locally and not deploy to Vercel, [follow the steps 
 
 ## Clone and run locally
 
-1. You'll first need a Supabase project which can be made [via the Supabase dashboard](https://database.new)
+1. You'll first need an Indobase project which can be made [via the Indobase dashboard](https://database.new)
 
 2. Create a Next.js app using the Supabase Starter template npx command
 
@@ -76,11 +76,11 @@ If you wish to just develop locally and not deploy to Vercel, [follow the steps 
 4. Rename `.env.example` to `.env.local` and update the following:
 
    ```
-   NEXT_PUBLIC_SUPABASE_URL=[INSERT SUPABASE PROJECT URL]
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=[INSERT SUPABASE PROJECT API ANON KEY]
+   NEXT_PUBLIC_SUPABASE_URL=[INSERT INDOBASE PROJECT URL]
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=[INSERT INDOBASE PROJECT API ANON KEY]
    ```
 
-   Both `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` can be found in [your Supabase project's API settings](https://supabase.com/dashboard/project/_?showConnect=true)
+   Both `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` can be found in [your Indobase project's API settings](https://indobase.com/dashboard/project/_?showConnect=true)
 
 5. You can now run the Next.js local development server:
 
@@ -92,7 +92,7 @@ If you wish to just develop locally and not deploy to Vercel, [follow the steps 
 
 6. This template comes with the default shadcn/ui style initialized. If you instead want other ui.shadcn styles, delete `components.json` and [re-install shadcn/ui](https://ui.shadcn.com/docs/installation/next)
 
-> Check out [the docs for Local Development](https://supabase.com/docs/guides/getting-started/local-development) to also run Supabase locally.
+> Check out [the docs for Local Development](https://indobase.com/docs/guides/getting-started/local-development) to also run Indobase locally.
 
 ## Feedback and issues
 

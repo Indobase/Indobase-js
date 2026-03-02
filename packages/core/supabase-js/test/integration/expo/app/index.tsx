@@ -1,8 +1,8 @@
 import { Text, View } from 'react-native'
 import { useState, useEffect } from 'react'
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@indobase/supabase-js'
 
-const SUPABASE_URL = 'http://127.0.0.1:54321'
+const INDOBASE_URL = 'http://127.0.0.1:54321'
 const TEST_ANON_KEY =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0'
 
@@ -15,14 +15,14 @@ export default function Index({ vsn = '1.0.0' }: IndexProps) {
   const [receivedMessage, setReceivedMessage] = useState<string | null>(null)
 
   useEffect(() => {
-    const supabase = createClient(SUPABASE_URL, TEST_ANON_KEY, {
+    const indobase = createClient(INDOBASE_URL, TEST_ANON_KEY, {
       realtime: {
         heartbeatIntervalMs: 500,
         vsn: vsn,
       }
     })
 
-    const channel = supabase.channel(`realtime:public:todos-${vsn}`, {
+    const channel = indobase.channel(`realtime:public:todos-${vsn}`, {
       config: { broadcast: { ack: true, self: true } }
     })
 
@@ -48,7 +48,7 @@ export default function Index({ vsn = '1.0.0' }: IndexProps) {
 
     return () => {
       channel.unsubscribe()
-      supabase.realtime.disconnect()
+      indobase.realtime.disconnect()
     }
   }, [vsn])
 

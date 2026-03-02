@@ -1,6 +1,6 @@
 // Check that the ESM build works as expected (namely has the same exports as the CJS build when imported via ESM).
 const assert = require('node:assert')
-const postgrestjs = require('@supabase/postgrest-js')
+const postgrestjs = require('@indobase/postgrest-js')
 
 assert(typeof postgrestjs.PostgrestClient === 'function')
 assert(typeof postgrestjs.PostgrestQueryBuilder === 'function')

@@ -30,7 +30,7 @@ export default class PostgrestQueryBuilder<
    * import PostgrestQueryBuilder from '@supabase/postgrest-js'
    *
    * const query = new PostgrestQueryBuilder(
-   *   new URL('https://xyzcompany.supabase.co/rest/v1/users'),
+  *   new URL('https://xyzcompany.indobase.fun/rest/v1/users'),
    *   { headers: { apikey: 'public-anon-key' } }
    * )
    * ```

@@ -141,7 +141,7 @@ export class WebSocketFactory {
    * @example
    * ```ts
    * const WS = WebSocketFactory.getWebSocketConstructor()
-   * const socket = new WS('wss://realtime.supabase.co/socket')
+  * const socket = new WS('wss://realtime.indobase.fun/socket')
    * ```
    */
   public static getWebSocketConstructor(): typeof WebSocket {
@@ -161,7 +161,7 @@ export class WebSocketFactory {
    *
    * @example
    * ```ts
-   * const socket = WebSocketFactory.createWebSocket('wss://realtime.supabase.co/socket')
+  * const socket = WebSocketFactory.createWebSocket('wss://realtime.indobase.fun/socket')
    * ```
    */
   public static createWebSocket(url: string | URL, protocols?: string | string[]): WebSocketLike {

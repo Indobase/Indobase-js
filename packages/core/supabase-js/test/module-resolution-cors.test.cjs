@@ -5,9 +5,9 @@
  * It tests that all expected exports are available and functional.
  */
 
-const { corsHeaders } = require('@supabase/supabase-js/cors')
+const { corsHeaders } = require('@indobase/supabase-js/cors')
 
-console.log('Testing @supabase/supabase-js/cors CommonJS exports...')
+console.log('Testing @indobase/supabase-js/cors CommonJS exports...')
 
 // Test 1: corsHeaders is exported and has correct structure
 if (!corsHeaders) {
@@ -76,4 +76,4 @@ if (typeof Response !== 'undefined') {
   console.log('⊘ Response API not available in this Node.js version (skipped Response tests)')
 }
 
-console.log('\n✅ All CommonJS module resolution tests passed for @supabase/supabase-js/cors')
+console.log('\n✅ All CommonJS module resolution tests passed for @indobase/supabase-js/cors')

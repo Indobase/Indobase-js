@@ -1,14 +1,14 @@
 import { test, expect, describe } from 'bun:test'
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@indobase/supabase-js'
 
-const SUPABASE_URL = 'http://127.0.0.1:54321'
+const INDOBASE_URL = 'http://127.0.0.1:54321'
 const ANON_KEY =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0'
 const SERVICE_ROLE_KEY =
-  process.env.SUPABASE_SERVICE_ROLE_KEY ||
+  process.env.INDOBASE_SERVICE_ROLE_KEY ||
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hdp7fsn3W0YpN81IU'
 
-const supabase = createClient(SUPABASE_URL, ANON_KEY, {
+const indobase = createClient(INDOBASE_URL, ANON_KEY, {
   realtime: { heartbeatIntervalMs: 500 },
 })
 
@@ -16,19 +16,19 @@ const versions = ['1.0.0', '2.0.0']
 
 versions.forEach((vsn) => {
   describe(`Realtime v${vsn}`, () => {
-    const supabaseRealtime = createClient(SUPABASE_URL, ANON_KEY, {
+    const indobaseRealtime = createClient(INDOBASE_URL, ANON_KEY, {
       realtime: { heartbeatIntervalMs: 500, vsn },
     })
 
     test('should subscribe to realtime channel and broadcast', async () => {
-      await supabaseRealtime.auth.signOut()
+      await indobaseRealtime.auth.signOut()
       const email = `bun-test-${Date.now()}@example.com`
       const password = 'password123'
-      await supabaseRealtime.auth.signUp({ email, password })
+      await indobaseRealtime.auth.signUp({ email, password })
 
       const channelName = `bun-channel-${crypto.randomUUID()}`
       const config = { broadcast: { self: true, ack: true }, private: true }
-      const channel = supabaseRealtime.channel(channelName, { config })
+      const channel = indobaseRealtime.channel(channelName, { config })
       const testMessage = { message: 'test' }
 
       let subscribed = false
@@ -61,20 +61,20 @@ versions.forEach((vsn) => {
         attempts++
       }
       expect(receivedMessage).toBeDefined()
-      expect(supabaseRealtime.realtime.getChannels().length).toBe(1)
+      expect(indobaseRealtime.realtime.getChannels().length).toBe(1)
 
       // Cleanup
-      await supabaseRealtime.removeAllChannels()
+      await indobaseRealtime.removeAllChannels()
     }, 10000)
   })
 })
 
 test('should sign up a user', async () => {
-  await supabase.auth.signOut()
+  await indobase.auth.signOut()
   const email = `bun-auth-${Date.now()}@example.com`
   const password = 'password123'
 
-  const { data, error } = await supabase.auth.signUp({
+  const { data, error } = await indobase.auth.signUp({
     email,
     password,
   })
@@ -85,13 +85,13 @@ test('should sign up a user', async () => {
 })
 
 test('should sign in and out successfully', async () => {
-  await supabase.auth.signOut()
+  await indobase.auth.signOut()
   const email = `bun-signin-${Date.now()}@example.com`
   const password = 'password123'
 
-  await supabase.auth.signUp({ email, password })
+  await indobase.auth.signUp({ email, password })
 
-  const { data, error } = await supabase.auth.signInWithPassword({
+  const { data, error } = await indobase.auth.signInWithPassword({
     email,
     password,
   })
@@ -100,20 +100,20 @@ test('should sign in and out successfully', async () => {
   expect(data.user).toBeDefined()
   expect(data.user!.email).toBe(email)
 
-  const { error: signOutError } = await supabase.auth.signOut()
+  const { error: signOutError } = await indobase.auth.signOut()
 
   expect(signOutError).toBeNull()
 })
 
 test('should get current user', async () => {
-  await supabase.auth.signOut()
+  await indobase.auth.signOut()
   const email = `bun-getuser-${Date.now()}@example.com`
   const password = 'password123'
 
-  await supabase.auth.signUp({ email, password })
-  await supabase.auth.signInWithPassword({ email, password })
+  await indobase.auth.signUp({ email, password })
+  await indobase.auth.signInWithPassword({ email, password })
 
-  const { data, error } = await supabase.auth.getUser()
+  const { data, error } = await indobase.auth.getUser()
 
   expect(error).toBeNull()
   expect(data.user).toBeDefined()
@@ -121,13 +121,13 @@ test('should get current user', async () => {
 })
 
 test('should handle invalid credentials', async () => {
-  await supabase.auth.signOut()
+  await indobase.auth.signOut()
   const email = `bun-invalid-${Date.now()}@example.com`
   const password = 'password123'
 
-  await supabase.auth.signUp({ email, password })
+  await indobase.auth.signUp({ email, password })
 
-  const { data, error } = await supabase.auth.signInWithPassword({
+  const { data, error } = await indobase.auth.signInWithPassword({
     email,
     password: 'wrongpassword',
   })
@@ -139,21 +139,21 @@ test('should handle invalid credentials', async () => {
 test('should upload and list file in bucket', async () => {
   const bucket = 'test-bucket'
   const filePath = 'test-file.txt'
-  const fileContent = new Blob(['Hello, Supabase Storage!'], { type: 'text/plain' })
+  const fileContent = new Blob(['Hello, Indobase Storage!'], { type: 'text/plain' })
 
-  const supabaseWithServiceRole = createClient(SUPABASE_URL, SERVICE_ROLE_KEY, {
+  const indobaseWithServiceRole = createClient(INDOBASE_URL, SERVICE_ROLE_KEY, {
     realtime: { heartbeatIntervalMs: 500 },
   })
 
   // upload
-  const { data: uploadData, error: uploadError } = await supabaseWithServiceRole.storage
+  const { data: uploadData, error: uploadError } = await indobaseWithServiceRole.storage
     .from(bucket)
     .upload(filePath, fileContent, { upsert: true })
   expect(uploadError).toBeNull()
   expect(uploadData).toBeDefined()
 
   // list
-  const { data: listData, error: listError } = await supabaseWithServiceRole.storage
+  const { data: listData, error: listError } = await indobaseWithServiceRole.storage
     .from(bucket)
     .list()
   expect(listError).toBeNull()
@@ -163,7 +163,7 @@ test('should upload and list file in bucket', async () => {
   expect(fileNames).toContain('test-file.txt')
 
   // delete file
-  const { error: deleteError } = await supabaseWithServiceRole.storage
+  const { error: deleteError } = await indobaseWithServiceRole.storage
     .from(bucket)
     .remove([filePath])
   expect(deleteError).toBeNull()

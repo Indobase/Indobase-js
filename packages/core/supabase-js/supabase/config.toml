@@ -1,5 +1,5 @@
-# Supabase Edge Functions Configuration
-# https://supabase.com/docs/guides/local-development/cli/config
+# Indobase Edge Functions Configuration
+# https://indobase.fun/docs/guides/local-development/cli/config
 
 [auth]
 # Required for auth-js E2E tests (anonymous sign-in flow)

@@ -61,17 +61,17 @@ describe('fetch module', () => {
       ;(global as any).fetch = mockFetchImpl
       ;(global as any).Headers = mockHeadersImpl
 
-      const supabaseKey = 'test-key'
+      const indobaseKey = 'test-key'
       const getAccessToken = jest.fn().mockResolvedValue('test-token')
 
-      const authFetch = fetchWithAuth(supabaseKey, getAccessToken)
+      const authFetch = fetchWithAuth(indobaseKey, getAccessToken)
       await authFetch('https://example.com')
 
       expect(mockHeadersImpl).toHaveBeenCalled()
       expect(getAccessToken).toHaveBeenCalled()
     })
 
-    test('should use supabaseKey as fallback when getAccessToken returns null', async () => {
+    test('should use indobaseKey as fallback when getAccessToken returns null', async () => {
       const mockResponse = { ok: true }
       const mockFetchImpl = jest.fn().mockResolvedValue(mockResponse)
       const mockHeadersImpl = jest.fn().mockReturnValue({
@@ -82,10 +82,10 @@ describe('fetch module', () => {
       ;(global as any).fetch = mockFetchImpl
       ;(global as any).Headers = mockHeadersImpl
 
-      const supabaseKey = 'test-key'
+      const indobaseKey = 'test-key'
       const getAccessToken = jest.fn().mockResolvedValue(null)
 
-      const authFetch = fetchWithAuth(supabaseKey, getAccessToken)
+      const authFetch = fetchWithAuth(indobaseKey, getAccessToken)
       await authFetch('https://example.com')
 
       expect(getAccessToken).toHaveBeenCalled()
@@ -103,13 +103,13 @@ describe('fetch module', () => {
       ;(global as any).fetch = mockFetchImpl
       ;(global as any).Headers = mockHeadersImpl
 
-      const supabaseKey = 'test-key'
+      const indobaseKey = 'test-key'
       const getAccessToken = jest.fn().mockResolvedValue('test-token')
 
-      const authFetch = fetchWithAuth(supabaseKey, getAccessToken)
+      const authFetch = fetchWithAuth(indobaseKey, getAccessToken)
       await authFetch('https://example.com')
 
-      expect(mockSet).not.toHaveBeenCalledWith('apikey', supabaseKey)
+      expect(mockSet).not.toHaveBeenCalledWith('apikey', indobaseKey)
     })
 
     test('should not override existing authorization header', async () => {
@@ -124,10 +124,10 @@ describe('fetch module', () => {
       ;(global as any).fetch = mockFetchImpl
       ;(global as any).Headers = mockHeadersImpl
 
-      const supabaseKey = 'test-key'
+      const indobaseKey = 'test-key'
       const getAccessToken = jest.fn().mockResolvedValue('test-token')
 
-      const authFetch = fetchWithAuth(supabaseKey, getAccessToken)
+      const authFetch = fetchWithAuth(indobaseKey, getAccessToken)
       await authFetch('https://example.com')
 
       expect(mockSet).not.toHaveBeenCalledWith('Authorization', expect.stringContaining('Bearer'))

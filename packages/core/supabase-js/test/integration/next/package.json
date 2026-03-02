@@ -1,5 +1,5 @@
 {
-  "name": "supabase-js-test-next",
+  "name": "indobase-js-test-next",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -17,7 +17,7 @@
     "@radix-ui/react-label": "^2.1.6",
     "@radix-ui/react-slot": "^1.2.2",
     "@supabase/ssr": "latest",
-    "@supabase/supabase-js": "https://pkg.pr.new/@supabase/supabase-js@{COMMIT_HASH}",
+    "@indobase/supabase-js": "file:../../../",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.511.0",

@@ -23,9 +23,9 @@ export class FunctionsClient {
    *
    * @example
    * ```ts
-   * import { FunctionsClient, FunctionRegion } from '@supabase/functions-js'
+   * import { FunctionsClient, FunctionRegion } from '@indobase/functions-js'
    *
-   * const functions = new FunctionsClient('https://xyzcompany.supabase.co/functions/v1', {
+   * const functions = new FunctionsClient('https://xyzcompany.indobase.fun/functions/v1', {
    *   headers: { apikey: 'public-anon-key' },
    *   region: FunctionRegion.UsEast1,
    * })

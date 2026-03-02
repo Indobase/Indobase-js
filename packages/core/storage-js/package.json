@@ -51,8 +51,8 @@
   "devDependencies": {
     "form-data": "^4.0.0"
   },
-  "jsdelivr": "dist/umd/supabase.js",
-  "unpkg": "dist/umd/supabase.js",
+  "jsdelivr": "dist/umd/indobase.js",
+  "unpkg": "dist/umd/indobase.js",
   "publishConfig": {
     "access": "public"
   },

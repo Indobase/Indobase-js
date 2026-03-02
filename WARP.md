@@ -656,5 +656,5 @@ nx affected --target=test
 - **[RELEASE.md](docs/RELEASE.md)** - Release workflows and versioning
 - **[MIGRATION.md](docs/MIGRATION.md)** - Migration guide from old repos
 - **[SECURITY.md](docs/SECURITY.md)** - Security policies and reporting
-- **[Supabase Docs](https://supabase.com/docs)** - Official Supabase documentation
+- **[Indobase Docs](https://indobase.fun/docs)** - Official Indobase documentation
 - **[Nx Documentation](https://nx.dev)** - Nx workspace documentation

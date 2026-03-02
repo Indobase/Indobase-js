@@ -1,6 +1,6 @@
 # Realtime Chat Example
 
-A minimal anonymous chat app showcasing Supabase Realtime features:
+A minimal anonymous chat app showcasing Indobase Realtime features:
 
 - **Broadcast** - Real-time message delivery
 - **Presence** - Online user indicators
@@ -22,11 +22,11 @@ Create a new project at [database.new](https://database.new)
 
 ### 2. Run the Database Migration
 
-Go to the [SQL Editor](https://supabase.com/dashboard/project/_/sql) in your Supabase dashboard and run the migration you find in [supabase/migrations/001_create_messages_table.sql](packages/core/realtime-js/example/supabase/migrations/001_create_messages_table.sql).
+Go to the [SQL Editor](https://indobase.com/dashboard/project/_/sql) in your Indobase dashboard and run the migration you find in [supabase/migrations/001_create_messages_table.sql](packages/core/realtime-js/example/supabase/migrations/001_create_messages_table.sql).
 
 ### 3. Configure Environment Variables
 
-Copy `.env.example` to `.env` and fill in your Supabase credentials:
+Copy `.env.example` to `.env` and fill in your Indobase credentials:
 
 ```bash
 cp .env.example .env
@@ -35,11 +35,11 @@ cp .env.example .env
 Update the values:
 
 ```env
-NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.indobase.fun
 NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=your-publishable-key
 ```
 
-Find these in your [Supabase project settings](https://supabase.com/dashboard/project/_/settings/api).
+Find these in your [Indobase project settings](https://indobase.com/dashboard/project/_/settings/api).
 
 ### 4. Install Dependencies
 
@@ -59,7 +59,7 @@ Open [http://localhost:3000](http://localhost:3000) to start chatting.
 
 ### Broadcast
 
-Messages are instantly delivered to all connected clients via Supabase Realtime Broadcast:
+Messages are instantly delivered to all connected clients via Indobase Realtime Broadcast:
 
 ```typescript
 channel.send({
@@ -71,7 +71,7 @@ channel.send({
 
 ### Presence
 
-Online users are tracked using Supabase Realtime Presence:
+Online users are tracked using Indobase Realtime Presence:
 
 ```typescript
 channel.on('presence', { event: 'sync' }, () => {
@@ -95,12 +95,12 @@ const { data } = await supabase
 
 ## Local Development
 
-You can run Supabase locally using the Supabase CLI and Docker.
+You can run Indobase locally using the Supabase CLI and Docker.
 
 ### Prerequisites
 
 - [Docker](https://docs.docker.com/get-docker/) installed and running
-- [Supabase CLI](https://supabase.com/docs/guides/cli) (installed or used through `npx`)
+- [Indobase CLI](https://indobase.com/docs/guides/cli) (installed or used through `npx`)
 
 ### 1. Start Supabase
 

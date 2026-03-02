@@ -1,6 +1,6 @@
 // constants.ts
-import { RealtimeClientOptions } from '@supabase/realtime-js'
-import { SupabaseAuthClientOptions } from './types'
+import { RealtimeClientOptions } from '@indobase/realtime-js'
+import { IndobaseAuthClientOptions } from './types'
 import { version } from './version'
 
 let JS_ENV = ''
@@ -15,7 +15,7 @@ if (typeof Deno !== 'undefined') {
   JS_ENV = 'node'
 }
 
-export const DEFAULT_HEADERS = { 'X-Client-Info': `supabase-js-${JS_ENV}/${version}` }
+export const DEFAULT_HEADERS = { 'X-Client-Info': `indobase-js-${JS_ENV}/${version}` }
 
 export const DEFAULT_GLOBAL_OPTIONS = {
   headers: DEFAULT_HEADERS,
@@ -25,7 +25,7 @@ export const DEFAULT_DB_OPTIONS = {
   schema: 'public',
 }
 
-export const DEFAULT_AUTH_OPTIONS: SupabaseAuthClientOptions = {
+export const DEFAULT_AUTH_OPTIONS: IndobaseAuthClientOptions = {
   autoRefreshToken: true,
   persistSession: true,
   detectSessionInUrl: true,

@@ -746,7 +746,7 @@ nx test supabase-js --testFile=client.test.ts
 - **[RELEASE.md](docs/RELEASE.md)** - Release workflows and automation
 - **[MIGRATION.md](docs/MIGRATION.md)** - Migration context and history
 - **[SECURITY.md](docs/SECURITY.md)** - Security policy and reporting
-- **[Supabase Documentation](https://supabase.com/docs)** - Official Supabase docs
+- **[Indobase Documentation](https://indobase.fun/docs)** - Official Indobase docs
 - **[Nx Documentation](https://nx.dev)** - Nx monorepo documentation
 - **[Conventional Commits](https://www.conventionalcommits.org/)** - Commit format specification
 

@@ -2,7 +2,7 @@ import { createIndobaseClient } from '../../src/index'
 import IndobaseClient from '../../src/SupabaseClient'
 
 // Mock the IndobaseClient constructor
-jest.mock('../../src/IndobaseClient')
+jest.mock('../../src/SupabaseClient')
 
 describe('index module', () => {
   const originalProcess = global.process
@@ -29,7 +29,7 @@ describe('index module', () => {
       const mockIndobaseClient = IndobaseClient as jest.MockedClass<typeof IndobaseClient>
       mockIndobaseClient.mockImplementation(() => ({}) as any)
 
-      const indobaseUrl = 'https://test.indobase.co'
+      const indobaseUrl = 'https://test.indobase.fun'
       const indobaseKey = 'test-key'
       const options = { auth: { autoRefreshToken: false } }
 
@@ -43,7 +43,7 @@ describe('index module', () => {
       const mockIndobaseClient = IndobaseClient as jest.MockedClass<typeof IndobaseClient>
       mockIndobaseClient.mockImplementation(() => ({}) as any)
 
-      const indobaseUrl = 'https://test.indobase.co'
+      const indobaseUrl = 'https://test.indobase.fun'
       const indobaseKey = 'test-key'
 
       const client = createIndobaseClient(indobaseUrl, indobaseKey)
@@ -68,7 +68,7 @@ describe('index module', () => {
         }
       }
 
-      const indobaseUrl = 'https://test.indobase.co'
+      const indobaseUrl = 'https://test.indobase.fun'
       const indobaseKey = 'test-key'
 
       const client = createIndobaseClient<TestDatabase>(indobaseUrl, indobaseKey)

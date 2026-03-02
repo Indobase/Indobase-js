@@ -294,7 +294,7 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    * ```json
    * {
    *   "data": {
-   *     "signedUrl": "https://example.supabase.co/storage/v1/object/upload/sign/avatars/folder/cat.jpg?token=<TOKEN>",
+   *     "signedUrl": "https://example.indobase.fun/storage/v1/object/upload/sign/avatars/folder/cat.jpg?token=<TOKEN>",
    *     "path": "folder/cat.jpg",
    *     "token": "<TOKEN>"
    *   },
@@ -549,7 +549,7 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    * ```json
    * {
    *   "data": {
-   *     "signedUrl": "https://example.supabase.co/storage/v1/object/sign/avatars/folder/avatar1.png?token=<TOKEN>"
+   *     "signedUrl": "https://example.indobase.fun/storage/v1/object/sign/avatars/folder/avatar1.png?token=<TOKEN>"
    *   },
    *   "error": null
    * }
@@ -634,13 +634,13 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    *       "error": null,
    *       "path": "folder/avatar1.png",
    *       "signedURL": "/object/sign/avatars/folder/avatar1.png?token=<TOKEN>",
-   *       "signedUrl": "https://example.supabase.co/storage/v1/object/sign/avatars/folder/avatar1.png?token=<TOKEN>"
+   *       "signedUrl": "https://example.indobase.fun/storage/v1/object/sign/avatars/folder/avatar1.png?token=<TOKEN>"
    *     },
    *     {
    *       "error": null,
    *       "path": "folder/avatar2.png",
    *       "signedURL": "/object/sign/avatars/folder/avatar2.png?token=<TOKEN>",
-   *       "signedUrl": "https://example.supabase.co/storage/v1/object/sign/avatars/folder/avatar2.png?token=<TOKEN>"
+   *       "signedUrl": "https://example.indobase.fun/storage/v1/object/sign/avatars/folder/avatar2.png?token=<TOKEN>"
    *     }
    *   ],
    *   "error": null
@@ -869,7 +869,7 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    * ```json
    * {
    *   "data": {
-   *     "publicUrl": "https://example.supabase.co/storage/v1/object/public/public-bucket/folder/avatar1.png"
+   *     "publicUrl": "https://example.indobase.fun/storage/v1/object/public/public-bucket/folder/avatar1.png"
    *   }
    * }
    * ```

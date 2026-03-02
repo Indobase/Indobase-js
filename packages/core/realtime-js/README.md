@@ -13,9 +13,9 @@
   <h3 align="center">Send ephemeral messages with <b>Broadcast</b>, track and synchronize state with <b>Presence</b>, and listen to database changes with <b>Postgres Change Data Capture (CDC)</b>.</h3>
 
   <p align="center">
-    <a href="https://supabase.com/docs/guides/realtime">Guides</a>
+    <a href="https://indobase.com/docs/guides/realtime">Guides</a>
     ·
-    <a href="https://supabase.com/docs/reference/javascript">Reference Docs</a>
+    <a href="https://indobase.com/docs/reference/javascript">Reference Docs</a>
     ·
     <a href="https://multiplayer.dev">Multiplayer Demo</a>
   </p>
@@ -43,13 +43,13 @@ This SDK enables you to use the following Supabase Realtime's features:
 ## Installing the Package
 
 ```bash
-npm install @supabase/realtime-js
+npm install @indobase/realtime-js
 ```
 
 ## Creating a Channel
 
 ```js
-import { RealtimeClient } from '@supabase/realtime-js'
+import { RealtimeClient } from '@indobase/realtime-js'
 
 const client = new RealtimeClient(REALTIME_URL, {
   params: {
@@ -80,7 +80,7 @@ channel.subscribe((status, err) => {
 
 ### Notes:
 
-- `REALTIME_URL` is `'ws://localhost:4000/socket'` when developing locally and `'wss://<project_ref>.supabase.co/realtime/v1'` when connecting to your Supabase project.
+- `REALTIME_URL` is `'ws://localhost:4000/socket'` when developing locally and `'wss://<project_ref>.indobase.fun/realtime/v1'` when connecting to your Indobase project.
 - `API_KEY` is a JWT whose claims must contain `exp` and `role` (existing database role).
 - Channel name can be any `string`.
 - Setting `private` to `true` means that the client will use RLS to determine if the user can connect or not to a given channel.
@@ -115,7 +115,7 @@ channel.subscribe(async (status) => {
 
 ### Broadcast Replay
 
-Broadcast Replay enables **private** channels to access messages that were sent earlier. Only messages published via [Broadcast From the Database](https://supabase.com/docs/guides/realtime/broadcast#trigger-broadcast-messages-from-your-database) are available for replay.
+Broadcast Replay enables **private** channels to access messages that were sent earlier. Only messages published via [Broadcast From the Database](https://indobase.com/docs/guides/realtime/broadcast#trigger-broadcast-messages-from-your-database) are available for replay.
 
 You can configure replay with the following options:
 

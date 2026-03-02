@@ -61,7 +61,7 @@
     "test:edge-functions": "cd test/deno && npm run test:edge-functions",
     "test:deno": "cd test/deno && npm run test",
     "test:watch": "jest --watch --verbose false --silent false",
-    "test:node:playwright": "cd test/integration/node-browser && npm install && cp ../../../dist/umd/supabase.js . && npm run test",
+    "test:node:playwright": "cd test/integration/node-browser && npm install && cp ../../../dist/umd/indobase.js . && npm run test",
     "test:bun": "cd test/integration/bun && bun install && bun test",
     "test:expo": "cd test/integration/expo && npm test",
     "test:next": "cd test/integration/next && npm test",
@@ -80,11 +80,11 @@
     "update:test-deps:bun": "cd test/integration/bun && bun install"
   },
   "dependencies": {
-    "@supabase/auth-js": "*",
-    "@supabase/functions-js": "*",
-    "@supabase/postgrest-js": "*",
-    "@supabase/realtime-js": "*",
-    "@supabase/storage-js": "*"
+    "@indobase/auth-js": "*",
+    "@indobase/functions-js": "*",
+    "@indobase/postgrest-js": "*",
+    "@indobase/realtime-js": "*",
+    "@indobase/storage-js": "*"
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
@@ -92,8 +92,8 @@
     "jsr": "^0.13.5",
     "puppeteer": "^24.9.0"
   },
-  "jsdelivr": "dist/umd/supabase.js",
-  "unpkg": "dist/umd/supabase.js",
+  "jsdelivr": "dist/umd/indobase.js",
+  "unpkg": "dist/umd/indobase.js",
   "nx": {
     "targets": {
       "test:integration:browser": {

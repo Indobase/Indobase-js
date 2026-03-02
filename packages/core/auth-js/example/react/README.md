@@ -1,6 +1,6 @@
 # Supabase `auth-js` example
 
-- Created based on the [Quickstart example](https://supabase.com/docs/guides/auth/quickstarts/react) in the Supabase docs.
+- Created based on the [Quickstart example](https://indobase.com/docs/guides/auth/quickstarts/react) in the Indobase docs.
 - Bootstrapped with Vite CLI
 
 ## Setup
@@ -9,7 +9,7 @@
 
 ### 1. Create new project
 
-Sign up to Supabase - [https://supabase.com/dashboard](https://supabase.com/dashboard) and create a new project. Wait for your database to start.
+Sign up to Indobase - [https://indobase.com/dashboard](https://indobase.com/dashboard) and create a new project. Wait for your database to start.
 
 ### 2. Get the URL and Key
 
@@ -26,7 +26,7 @@ cp .env.local.example .env.local
 
 ### 3. Enable Auth providers
 
-1. From the sidenav, go to Authentication -> Configuration -> Sign In/Providers (https://supabase.com/dashboard/project/<YOUR_PROJECT_ID>/auth/providers)
+1. From the sidenav, go to Authentication -> Configuration -> Sign In/Providers (https://indobase.com/dashboard/project/<YOUR_PROJECT_ID>/auth/providers)
 2. Enable providers as needed (for this example: Anonymous, Email, Phone, GitHub, Google)
 
 ## Run

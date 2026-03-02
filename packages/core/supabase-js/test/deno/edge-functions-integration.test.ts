@@ -1,11 +1,11 @@
 import 'node:buffer'
 import { assertEquals, assertExists } from 'https://deno.land/std@0.220.1/assert/mod.ts'
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@indobase/supabase-js'
 
 // These tests are for integration testing with actual deployed edge functions
 // To run these tests, you need to:
-// 1. Deploy the edge functions to a Supabase project
-// 2. Set the SUPABASE_URL and SUPABASE_ANON_KEY environment variables
+// 1. Deploy the edge functions to an Indobase project
+// 2. Set the INDOBASE_URL and INDOBASE_ANON_KEY environment variables
 // 3. Or use the local development credentials below
 
 Deno.test(
@@ -13,18 +13,18 @@ Deno.test(
   { sanitizeOps: false, sanitizeResources: false },
   async (t) => {
     // Use environment variables or fall back to local development
-    const SUPABASE_URL = Deno.env.get('SUPABASE_URL') || 'http://127.0.0.1:54321'
+    const INDOBASE_URL = Deno.env.get('INDOBASE_URL') || 'http://127.0.0.1:54321'
     const ANON_KEY =
-      Deno.env.get('SUPABASE_ANON_KEY') ||
+      Deno.env.get('INDOBASE_ANON_KEY') ||
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0'
 
-    const supabase = createClient(SUPABASE_URL, ANON_KEY, {
+    const indobase = createClient(INDOBASE_URL, ANON_KEY, {
       realtime: { heartbeatIntervalMs: 500 },
     })
 
     try {
       await t.step('hello function - should return greeting with name', async () => {
-        const { data, error } = await supabase.functions.invoke('hello', {
+        const { data, error } = await indobase.functions.invoke('hello', {
           body: { name: 'Test User' },
         })
 
@@ -36,7 +36,7 @@ Deno.test(
       })
 
       await t.step('hello function - should return default greeting without name', async () => {
-        const { data, error } = await supabase.functions.invoke('hello', {
+        const { data, error } = await indobase.functions.invoke('hello', {
           body: {},
         })
 
@@ -55,7 +55,7 @@ Deno.test(
           nested: { key: 'value' },
         }
 
-        const { data, error } = await supabase.functions.invoke('echo', {
+        const { data, error } = await indobase.functions.invoke('echo', {
           body: testData,
         })
 
@@ -68,7 +68,7 @@ Deno.test(
       })
 
       await t.step('status function - should return system status', async () => {
-        const { data, error } = await supabase.functions.invoke('status', {
+        const { data, error } = await indobase.functions.invoke('status', {
           body: {},
         })
 
@@ -82,7 +82,7 @@ Deno.test(
       })
 
       await t.step('should handle non-existent function', async () => {
-        const { data, error } = await supabase.functions.invoke('non-existent-function', {
+        const { data, error } = await indobase.functions.invoke('non-existent-function', {
           body: {},
         })
 
@@ -92,7 +92,7 @@ Deno.test(
 
       await t.step('should handle concurrent function calls', async () => {
         const promises = Array.from({ length: 5 }, (_, i) =>
-          supabase.functions.invoke('hello', {
+          indobase.functions.invoke('hello', {
             body: { name: `Concurrent Test ${i}` },
           })
         )
@@ -118,7 +118,7 @@ Deno.test(
       })
 
       await t.step('should handle function errors gracefully', async () => {
-        const { data, error } = await supabase.functions.invoke('hello', {
+        const { data, error } = await indobase.functions.invoke('hello', {
           body: 'invalid json',
         })
 

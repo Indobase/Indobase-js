@@ -59,10 +59,10 @@ export default class GoTrueAdminApi {
    *
    * @example
    * ```ts
-   * import { GoTrueAdminApi } from '@supabase/auth-js'
+   * import { GoTrueAdminApi } from '@indobase/auth-js'
    *
    * const admin = new GoTrueAdminApi({
-   *   url: 'https://xyzcompany.supabase.co/auth/v1',
+   *   url: 'https://xyzcompany.indobase.fun/auth/v1',
    *   headers: { Authorization: `Bearer ${process.env.INDOBASE_SERVICE_ROLE_KEY}` },
    * })
    * ```

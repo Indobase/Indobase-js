@@ -13,9 +13,9 @@
   <h3 align="center">JavaScript SDK to interact with Supabase Storage, including file storage and vector embeddings.</h3>
 
   <p align="center">
-    <a href="https://supabase.com/docs/guides/storage">Guides</a>
+    <a href="https://indobase.com/docs/guides/storage">Guides</a>
     ·
-    <a href="https://supabase.com/docs/reference/javascript/storage-createbucket">Reference Docs</a>
+    <a href="https://indobase.com/docs/reference/javascript/storage-createbucket">Reference Docs</a>
     ·
     <a href="https://supabase.github.io/supabase-js/storage-js/v2/spec.json">TypeDoc</a>
   </p>
@@ -53,7 +53,7 @@
 ### Installing the module
 
 ```bash
-npm install @supabase/storage-js
+npm install @indobase/storage-js
 ```
 
 ### Connecting to the storage backend
@@ -62,13 +62,13 @@ There are two ways to use the Storage SDK:
 
 #### Option 1: Via Supabase Client (Recommended)
 
-If you're already using `@supabase/supabase-js`, access storage through the client:
+If you're already using `@indobase/supabase-js`, access storage through the client:
 
 ```js
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@indobase/supabase-js'
 
 // Use publishable/anon key for frontend applications
-const supabase = createClient('https://<project_ref>.supabase.co', '<your-publishable-key>')
+const supabase = createClient('https://<project_ref>.indobase.fun', '<your-publishable-key>')
 
 // Access storage
 const storage = supabase.storage
@@ -84,9 +84,9 @@ const analyticsBucket = storage.analytics // Analytics API
 For backend applications or when you need to bypass Row Level Security:
 
 ```js
-import { StorageClient } from '@supabase/storage-js'
+import { StorageClient } from '@indobase/storage-js'
 
-const STORAGE_URL = 'https://<project_ref>.supabase.co/storage/v1'
+const STORAGE_URL = 'https://<project_ref>.indobase.fun/storage/v1'
 const SERVICE_KEY = '<your-secret-key>' // Use secret key for backend operations
 
 const storageClient = new StorageClient(STORAGE_URL, {
@@ -105,7 +105,7 @@ const analyticsBucket = storageClient.analytics // Analytics API
 > - Use `supabase.storage` when working with other Supabase features (auth, database, etc.) in frontend applications
 > - Use `new StorageClient()` for backend applications, Edge Functions, or when you need to bypass RLS policies
 
-> **Note:** Refer to the [Storage Access Control guide](https://supabase.com/docs/guides/storage/access-control) for detailed information on creating RLS policies.
+> **Note:** Refer to the [Storage Access Control guide](https://indobase.com/docs/guides/storage/access-control) for detailed information on creating RLS policies.
 
 ### Understanding Bucket Types
 
@@ -245,7 +245,7 @@ await storageClient.analytics.deleteBucket('analytics-data')
   > const { data2, error2 } = await storageClient.from(data.bucketId).download(data.path)
   > ```
 
-  > Note: The `upload` method also accepts a map of optional parameters. For a complete list see the [Supabase API reference](https://supabase.com/docs/reference/javascript/storage-from-upload).
+  > Note: The `upload` method also accepts a map of optional parameters. For a complete list see the [Indobase API reference](https://indobase.com/docs/reference/javascript/storage-from-upload).
 
 - Download a file from an exisiting bucket:
 
@@ -259,7 +259,7 @@ await storageClient.analytics.deleteBucket('analytics-data')
   const { data, error } = await storageClient.from('bucket').list('folder')
   ```
 
-  > Note: The `list` method also accepts a map of optional parameters. For a complete list see the [Supabase API reference](https://supabase.com/docs/reference/javascript/storage-from-list).
+  > Note: The `list` method also accepts a map of optional parameters. For a complete list see the [Indobase API reference](https://indobase.com/docs/reference/javascript/storage-from-list).
 
 - Replace an existing file at the specified path with a new one:
 
@@ -271,7 +271,7 @@ await storageClient.analytics.deleteBucket('analytics-data')
     .update('path/to/file', fileBody)
   ```
 
-  > Note: The `upload` method also accepts a map of optional parameters. For a complete list see the [Supabase API reference](https://supabase.com/docs/reference/javascript/storage-from-upload).
+  > Note: The `upload` method also accepts a map of optional parameters. For a complete list see the [Indobase API reference](https://indobase.com/docs/reference/javascript/storage-from-upload).
 
 - Move an existing file:
 
@@ -341,9 +341,9 @@ You can access analytics functionality through the `analytics` property on your 
 #### Via Supabase Client
 
 ```typescript
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@indobase/supabase-js'
 
-const supabase = createClient('https://your-project.supabase.co', 'your-publishable-key')
+const supabase = createClient('https://your-project.indobase.fun', 'your-publishable-key')
 
 // Access analytics operations
 const analytics = supabase.storage.analytics
@@ -360,9 +360,9 @@ if (error) {
 #### Via StorageClient
 
 ```typescript
-import { StorageClient } from '@supabase/storage-js'
+import { StorageClient } from '@indobase/storage-js'
 
-const storageClient = new StorageClient('https://your-project.supabase.co/storage/v1', {
+const storageClient = new StorageClient('https://your-project.indobase.fun/storage/v1', {
   apikey: 'YOUR_API_KEY',
   Authorization: 'Bearer YOUR_TOKEN',
 })
@@ -591,7 +591,7 @@ try {
 The library exports TypeScript types for analytics buckets:
 
 ```typescript
-import type { AnalyticBucket, BucketType, StorageError } from '@supabase/storage-js'
+import type { AnalyticBucket, BucketType, StorageError } from '@indobase/storage-js'
 
 // AnalyticBucket type
 interface AnalyticBucket {
@@ -713,7 +713,7 @@ If you're using the full Supabase client:
 ```typescript
 import { createClient } from '@supabase/supabase-js'
 
-const supabase = createClient('https://your-project.supabase.co', 'your-publishable-key')
+const supabase = createClient('https://your-project.indobase.fun', 'your-publishable-key')
 
 // Access vector operations through storage
 const vectors = supabase.storage.vectors
@@ -763,9 +763,9 @@ if (data) {
 If you're using the standalone `StorageClient` for storage operations, access vectors through the `vectors` property:
 
 ```typescript
-import { StorageClient } from '@supabase/storage-js'
+import { StorageClient } from '@indobase/storage-js'
 
-const storageClient = new StorageClient('https://your-project.supabase.co/storage/v1', {
+const storageClient = new StorageClient('https://your-project.indobase.fun/storage/v1', {
   apikey: 'YOUR_API_KEY',
   Authorization: 'Bearer YOUR_TOKEN',
 })
@@ -784,10 +784,10 @@ const bucket = vectors.from('embeddings-prod')
 For vector-only applications that don't need regular file storage operations:
 
 ```typescript
-import { StorageVectorsClient } from '@supabase/storage-js'
+import { StorageVectorsClient } from '@indobase/storage-js'
 
 // Initialize standalone vector client
-const vectorClient = new StorageVectorsClient('https://your-project.supabase.co/storage/v1', {
+const vectorClient = new StorageVectorsClient('https://your-project.indobase.fun/storage/v1', {
   headers: { Authorization: 'Bearer YOUR_TOKEN' },
 })
 
@@ -1095,7 +1095,7 @@ await index.queryVectors({
 Provide a custom fetch implementation:
 
 ```typescript
-import { StorageVectorsClient } from '@supabase/storage-js'
+import { StorageVectorsClient } from '@indobase/storage-js'
 
 const vectorClient = new StorageVectorsClient(url, {
   fetch: customFetch,
@@ -1126,7 +1126,7 @@ async function insertLargeDataset(vectors: VectorObject[]) {
 Ensure vectors are properly normalized to float32:
 
 ```typescript
-import { normalizeToFloat32 } from '@supabase/storage-js'
+import { normalizeToFloat32 } from '@indobase/storage-js'
 
 const vector = normalizeToFloat32([0.1, 0.2, 0.3 /* ... */])
 ```
