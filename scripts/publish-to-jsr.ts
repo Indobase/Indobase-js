@@ -3,7 +3,7 @@ import { readFileSync, writeFileSync, existsSync } from 'fs'
 import { join } from 'path'
 
 // Only publishing packages with explicit return types to JSR
-const packages = ['functions-js', 'supabase-js']
+const packages = ['functions-js', 'indobase-js']
 
 function getArg(name: string): string | undefined {
   const idx = process.argv.findIndex((a) => a === `--${name}` || a.startsWith(`--${name}=`))
@@ -62,7 +62,7 @@ async function publishToJsr() {
     jsrConfig.version = version
     writeFileSync(jsrPath, JSON.stringify(jsrConfig, null, 2) + '\n')
 
-    console.log(`\n📤 Publishing @supabase/${pkg}@${version} to JSR...`)
+    console.log(`\n📤 Publishing @indobase/${pkg}@${version} to JSR...`)
 
     try {
       // Change to package directory and publish
@@ -75,7 +75,7 @@ async function publishToJsr() {
 
       safeExec(publishCmd)
 
-      console.log(`✅ Successfully published @supabase/${pkg}@${version} to JSR`)
+      console.log(`✅ Successfully published @indobase/${pkg}@${version} to JSR`)
       results.push({ package: pkg, success: true })
     } catch (error) {
       const errorMsg = error instanceof Error ? error.message : String(error)

@@ -101,11 +101,11 @@ vite.config.*.timestamp*
 vitest.config.*.timestamp*
 test-output
 
-supabase/.branches/*
-supabase/.temp/*
+indobase/.branches/*
+indobase/.temp/*
 
-packages/**/supabase/.temp/*
-packages/**/supabase/.branches/*
+packages/**/indobase/.temp/*
+packages/**/indobase/.branches/*
 
 # Test signing keys (generated at test runtime)
 **/signing_keys.json

@@ -1,6 +1,6 @@
 import { StorageClient } from '../src/index'
 
-// Supabase CLI local development defaults
+// Indobase CLI local development defaults
 const URL = 'http://127.0.0.1:54321/storage/v1'
 // service_role key - bypasses RLS for testing
 const KEY =

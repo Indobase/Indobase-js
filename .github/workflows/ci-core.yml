@@ -65,7 +65,7 @@ jobs:
       - name: Generate RSA signing keys for auth-js tests
         run: node packages/core/auth-js/test/generate-signing-keys.js
 
-      - name: Run auth-js tests with Supabase CLI (if affected)
+      - name: Run auth-js tests with Indobase CLI (if affected)
         run: npx nx affected --target=test:auth
         timeout-minutes: 10
 
@@ -79,8 +79,8 @@ jobs:
           fail-on-error: false
         continue-on-error: true
 
-      - name: Setup Supabase CLI (for storage-js tests)
-        uses: supabase/setup-cli@b60b5899c73b63a2d2d651b1e90db8d4c9392f51 # v1.6.0
+      - name: Setup Indobase CLI (for storage-js tests)
+        uses: indobase/setup-cli@b60b5899c73b63a2d2d651b1e90db8d4c9392f51 # v1.6.0
         with:
           version: latest
 
@@ -118,7 +118,7 @@ jobs:
         run: node packages/core/auth-js/test/generate-signing-keys.js
 
       - name: Run auth-js Docker tests (if affected)
-        run: npx nx affected --target=test:docker --projects=@supabase/auth-js
+        run: npx nx affected --target=test:docker --projects=@indobase/auth-js
         timeout-minutes: 10
 
       # Note: Docker test coverage is not uploaded to Coveralls
@@ -142,8 +142,8 @@ jobs:
         run: npm ci
       - uses: nrwl/nx-set-shas@3e9ad7370203c1e93d109be57f3b72eb0eb511b1 # v4.4.0
 
-      - name: Setup Supabase CLI (for postgrest-js tests)
-        uses: supabase/setup-cli@b60b5899c73b63a2d2d651b1e90db8d4c9392f51 # v1.6.0
+      - name: Setup Indobase CLI (for postgrest-js tests)
+        uses: indobase/setup-cli@b60b5899c73b63a2d2d651b1e90db8d4c9392f51 # v1.6.0
         with:
           version: latest
 
@@ -181,8 +181,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Setup Supabase CLI (for checking generated types)
-        uses: supabase/setup-cli@b60b5899c73b63a2d2d651b1e90db8d4c9392f51 # v1.6.0
+      - name: Setup Indobase CLI (for checking generated types)
+        uses: indobase/setup-cli@b60b5899c73b63a2d2d651b1e90db8d4c9392f51 # v1.6.0
         with:
           version: latest
 

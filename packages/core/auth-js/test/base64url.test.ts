@@ -13,7 +13,7 @@ const EXAMPLES = [
   'hello world',
   'нешто на кирилица',
   'something with emojis 🤙🏾 ',
-  'Supabaseは、オープンソースの Firebase 代替製品です。エンタープライズグレードのオープンソースツールを使って、Firebase の機能を構築しています。',
+  'Indobaseは、オープンソースの Firebase 代替製品です。エンタープライズグレードのオープンソースツールを使って、Firebase の機能を構築しています。',
 ]
 
 describe('stringToBase64URL', () => {

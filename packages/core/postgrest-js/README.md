@@ -1,14 +1,13 @@
-<br />
 <p align="center">
-  <a href="https://supabase.io">
+  <a href="https://indobase.com">
         <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/supabase-logo-wordmark--dark.svg">
-      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/supabase-logo-wordmark--light.svg">
-      <img alt="Supabase Logo" width="300" src="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/logo-preview.jpg">
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/indobase/indobase-js/master/packages/common/assets/images/indobase-logo-wordmark--dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/indobase/indobase-js/master/packages/common/assets/images/indobase-logo-wordmark--light.svg">
+      <img alt="Indobase Logo" width="300" src="https://raw.githubusercontent.com/indobase/indobase-js/master/packages/common/assets/images/logo-preview.jpg">
     </picture>
   </a>
 
-  <h1 align="center">Supabase PostgREST JS SDK</h1>
+  <h1 align="center">Indobase PostgREST JS SDK</h1>
 
   <h3 align="center">Isomorphic JavaScript SDK for <a href="https://postgrest.org">PostgREST</a> with an ORM-like interface.</h3>
 
@@ -17,16 +16,16 @@
     ·
     <a href="https://indobase.com/docs/reference/javascript/select">Reference Docs</a>
     ·
-    <a href="https://supabase.github.io/supabase-js/postgrest-js/v2/spec.json">TypeDoc</a>
+    <a href="https://indobase.github.io/indobase-js/postgrest-js/v2/spec.json">TypeDoc</a>
   </p>
 </p>
 
 <div align="center">
 
-[![Build](https://github.com/supabase/supabase-js/workflows/CI/badge.svg)](https://github.com/supabase/supabase-js/actions?query=branch%3Amaster)
-[![Package](https://img.shields.io/npm/v/@supabase/postgrest-js)](https://www.npmjs.com/package/@supabase/postgrest-js)
-[![License: MIT](https://img.shields.io/npm/l/@supabase/supabase-js)](#license)
-[![pkg.pr.new](https://pkg.pr.new/badge/supabase/postgrest-js)](https://pkg.pr.new/~/supabase/postgrest-js)
+[![Build](https://github.com/indobase/indobase-js/workflows/CI/badge.svg)](https://github.com/indobase/indobase-js/actions?query=branch%3Amaster)
+[![Package](https://img.shields.io/npm/v/@indobase/postgrest-js)](https://www.npmjs.com/package/@indobase/postgrest-js)
+[![License: MIT](https://img.shields.io/npm/l/@indobase/js)](#license)
+[![pkg.pr.new](https://pkg.pr.new/badge/indobase/postgrest-js)](https://pkg.pr.new/~/indobase/postgrest-js)
 
 </div>
 
@@ -34,13 +33,15 @@
 
 Install
 
-```bash
+```
+bash
 npm install @indobase/postgrest-js
 ```
 
 Usage
 
-```js
+```
+js
 import { PostgrestClient } from '@indobase/postgrest-js'
 
 const REST_URL = 'http://localhost:3000'
@@ -56,7 +57,8 @@ const postgrest = new PostgrestClient(REST_URL)
 
 `postgrest-js` uses the [`cross-fetch`](https://www.npmjs.com/package/cross-fetch) library to make HTTP requests, but an alternative `fetch` implementation can be provided as an option. This is most useful in environments where `cross-fetch` is not compatible, for instance Cloudflare Workers:
 
-```js
+```
+js
 import { PostgrestClient } from '@indobase/postgrest-js'
 
 const REST_URL = 'http://localhost:3000'
@@ -71,7 +73,8 @@ This package is part of the [Indobase JavaScript monorepo](https://github.com/in
 
 ### Building
 
-```bash
+```
+bash
 # Build (from monorepo root)
 npx nx build postgrest-js
 
@@ -91,22 +94,24 @@ npx nx docs postgrest-js
 
 #### Quick Start
 
-```bash
+```
+bash
 # Run all tests (from monorepo root)
 npx nx test:ci:postgrest postgrest-js
 ```
 
 This single command automatically:
 
-1. Stops any existing Supabase CLI containers
-2. Starts PostgreSQL database and PostgREST server via Supabase CLI
+1. Stops any existing Indobase CLI containers
+2. Starts PostgreSQL database and PostgREST server via Indobase CLI
 3. Resets and seeds the database
 4. Runs all Jest unit tests with coverage
 5. Cleans up containers
 
 #### Individual Test Commands
 
-```bash
+```
+bash
 # Run Jest tests with coverage (requires infrastructure running)
 npx nx test:run postgrest-js
 
@@ -125,43 +130,46 @@ npx nx format:check postgrest-js
 
 #### Test Infrastructure
 
-The tests use Supabase CLI to spin up:
+The tests use Indobase CLI to spin up:
 
 - **PostgreSQL** - Database with test schema and seed data (port 54322)
 - **PostgREST** - REST API server that the client connects to (port 54321)
 
-```bash
+```
+bash
 # Manually manage test infrastructure (from monorepo root)
 npx nx test:infra postgrest-js      # Start containers
 npx nx test:clean-pre postgrest-js  # Stop and remove containers
 ```
 
-Or directly via Supabase CLI:
+Or directly via Indobase CLI:
 
-```bash
+```
+bash
 cd packages/core/postgrest-js
-npx supabase --workdir ./test start        # Start all services
-npx supabase --workdir ./test db reset     # Reset and seed database
-npx supabase --workdir ./test stop         # Stop all services
+npx indobase --workdir ./test start        # Start all services
+npx indobase --workdir ./test db reset     # Reset and seed database
+npx indobase --workdir ./test stop         # Stop all services
 ```
 
 #### Regenerating TypeScript Types
 
 When the database schema changes, regenerate TypeScript types from the actual database:
 
-```bash
+```
+bash
 # From the monorepo root
 npm run codegen:postgrest
 ```
 
 This command automatically:
 
-1. Cleans up any existing Supabase containers
-2. Starts Supabase (PostgreSQL, PostgREST, and all services)
+1. Cleans up any existing Indobase containers
+2. Starts Indobase (PostgreSQL, PostgREST, and all services)
 3. Generates TypeScript types from the database schema
 4. Post-processes the generated types (updates JSON type definitions)
 5. Formats the generated file with Prettier
-6. Cleans up Supabase containers
+6. Cleans up Indobase containers
 
 The generated types are written to `test/types.generated.ts`.
 
@@ -173,17 +181,18 @@ The generated types are written to `test/types.generated.ts`.
 
 #### Prerequisites
 
-- **Indobase CLI** must be installed ([instructions](https://indobase.com/docs/guides/local-development/cli/getting-started)) or can be used through `npx` (`npx supabase`)
-- **Docker** must be installed and running (Supabase CLI uses Docker under the hood)
+- **Indobase CLI** must be installed ([instructions](https://indobase.com/docs/guides/local-development/cli/getting-started)) or can be used through `npx` (`npx indobase`)
+- **Docker** must be installed and running (Indobase CLI uses Docker under the hood)
 - **Port 54321** - PostgREST API
 - **Port 54322** - PostgreSQL database
-- **Port 54323** - Supabase Studio (used for type generation)
+- **Port 54323** - Indobase Studio (used for type generation)
 
 #### PostgREST v12 Backward Compatibility Tests
 
-We maintain backward compatibility tests for PostgREST v12 (the current Supabase CLI uses v14+). These tests ensure the SDK works correctly for users still running older PostgREST versions.
+We maintain backward compatibility tests for PostgREST v12 (the current Indobase CLI uses v14+). These tests ensure the SDK works correctly for users still running older PostgREST versions.
 
-```bash
+```
+bash
 # Run v12 compatibility tests (requires Docker)
 npx nx test:ci:v12 postgrest-js
 ```
@@ -196,7 +205,8 @@ This command:
 
 **Type-only tests** for v12 compatibility also run as part of the regular type tests:
 
-```bash
+```
+bash
 npx nx test:types postgrest-js  # Includes v12-compat.test-d.ts
 ```
 

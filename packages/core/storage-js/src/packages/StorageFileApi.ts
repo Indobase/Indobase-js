@@ -153,7 +153,7 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    * @example Upload file
    * ```js
    * const avatarFile = event.target.files[0]
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .from('avatars')
    *   .upload('public/avatar1.png', avatarFile, {
@@ -177,7 +177,7 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    * ```js
    * import { decode } from 'base64-arraybuffer'
    *
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .from('avatars')
    *   .upload('public/avatar1.png', decode('base64FileData'), {
@@ -216,7 +216,7 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    *
    * @example Upload to a signed URL
    * ```js
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .from('avatars')
    *   .uploadToSignedUrl('folder/cat.jpg', 'token-from-createSignedUploadUrl', file)
@@ -284,7 +284,7 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    *
    * @example Create Signed Upload URL
    * ```js
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .from('avatars')
    *   .createSignedUploadUrl('folder/cat.jpg')
@@ -355,7 +355,7 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    * @example Update file
    * ```js
    * const avatarFile = event.target.files[0]
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .from('avatars')
    *   .update('public/avatar1.png', avatarFile, {
@@ -379,7 +379,7 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    * ```js
    * import {decode} from 'base64-arraybuffer'
    *
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .from('avatars')
    *   .update('public/avatar1.png', decode('base64FileData'), {
@@ -425,7 +425,7 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    *
    * @example Move file
    * ```js
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .from('avatars')
    *   .move('public/avatar1.png', 'private/avatar2.png')
@@ -481,7 +481,7 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    *
    * @example Copy file
    * ```js
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .from('avatars')
    *   .copy('public/avatar1.png', 'private/avatar2.png')
@@ -539,7 +539,7 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    *
    * @example Create Signed URL
    * ```js
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .from('avatars')
    *   .createSignedUrl('folder/avatar1.png', 60)
@@ -557,7 +557,7 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    *
    * @example Create a signed URL for an asset with transformations
    * ```js
-   * const { data } = await supabase
+   * const { data } = await indobase
    *   .storage
    *   .from('avatars')
    *   .createSignedUrl('folder/avatar1.png', 60, {
@@ -570,7 +570,7 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    *
    * @example Create a signed URL which triggers the download of the asset
    * ```js
-   * const { data } = await supabase
+   * const { data } = await indobase
    *   .storage
    *   .from('avatars')
    *   .createSignedUrl('folder/avatar1.png', 60, {
@@ -620,7 +620,7 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    *
    * @example Create Signed URLs
    * ```js
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .from('avatars')
    *   .createSignedUrls(['folder/avatar1.png', 'folder/avatar2.png'], 60)
@@ -692,7 +692,7 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    *
    * @example Download file
    * ```js
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .from('avatars')
    *   .download('folder/avatar1.png')
@@ -708,7 +708,7 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    *
    * @example Download file with transformations
    * ```js
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .from('avatars')
    *   .download('folder/avatar1.png', {
@@ -722,7 +722,7 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    *
    * @example Download with cache control (useful in Edge Functions)
    * ```js
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .from('avatars')
    *   .download('folder/avatar1.png', {}, { cache: 'no-store' })
@@ -733,7 +733,7 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    * const controller = new AbortController()
    * setTimeout(() => controller.abort(), 5000)
    *
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .from('avatars')
    *   .download('folder/avatar1.png', {}, { signal: controller.signal })
@@ -771,7 +771,7 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    *
    * @example Get file info
    * ```js
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .from('avatars')
    *   .info('folder/avatar1.png')
@@ -807,7 +807,7 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    *
    * @example Check file existence
    * ```js
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .from('avatars')
    *   .exists('folder/avatar1.png')
@@ -859,7 +859,7 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    *
    * @example Returns the URL for an asset in a public bucket
    * ```js
-   * const { data } = supabase
+   * const { data } = indobase
    *   .storage
    *   .from('public-bucket')
    *   .getPublicUrl('folder/avatar1.png')
@@ -876,7 +876,7 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    *
    * @example Returns the URL for an asset in a public bucket with transformations
    * ```js
-   * const { data } = supabase
+   * const { data } = indobase
    *   .storage
    *   .from('public-bucket')
    *   .getPublicUrl('folder/avatar1.png', {
@@ -889,7 +889,7 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    *
    * @example Returns the URL which triggers the download of an asset in a public bucket
    * ```js
-   * const { data } = supabase
+   * const { data } = indobase
    *   .storage
    *   .from('public-bucket')
    *   .getPublicUrl('folder/avatar1.png', {
@@ -939,7 +939,7 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    *
    * @example Delete file
    * ```js
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .from('avatars')
    *   .remove(['folder/avatar1.png'])
@@ -1047,7 +1047,7 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    *
    * @example List files in a bucket
    * ```js
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .from('avatars')
    *   .list('folder', {
@@ -1084,7 +1084,7 @@ export default class StorageFileApi extends BaseApiClient<StorageError> {
    *
    * @example Search files in a bucket
    * ```js
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .from('avatars')
    *   .list('folder', {

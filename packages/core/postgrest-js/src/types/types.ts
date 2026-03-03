@@ -6,7 +6,7 @@ import { ClientServerOptions } from './common/common'
 /**
  * Response format
  *
- * {@link https://github.com/supabase/supabase-js/issues/32}
+ * {@link https://github.com/indobase/indobase-js/issues/32}
  */
 interface PostgrestResponseBase {
   status: number
@@ -136,7 +136,7 @@ type MergeDeep<New, Row> = Simplify<
     // eg:
     // {[key: number]: string}
     // or Record<string, number | null>
-    (string extends keyof Row ? { [K: string]: Row[string] } : {})
+    (string extends keyof Row ? { [K in string]: Row[K] } : {})
 >
 
 // Helper to check if a type is a plain object (not an array)

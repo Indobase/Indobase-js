@@ -16,13 +16,13 @@ A minimal anonymous chat app showcasing Indobase Realtime features:
 
 ## Setup
 
-### 1. Create a Supabase Project
+### 1. Create a Indobase Project
 
 Create a new project at [database.new](https://database.new)
 
 ### 2. Run the Database Migration
 
-Go to the [SQL Editor](https://indobase.com/dashboard/project/_/sql) in your Indobase dashboard and run the migration you find in [supabase/migrations/001_create_messages_table.sql](packages/core/realtime-js/example/supabase/migrations/001_create_messages_table.sql).
+Go to the [SQL Editor](https://indobase.com/dashboard/project/_/sql) in your Indobase dashboard and run the migration you find in [indobase/migrations/001_create_messages_table.sql](packages/core/realtime-js/example/indobase/migrations/001_create_messages_table.sql).
 
 ### 3. Configure Environment Variables
 
@@ -35,8 +35,8 @@ cp .env.example .env
 Update the values:
 
 ```env
-NEXT_PUBLIC_SUPABASE_URL=https://your-project.indobase.fun
-NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=your-publishable-key
+NEXT_PUBLIC_INDOBASE_URL=https://your-project.indobase.fun
+NEXT_PUBLIC_INDOBASE_PUBLISHABLE_KEY=your-publishable-key
 ```
 
 Find these in your [Indobase project settings](https://indobase.com/dashboard/project/_/settings/api).
@@ -85,7 +85,7 @@ channel.on('presence', { event: 'sync' }, () => {
 Messages are also stored in the database so users see history when joining:
 
 ```typescript
-const { data } = await supabase
+const { data } = await indobase
   .from('messages')
   .select('*')
   .eq('room', room)
@@ -95,20 +95,20 @@ const { data } = await supabase
 
 ## Local Development
 
-You can run Indobase locally using the Supabase CLI and Docker.
+You can run Indobase locally using the Indobase CLI and Docker.
 
 ### Prerequisites
 
 - [Docker](https://docs.docker.com/get-docker/) installed and running
 - [Indobase CLI](https://indobase.com/docs/guides/cli) (installed or used through `npx`)
 
-### 1. Start Supabase
+### 1. Start Indobase
 
 ```bash
-npx supabase start
+npx indobase start
 ```
 
-This will start all Supabase services locally. Once started, you'll see output with your local credentials:
+This will start all Indobase services locally. Once started, you'll see output with your local credentials:
 
 ```
 ╭──────────────────────────────────────╮
@@ -145,8 +145,8 @@ cp .env.example .env.local
 Update the values:
 
 ```env
-NEXT_PUBLIC_SUPABASE_URL=http://127.0.0.1:54321
-NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_....
+NEXT_PUBLIC_INDOBASE_URL=http://127.0.0.1:54321
+NEXT_PUBLIC_INDOBASE_PUBLISHABLE_KEY=sb_publishable_....
 ```
 
 ### 3. Run Migrations
@@ -154,22 +154,22 @@ NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_....
 Apply the database migration:
 
 ```bash
-npx supabase db reset
+npx indobase db reset
 ```
 
-This will apply all migrations from `supabase/migrations/`.
+This will apply all migrations from `indobase/migrations/`.
 
 ### 5. Access Local Dashboard
 
-Open [http://127.0.0.1:54323](http://127.0.0.1:54323) to access Supabase Studio locally. Here you can:
+Open [http://127.0.0.1:54323](http://127.0.0.1:54323) to access Indobase Studio locally. Here you can:
 
 - View and edit data in the Table Editor
 - Run SQL queries
 - Monitor Realtime connections
 - Check logs
 
-### Stopping Supabase
+### Stopping Indobase
 
 ```bash
-npx supabase stop
+npx indobase stop
 ```

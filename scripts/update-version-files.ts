@@ -25,7 +25,7 @@ const packageConfigs: PackageConfig[] = [
   { name: 'postgrest-js', versionPath: 'src/version.ts' },
   { name: 'realtime-js', versionPath: 'src/lib/version.ts' },
   { name: 'storage-js', versionPath: 'src/lib/version.ts' },
-  { name: 'supabase-js', versionPath: 'src/lib/version.ts' },
+  { name: 'indobase-js', versionPath: 'src/lib/version.ts' },
 ]
 
 const packagesDir = path.join(__dirname, '../packages/core')

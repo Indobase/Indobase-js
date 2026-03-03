@@ -50,7 +50,7 @@ describe('generateCallbackId', () => {
 
 describe('parseParametersFromURL', () => {
   it('should parse parameters from a URL with query params only', () => {
-    const url = new URL('https://supabase.com')
+    const url = new URL('https://indobase.com')
     url.searchParams.set('a', 'b')
     url.searchParams.set('b', 'c')
 
@@ -62,7 +62,7 @@ describe('parseParametersFromURL', () => {
   })
 
   it('should parse parameters from a URL with fragment params only', () => {
-    const url = new URL('https://supabase.com')
+    const url = new URL('https://indobase.com')
     const fragmentParams = new URLSearchParams({ a: 'b', b: 'c' })
     url.hash = fragmentParams.toString()
 
@@ -74,7 +74,7 @@ describe('parseParametersFromURL', () => {
   })
 
   it('should parse parameters from a URL with both query params and fragment params', () => {
-    const url = new URL('https://supabase.com')
+    const url = new URL('https://indobase.com')
     url.searchParams.set('a', 'b')
     url.searchParams.set('b', 'c')
     url.searchParams.set('x', 'z')
@@ -156,7 +156,7 @@ describe('decodeJWT', () => {
           "exp": 1838099670,
           "iat": 1738099670,
           "is_anonymous": true,
-          "iss": "https://projectref.supabase.co",
+          "iss": "https://projectref.indobase.co",
           "phone": "",
           "role": "",
           "session_id": "4c6b2894-43b4-46c4-bd2f-35c59ec44fef",
@@ -333,7 +333,7 @@ describe('validateUUID', () => {
   test.each(testCases)('$name', ({ input, shouldThrow }) => {
     if (shouldThrow) {
       expect(() => validateUUID(input)).toThrow(
-        '@supabase/auth-js: Expected parameter to be UUID but is not'
+        '@indobase/auth-js: Expected parameter to be UUID but is not'
       )
     } else {
       expect(() => validateUUID(input)).not.toThrow()

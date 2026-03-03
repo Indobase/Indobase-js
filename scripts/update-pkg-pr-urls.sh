@@ -64,11 +64,11 @@ update_file() {
 }
 
 # Update all files
-update_file "packages/core/supabase-js/supabase/deno.json"
-update_file "packages/core/supabase-js/test/deno/deno.json"
-update_file "packages/core/supabase-js/test/integration/next/package.json"
-update_file "packages/core/supabase-js/test/integration/bun/package.json"
-update_file "packages/core/supabase-js/test/integration/expo/package.json"
+update_file "packages/core/indobase-js/indobase/deno.json"
+update_file "packages/core/indobase-js/test/deno/deno.json"
+update_file "packages/core/indobase-js/test/integration/next/package.json"
+update_file "packages/core/indobase-js/test/integration/bun/package.json"
+update_file "packages/core/indobase-js/test/integration/expo/package.json"
 
 echo "=========================================="
 echo "✅ All URLs updated successfully!"

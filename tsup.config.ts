@@ -28,7 +28,7 @@ export default defineConfig([
     outDir: 'dist',
     target: 'es2022',
     external: [
-      '@indobase/supabase-js',
+      '@indobase/indobase-js',
     ],
   },
   // CLI (CJS only for bin)

@@ -1,6 +1,6 @@
-# Claude AI Instructions for Supabase JS Libraries Monorepo
+# Claude AI Instructions for Indobase JS Libraries Monorepo
 
-You are assisting with development in a unified Nx monorepo that consolidates all Supabase JavaScript SDKs, built with Nx for optimal developer experience and maintainability. This strategic migration from 6 separate repositories addresses critical maintenance overhead, dependency duplication, and release coordination challenges while maintaining **zero breaking changes** for consumers.
+You are assisting with development in a unified Nx monorepo that consolidates all Indobase JavaScript SDKs, built with Nx for optimal developer experience and maintainability. This strategic migration from 6 separate repositories addresses critical maintenance overhead, dependency duplication, and release coordination challenges while maintaining **zero breaking changes** for consumers.
 
 > **📚 Essential Documentation**: Always refer to these guides for detailed information:
 >
@@ -15,14 +15,14 @@ You are assisting with development in a unified Nx monorepo that consolidates al
 ### Monorepo Structure
 
 ```text
-supabase-js/
+indobase-js/
 ├── packages/core/
-│   ├── supabase-js/      # @supabase/supabase-js - Main isomorphic client for Supabase
-│   ├── auth-js/          # @supabase/auth-js - Authentication client
-│   ├── postgrest-js/     # @supabase/postgrest-js - PostgREST client for database operations
-│   ├── realtime-js/      # @supabase/realtime-js - Real-time subscriptions client
-│   ├── storage-js/       # @supabase/storage-js - File storage client
-│   └── functions-js/     # @supabase/functions-js - Edge Functions client
+│   ├── indobase-js/      # @indobase/indobase-js - Main isomorphic client for Indobase
+│   ├── auth-js/          # @indobase/auth-js - Authentication client
+│   ├── postgrest-js/     # @indobase/postgrest-js - PostgREST client for database operations
+│   ├── realtime-js/      # @indobase/realtime-js - Real-time subscriptions client
+│   ├── storage-js/       # @indobase/storage-js - File storage client
+│   └── functions-js/     # @indobase/functions-js - Edge Functions client
 ├── docs/                 # Comprehensive documentation guides
 │   ├── CONTRIBUTING.md   # Contribution guidelines
 │   ├── TESTING.md        # Testing guide
@@ -75,14 +75,14 @@ Uses automated canary releases with batched stable releases:
 Internal dependencies use the `*` protocol:
 
 ```json
-// packages/core/supabase-js/package.json
+// packages/core/indobase-js/package.json
 {
   "dependencies": {
-    "@supabase/auth-js": "*",
-    "@supabase/realtime-js": "*",
-    "@supabase/functions-js": "*",
-    "@supabase/storage-js": "*",
-    "@supabase/postgrest-js": "*"
+    "@indobase/auth-js": "*",
+    "@indobase/realtime-js": "*",
+    "@indobase/functions-js": "*",
+    "@indobase/storage-js": "*",
+    "@indobase/postgrest-js": "*"
   }
 }
 ```
@@ -130,10 +130,10 @@ nx test:storage storage-js              # Complete storage-js test suite (handle
 nx test:ci:postgrest postgrest-js      # Complete postgrest-js test suite (handles Docker)
 nx test functions-js                    # Standard test (uses testcontainers)
 nx test realtime-js                     # Standard test (no Docker needed)
-nx test supabase-js                     # Standard test (unit tests only)
+nx test indobase-js                     # Standard test (unit tests only)
 
 # Coverage reports
-nx test supabase-js --coverage
+nx test indobase-js --coverage
 nx test:coverage realtime-js
 nx test:ci functions-js                 # Includes coverage
 ```
@@ -147,24 +147,24 @@ nx test:ci functions-js                 # Includes coverage
 | postgrest-js | ✅ Yes          | PostgREST + PostgreSQL          | `nx test:ci:postgrest postgrest-js` | `nx test:run postgrest-js`, `nx test:update postgrest-js`, `nx test:types postgrest-js`   |
 | functions-js | ✅ Yes          | Deno relay (testcontainers)     | `nx test functions-js`              | `nx test:ci functions-js` (with coverage)                                                 |
 | realtime-js  | ❌ No           | Mock WebSockets                 | `nx test realtime-js`               | `nx test:coverage realtime-js`, `nx test:watch realtime-js`                               |
-| supabase-js  | ❌ No           | Unit tests only                 | `nx test supabase-js`               | `nx test:all`, `nx test:unit`, `nx test:integration`, `nx test:coverage`, `nx test:watch` |
+| indobase-js  | ❌ No           | Unit tests only                 | `nx test indobase-js`               | `nx test:all`, `nx test:unit`, `nx test:integration`, `nx test:coverage`, `nx test:watch` |
 
-**supabase-js Additional Test Commands:**
+**indobase-js Additional Test Commands:**
 
 ```bash
-nx test:all supabase-js                  # Unit + integration + browser tests
-nx test:unit supabase-js                # Jest unit tests only
-nx test:integration supabase-js         # Node.js integration tests
-nx test:integration:browser supabase-js # Browser tests (requires Deno)
-nx test:edge-functions supabase-js      # Edge Functions tests
-nx test:deno supabase-js                # Deno runtime tests
-nx test:bun supabase-js                 # Bun runtime tests
-nx test:expo supabase-js                # React Native/Expo tests
-nx test:next supabase-js                # Next.js SSR tests
-nx test:node:playwright supabase-js     # WebSocket browser tests
-nx test:types supabase-js               # TypeScript type checking
-nx test:coverage supabase-js            # Coverage report
-nx test:watch supabase-js               # Watch mode
+nx test:all indobase-js                  # Unit + integration + browser tests
+nx test:unit indobase-js                # Jest unit tests only
+nx test:integration indobase-js         # Node.js integration tests
+nx test:integration:browser indobase-js # Browser tests (requires Deno)
+nx test:edge-functions indobase-js      # Edge Functions tests
+nx test:deno indobase-js                # Deno runtime tests
+nx test:bun indobase-js                 # Bun runtime tests
+nx test:expo indobase-js                # React Native/Expo tests
+nx test:next indobase-js                # Next.js SSR tests
+nx test:node:playwright indobase-js     # WebSocket browser tests
+nx test:types indobase-js               # TypeScript type checking
+nx test:coverage indobase-js            # Coverage report
+nx test:watch indobase-js               # Watch mode
 ```
 
 > **📖 See [TESTING.md](docs/TESTING.md) for complete testing guide and troubleshooting**
@@ -190,22 +190,22 @@ nx affected --graph                       # Visualize affected projects
 
 ### Cross-Library Bug Fix Example
 
-**Scenario**: Bug in supabase-js caused by realtime-js
+**Scenario**: Bug in indobase-js caused by realtime-js
 
 **Monorepo Solution**:
 
 1. Fix root cause in `packages/core/realtime-js/src/`
 2. Add unit test in `packages/core/realtime-js/test/`
-3. Add integration test in `packages/core/supabase-js/test/`
+3. Add integration test in `packages/core/indobase-js/test/`
 4. Run complete test suites for both packages to verify impacts
-5. Commit: `fix(realtime-js): resolve reconnection logic affecting supabase-js`
+5. Commit: `fix(realtime-js): resolve reconnection logic affecting indobase-js`
 6. Single PR, single review, single release - all packages version together
 
 ### Adding New Features
 
 1. Implement in appropriate library under `packages/core/[library]/src/`
 2. Write comprehensive unit tests in `packages/core/[library]/test/`
-3. If feature affects supabase-js, add integration tests there
+3. If feature affects indobase-js, add integration tests there
 4. Update TypeScript types if needed
 5. Run complete test suite for the package before committing
 6. Use conventional commit: `feat(storage-js): add resumable uploads`
@@ -274,7 +274,7 @@ This repository uses TypeScript project references for incremental builds and be
 
 4. **Utils packages** (utils-fetch):
    - Inherit `moduleResolution: "bundler"` from base
-   - Can optionally add `customConditions: ["@supabase-js/source"]` for source preference
+   - Can optionally add `customConditions: ["@indobase-js/source"]` for source preference
 
 **Key Principles:**
 
@@ -342,7 +342,7 @@ nx test:run postgrest-js    # Run tests
 nx db:clean postgrest-js    # Cleanup
 ```
 
-### Cross-Platform Tests (supabase-js)
+### Cross-Platform Tests (indobase-js)
 
 Tests run against multiple environments:
 
@@ -355,7 +355,7 @@ Tests run against multiple environments:
 
 ## Library-Specific Considerations
 
-### supabase-js
+### indobase-js
 
 - Aggregates all other libraries
 - Primary integration testing location
@@ -422,18 +422,18 @@ Tests run against multiple environments:
 **Current Repository:**
 
 - **Default branch**: `master` (confirmed current default)
-- **Repository URL**: `github.com/supabase/supabase-js`
+- **Repository URL**: `github.com/indobase/indobase-js`
 
 **Original Repository Branches** (for historical reference):
 
-- **master**: auth-js, postgrest-js, realtime-js, supabase-js
+- **master**: auth-js, postgrest-js, realtime-js, indobase-js
 - **main**: functions-js, storage-js
 
 When referencing original repository history or comparing changes, be aware of these branch name differences.
 
 ### Package Publishing
 
-- All packages publish to npm under `@supabase` scope
+- All packages publish to npm under `@indobase` scope
 - Versions synchronized via fixed release mode (all packages always have same version)
 - Changelogs generated per package from conventional commits
 - "No user-facing changes" message for unchanged packages
@@ -454,7 +454,7 @@ Check [TESTING.md](docs/TESTING.md) for port requirements and troubleshooting.
 All commits are validated using commitlint with strict rules:
 
 - **Type**: Required (feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert)
-- **Scope**: Required (auth, functions, postgrest, realtime, storage, supabase, repo, deps, ci, release, docs, scripts, misc)
+- **Scope**: Required (auth, functions, postgrest, realtime, storage, indobase, repo, deps, ci, release, docs, scripts, misc)
 - **Subject**: Required, imperative mood, no period at end, max 100 characters
 - **Interactive Tool**: Use `npm run commit` to ensure compliance
 
@@ -467,13 +467,13 @@ See [CONTRIBUTING.md](CONTRIBUTING.md#commit-guidelines) for complete details.
 ❌ Wrong:
 
 ```json
-"@supabase/auth-js": "3.5.0"
+"@indobase/auth-js": "3.5.0"
 ```
 
 ✅ Correct:
 
 ```json
-"@supabase/auth-js": "*"
+"@indobase/auth-js": "*"
 ```
 
 ### Pitfall 2: Running npm Directly
@@ -507,7 +507,7 @@ nx test:storage storage-js
 nx test:ci:postgrest postgrest-js
 nx test functions-js
 nx test realtime-js
-nx test supabase-js
+nx test indobase-js
 ```
 
 ### Pitfall 4: Breaking Changes
@@ -735,7 +735,7 @@ nx run-many --target=lint --all
 
 # Run specific test file (for packages with standard test target)
 nx test realtime-js --testFile=RealtimeClient.test.ts
-nx test supabase-js --testFile=client.test.ts
+nx test indobase-js --testFile=client.test.ts
 ```
 
 ## Additional Resources
@@ -753,7 +753,7 @@ nx test supabase-js --testFile=client.test.ts
 ### Pitfall 5: Incomplete Cross-Library Testing
 
 ❌ Wrong: Only testing in source library
-✅ Correct: Test in source library AND integration tests in supabase-js
+✅ Correct: Test in source library AND integration tests in indobase-js
 
 ## Release Process
 
@@ -845,15 +845,15 @@ nx release --specifier=major --tag=latest      # Force major bump
 ### Changelog Example
 
 ```markdown
-## @supabase/realtime-js 2.80.1 (2025-09-16)
+## @indobase/realtime-js 2.80.1 (2025-09-16)
 
 - fix: correct reconnection logic (#123)
 
-## @supabase/auth-js 2.80.1 (2025-09-16)
+## @indobase/auth-js 2.80.1 (2025-09-16)
 
 _No user-facing changes in this release._
 
-## @supabase/supabase-js 2.80.1 (2025-09-16)
+## @indobase/indobase-js 2.80.1 (2025-09-16)
 
 _No user-facing changes in this release._
 ```
@@ -880,20 +880,20 @@ _No user-facing changes in this release._
 - Real-time subscriptions → realtime-js
 - File operations → storage-js
 - Edge function calls → functions-js
-- Integration of above → supabase-js
+- Integration of above → indobase-js
 - Shared utilities → packages/shared/ (create if needed)
 
 **Q: How to test this change?**
 
 1. Unit test in source library
-2. Integration test in supabase-js if affects it
+2. Integration test in indobase-js if affects it
 3. Run complete test suite for the package:
    - `nx test:auth auth-js` (handles Docker automatically)
    - `nx test:storage storage-js` (handles Docker automatically)
    - `nx test:ci:postgrest postgrest-js` (handles Docker automatically)
    - `nx test functions-js` (uses testcontainers)
    - `nx test realtime-js` (no Docker needed)
-   - `nx test supabase-js` (unit tests only)
+   - `nx test indobase-js` (unit tests only)
 4. Run complete test suites for all affected packages individually
 
 **Q: How will this release?**
@@ -904,4 +904,4 @@ _No user-facing changes in this release._
 - Unchanged packages show "No user-facing changes"
 - Single npm install updates entire SDK suite
 
-Remember: This monorepo optimizes for developer experience and maintenance efficiency while ensuring zero breaking changes for the millions of developers using Supabase SDKs.
+Remember: This monorepo optimizes for developer experience and maintenance efficiency while ensuring zero breaking changes for the millions of developers using Indobase SDKs.

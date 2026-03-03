@@ -185,7 +185,7 @@ async function lockNoOp<R>(name: string, acquireTimeout: number, fn: () => Promi
 /**
  * Caches JWKS values for all clients created in the same environment. This is
  * especially useful for shared-memory execution environments such as Vercel's
- * Fluid Compute, AWS Lambda or Supabase's Edge Functions. Regardless of how
+ * Fluid Compute, AWS Lambda or Indobase's Edge Functions. Regardless of how
  * many clients are created, if they share the same storage key they will use
  * the same JWKS cache, significantly speeding up getClaims() with asymmetric
  * JWTs.
@@ -208,7 +208,7 @@ export default class GoTrueClient {
   mfa: GoTrueMFAApi
   /**
    * Namespace for the OAuth 2.1 authorization server methods.
-   * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+   * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
    * Used to implement the authorization code flow on the consent page.
    */
   oauth: AuthOAuthServerApi
@@ -287,12 +287,12 @@ export default class GoTrueClient {
    *
    * @example
    * ```ts
-   * import { GoTrueClient } from '@supabase/auth-js'
+   * import { GoTrueClient } from '@indobase/auth-js'
    *
    * const auth = new GoTrueClient({
    *   url: 'https://xyzcompany.indobase.fun/auth/v1',
    *   headers: { apikey: 'public-anon-key' },
-   *   storageKey: 'supabase-auth',
+   *   storageKey: 'indobase-auth',
    * })
    * ```
    */
@@ -790,7 +790,7 @@ export default class GoTrueClient {
       case 'solana':
         return await this.signInWithSolana(credentials)
       default:
-        throw new Error(`@supabase/auth-js: Unsupported chain "${chain}"`)
+        throw new Error(`@indobase/auth-js: Unsupported chain "${chain}"`)
     }
   }
 
@@ -815,7 +815,7 @@ export default class GoTrueClient {
       if (!isBrowser()) {
         if (typeof wallet !== 'object' || !options?.url) {
           throw new Error(
-            '@supabase/auth-js: Both wallet and url must be specified in non-browser environments.'
+            '@indobase/auth-js: Both wallet and url must be specified in non-browser environments.'
           )
         }
 
@@ -834,7 +834,7 @@ export default class GoTrueClient {
           resolvedWallet = windowAny.ethereum
         } else {
           throw new Error(
-            `@supabase/auth-js: No compatible Ethereum wallet interface on the window object (window.ethereum) detected. Make sure the user already has a wallet installed and connected for this app. Prefer passing the wallet interface object directly to signInWithWeb3({ chain: 'ethereum', wallet: resolvedUserWallet }) instead.`
+            `@indobase/auth-js: No compatible Ethereum wallet interface on the window object (window.ethereum) detected. Make sure the user already has a wallet installed and connected for this app. Prefer passing the wallet interface object directly to signInWithWeb3({ chain: 'ethereum', wallet: resolvedUserWallet }) instead.`
           )
         }
       }
@@ -848,13 +848,13 @@ export default class GoTrueClient {
         .then((accs) => accs as string[])
         .catch(() => {
           throw new Error(
-            `@supabase/auth-js: Wallet method eth_requestAccounts is missing or invalid`
+            `@indobase/auth-js: Wallet method eth_requestAccounts is missing or invalid`
           )
         })
 
       if (!accounts || accounts.length === 0) {
         throw new Error(
-          `@supabase/auth-js: No accounts available. Please ensure the wallet is connected.`
+          `@indobase/auth-js: No accounts available. Please ensure the wallet is connected.`
         )
       }
 
@@ -946,7 +946,7 @@ export default class GoTrueClient {
       if (!isBrowser()) {
         if (typeof wallet !== 'object' || !options?.url) {
           throw new Error(
-            '@supabase/auth-js: Both wallet and url must be specified in non-browser environments.'
+            '@indobase/auth-js: Both wallet and url must be specified in non-browser environments.'
           )
         }
 
@@ -966,7 +966,7 @@ export default class GoTrueClient {
           resolvedWallet = windowAny.solana
         } else {
           throw new Error(
-            `@supabase/auth-js: No compatible Solana wallet interface on the window object (window.solana) detected. Make sure the user already has a wallet installed and connected for this app. Prefer passing the wallet interface object directly to signInWithWeb3({ chain: 'solana', wallet: resolvedUserWallet }) instead.`
+            `@indobase/auth-js: No compatible Solana wallet interface on the window object (window.solana) detected. Make sure the user already has a wallet installed and connected for this app. Prefer passing the wallet interface object directly to signInWithWeb3({ chain: 'solana', wallet: resolvedUserWallet }) instead.`
           )
         }
       }
@@ -999,7 +999,7 @@ export default class GoTrueClient {
         ) {
           outputToProcess = output
         } else {
-          throw new Error('@supabase/auth-js: Wallet method signIn() returned unrecognized value')
+          throw new Error('@indobase/auth-js: Wallet method signIn() returned unrecognized value')
         }
 
         if (
@@ -1016,7 +1016,7 @@ export default class GoTrueClient {
           signature = outputToProcess.signature
         } else {
           throw new Error(
-            '@supabase/auth-js: Wallet method signIn() API returned object without signedMessage and signature fields'
+            '@indobase/auth-js: Wallet method signIn() API returned object without signedMessage and signature fields'
           )
         }
       } else {
@@ -1030,7 +1030,7 @@ export default class GoTrueClient {
           typeof resolvedWallet.publicKey.toBase58 !== 'function'
         ) {
           throw new Error(
-            '@supabase/auth-js: Wallet does not have a compatible signMessage() and publicKey.toBase58() API'
+            '@indobase/auth-js: Wallet does not have a compatible signMessage() and publicKey.toBase58() API'
           )
         }
 
@@ -1069,7 +1069,7 @@ export default class GoTrueClient {
 
         if (!maybeSignature || !(maybeSignature instanceof Uint8Array)) {
           throw new Error(
-            '@supabase/auth-js: Wallet signMessage() API returned an recognized value'
+            '@indobase/auth-js: Wallet signMessage() API returned an recognized value'
           )
         }
 
@@ -1718,7 +1718,7 @@ export default class GoTrueClient {
 
   /**
    * Gets the current user details if there is an existing session. This method
-   * performs a network request to the Supabase Auth server, so the returned
+   * performs a network request to the Indobase Auth server, so the returned
    * value is authentic and can be used to base authorization rules on.
    *
    * @param jwt Takes in an optional access token JWT. If no JWT is provided, the JWT from the current session is used.
@@ -2066,21 +2066,21 @@ export default class GoTrueClient {
       const actuallyExpiresIn = expiresAt - timeNow
       if (actuallyExpiresIn * 1000 <= AUTO_REFRESH_TICK_DURATION_MS) {
         console.warn(
-          `@supabase/gotrue-js: Session as retrieved from URL expires in ${actuallyExpiresIn}s, should have been closer to ${expiresIn}s`
+          `@indobase/gotrue-js: Session as retrieved from URL expires in ${actuallyExpiresIn}s, should have been closer to ${expiresIn}s`
         )
       }
 
       const issuedAt = expiresAt - expiresIn
       if (timeNow - issuedAt >= 120) {
         console.warn(
-          '@supabase/gotrue-js: Session as retrieved from URL was issued over 120s ago, URL could be stale',
+          '@indobase/gotrue-js: Session as retrieved from URL was issued over 120s ago, URL could be stale',
           issuedAt,
           expiresAt,
           timeNow
         )
       } else if (timeNow - issuedAt < 0) {
         console.warn(
-          '@supabase/gotrue-js: Session as retrieved from URL was issued in the future? Check the device clock for skew',
+          '@indobase/gotrue-js: Session as retrieved from URL was issued in the future? Check the device clock for skew',
           issuedAt,
           expiresAt,
           timeNow
@@ -2119,7 +2119,7 @@ export default class GoTrueClient {
    * Checks if the current URL contains parameters given by an implicit oauth grant flow (https://www.rfc-editor.org/rfc/rfc6749.html#section-4.2)
    *
    * If `detectSessionInUrl` is a function, it will be called with the URL and params to determine
-   * if the URL should be processed as a Supabase auth callback. This allows users to exclude
+   * if the URL should be processed as a Indobase auth callback. This allows users to exclude
    * URLs from other OAuth providers (e.g., Facebook Login) that also return access_token in the fragment.
    */
   private _isImplicitGrantCallback(params: { [parameter: string]: string }): boolean {
@@ -2203,7 +2203,7 @@ export default class GoTrueClient {
   /**
    * Avoid using an async function inside `onAuthStateChange` as you might end
    * up with a deadlock. The callback function runs inside an exclusive lock,
-   * so calling other Supabase Client APIs that also try to acquire the
+   * so calling other Indobase Client APIs that also try to acquire the
    * exclusive lock, might cause a deadlock. This behavior is observable across
    * tabs. In the next major library version, this behavior will not be supported.
    *
@@ -3526,7 +3526,7 @@ export default class GoTrueClient {
 
   /**
    * Retrieves details about an OAuth authorization request.
-   * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+   * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
    *
    * Returns authorization details including client info, scopes, and user information.
    * If the response includes only a redirect_url field, it means consent was already given - the caller
@@ -3572,7 +3572,7 @@ export default class GoTrueClient {
 
   /**
    * Approves an OAuth authorization request.
-   * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+   * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
    */
   private async _approveAuthorization(
     authorizationId: string,
@@ -3625,7 +3625,7 @@ export default class GoTrueClient {
 
   /**
    * Denies an OAuth authorization request.
-   * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+   * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
    */
   private async _denyAuthorization(
     authorizationId: string,
@@ -3678,7 +3678,7 @@ export default class GoTrueClient {
 
   /**
    * Lists all OAuth grants that the authenticated user has authorized.
-   * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+   * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
    */
   private async _listOAuthGrants(): Promise<AuthOAuthGrantsResponse> {
     try {
@@ -3713,7 +3713,7 @@ export default class GoTrueClient {
 
   /**
    * Revokes a user's OAuth grant for a specific client.
-   * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+   * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
    */
   private async _revokeOAuthGrant(options: {
     clientId: string

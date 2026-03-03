@@ -22,7 +22,7 @@ on:
 
 jobs:
   preview:
-    if: github.repository == 'supabase/supabase-js'
+    if: github.repository == 'indobase/indobase-js'
     runs-on: ubuntu-latest
     outputs:
       commit_hash: ${{ steps.commit.outputs.sha }}
@@ -56,14 +56,14 @@ jobs:
             ./packages/core/postgrest-js \
             ./packages/core/realtime-js \
             ./packages/core/storage-js \
-            ./packages/core/supabase-js \
+            ./packages/core/indobase-js \
             2>&1 | tee /tmp/pkg-pr-new-output.txt
 
       - name: Get commit hash
         id: commit
         run: |
           # Extract the SHA from pkg.pr.new URLs in the output
-          # Lines look like: npm i https://pkg.pr.new/@supabase/supabase-js@49b3c56
+          # Lines look like: npm i https://pkg.pr.new/@indobase/indobase-js@49b3c56
           echo "--- pkg-pr-new captured output ---"
           cat /tmp/pkg-pr-new-output.txt
           echo "--- end of captured output ---"

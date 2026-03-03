@@ -1,0 +1,13 @@
+{
+  "lock": false,
+  "imports": {
+    "@indobase/indobase-js": "../dist/index.mjs",
+    "@indobase/indobase-js/": "../dist/",
+    "@indobase/indobase-js/cors": "../dist/cors.mjs",
+    "@indobase/realtime-js": "../../realtime-js/dist/index.mjs",
+    "@indobase/functions-js": "../../functions-js/dist/module/index.js",
+    "@indobase/postgrest-js": "../../postgrest-js/dist/index.mjs",
+    "@indobase/auth-js": "../../auth-js/dist/module/index.js",
+    "@indobase/storage-js": "../../storage-js/dist/index.mjs"
+  }
+}

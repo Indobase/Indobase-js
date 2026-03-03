@@ -21,7 +21,7 @@
     "test:infra": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "npx supabase start --workdir test",
+        "command": "npx indobase start --workdir test",
         "cwd": "{projectRoot}"
       },
       "dependsOn": ["test:generate-keys", "test:clean-pre"]
@@ -38,7 +38,7 @@
     "test:clean-post": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "npx supabase stop --no-backup --workdir test || true",
+        "command": "npx indobase stop --no-backup --workdir test || true",
         "cwd": "{projectRoot}"
       },
       "dependsOn": ["test:suite"]
@@ -51,7 +51,7 @@
       },
       "dependsOn": ["test:clean-post"],
       "metadata": {
-        "description": "Run auth-js tests with Supabase CLI (excludes docker-tests folder)"
+        "description": "Run auth-js tests with Indobase CLI (excludes docker-tests folder)"
       }
     },
     "test:docker:clean-pre": {

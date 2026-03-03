@@ -1,20 +1,20 @@
 # Global owners for the entire repository
-* @supabase/sdk @supabase/admin @supabase/security
+* @indobase/sdk @indobase/admin @indobase/security
 
 # Root configuration files
-/.github/ @supabase/sdk @supabase/security
-/nx.json @supabase/sdk
-/package.json @supabase/sdk
-/tsconfig*.json @supabase/sdk
-/README.md @supabase/sdk
-/docs/* @supabase/sdk
-/LICENSE @supabase/sdk
-/CODEOWNERS @supabase/sdk @supabase/security
+/.github/ @indobase/sdk @indobase/security
+/nx.json @indobase/sdk
+/package.json @indobase/sdk
+/tsconfig*.json @indobase/sdk
+/README.md @indobase/sdk
+/docs/* @indobase/sdk
+/LICENSE @indobase/sdk
+/CODEOWNERS @indobase/sdk @indobase/security
 
 # Core packages - each library has specific owners
-/packages/core/auth-js/ @supabase/sdk @supabase/auth
-/packages/core/functions-js/ @supabase/sdk @supabase/edge-functions
-/packages/core/postgrest-js/ @supabase/sdk @supabase/postgrest
-/packages/core/realtime-js/ @supabase/sdk @supabase/realtime
-/packages/core/storage-js/ @supabase/sdk @supabase/storage
-/packages/core/supabase-js/ @supabase/sdk 
+/packages/core/auth-js/ @indobase/sdk @indobase/auth
+/packages/core/functions-js/ @indobase/sdk @indobase/edge-functions
+/packages/core/postgrest-js/ @indobase/sdk @indobase/postgrest
+/packages/core/realtime-js/ @indobase/sdk @indobase/realtime
+/packages/core/storage-js/ @indobase/sdk @indobase/storage
+/packages/core/indobase-js/ @indobase/sdk 

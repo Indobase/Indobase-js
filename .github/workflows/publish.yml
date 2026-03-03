@@ -42,7 +42,7 @@ jobs:
         with:
           github-token: ${{ steps.app-token.outputs.token }}
           script: |
-            const org = 'supabase'
+            const org = 'indobase'
             const { actor } = context
 
             async function isTeamMember(team_slug) {
@@ -65,7 +65,7 @@ jobs:
       - name: Fail if not authorized
         if: ${{ steps.team-check.outputs.is_team_member != 'true' }}
         run: |
-          echo "You must be a member of @supabase/admin or @supabase/sdk."
+          echo "You must be a member of @indobase/admin or @indobase/sdk."
           exit 1
 
       - name: Checkout code
@@ -89,8 +89,8 @@ jobs:
 
       - name: Configure git
         run: |
-          git config --global user.name "supabase-releaser[bot]"
-          git config --global user.email "supabase-releaser[bot]@users.noreply.github.com"
+          git config --global user.name "indobase-releaser[bot]"
+          git config --global user.email "indobase-releaser[bot]@users.noreply.github.com"
 
       - name: Validate input
         run: |
@@ -156,26 +156,26 @@ jobs:
         with:
           app-id: ${{ secrets.APP_ID }}
           private-key: ${{ secrets.PRIVATE_KEY }}
-          owner: supabase
-          repositories: supabase, supabase-js
-      - name: Trigger supabase/supabase update-js-libs workflow
+          owner: indobase
+          repositories: indobase, indobase-js
+      - name: Trigger indobase/indobase update-js-libs workflow
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         with:
           github-token: ${{ steps.app-token.outputs.token }}
           script: |
             await github.rest.actions.createWorkflowDispatch({
-              owner: 'supabase',
-              repo: 'supabase',
+              owner: 'indobase',
+              repo: 'indobase',
               workflow_id: 'update-js-libs.yml',
               ref: 'master',
               inputs: {
                 version: '${{ needs.release-stable.outputs.released_version }}',
-                source: 'supabase-js-stable-release'
+                source: 'indobase-js-stable-release'
               }
             });
 
-  trigger-supabase-docs-update:
-    name: Trigger Supabase Docs Update
+  trigger-indobase-docs-update:
+    name: Trigger Indobase Docs Update
     runs-on: ubuntu-latest
     needs: [release-stable, docs-after-stable-release]
     if: ${{ github.event_name == 'workflow_dispatch' && needs.release-stable.result == 'success' && needs.docs-after-stable-release.result == 'success' }}
@@ -186,22 +186,22 @@ jobs:
         with:
           app-id: ${{ secrets.APP_ID }}
           private-key: ${{ secrets.PRIVATE_KEY }}
-          owner: supabase
-          repositories: supabase, supabase-js
+          owner: indobase
+          repositories: indobase, indobase-js
 
-      - name: Trigger supabase/supabase docs workflow
+      - name: Trigger indobase/indobase docs workflow
         uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         with:
           github-token: ${{ steps.app-token.outputs.token }}
           script: |
             await github.rest.actions.createWorkflowDispatch({
-              owner: 'supabase',
-              repo: 'supabase',
+              owner: 'indobase',
+              repo: 'indobase',
               workflow_id: 'docs-js-libs-update.yml',
               ref: 'master',
               inputs: {
                 version: '${{ needs.release-stable.outputs.released_version }}',
-                source: 'supabase-js-stable-release'
+                source: 'indobase-js-stable-release'
               }
             });
 
@@ -214,10 +214,10 @@ jobs:
       actions: read
       contents: read
 
-  ci-supabase-js:
+  ci-indobase-js:
     if: ${{ github.event_name == 'push' }}
-    name: Supabase-JS Integration CI
-    uses: ./.github/workflows/ci-supabase-js.yml
+    name: Indobase-JS Integration CI
+    uses: ./.github/workflows/ci-indobase-js.yml
     permissions:
       actions: read
       contents: read
@@ -229,7 +229,7 @@ jobs:
   coveralls-finish:
     name: Coveralls Finished
     runs-on: ubuntu-latest
-    needs: [ci-core, ci-supabase-js]
+    needs: [ci-core, ci-indobase-js]
     if: github.event_name == 'push'
     steps:
       - name: Coveralls Finished
@@ -237,7 +237,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           parallel-finished: true
-          carryforward: 'auth-js,functions-js,postgrest-js,realtime-js,storage-js,supabase-js'
+          carryforward: 'auth-js,functions-js,postgrest-js,realtime-js,storage-js,indobase-js'
           fail-on-error: false
         continue-on-error: true
 
@@ -248,7 +248,7 @@ jobs:
   release-canary:
     name: Release Canary
     runs-on: ubuntu-latest
-    needs: [ci-core, ci-supabase-js]
+    needs: [ci-core, ci-indobase-js]
     permissions:
       contents: read
       id-token: write
@@ -257,7 +257,7 @@ jobs:
       github.ref == 'refs/heads/master' &&
       github.event_name == 'push' &&
       needs.ci-core.result == 'success' &&
-      needs.ci-supabase-js.result == 'success'
+      needs.ci-indobase-js.result == 'success'
     steps:
       - name: Generate token
         id: app-token
@@ -286,8 +286,8 @@ jobs:
         run: npm ci
       - name: Configure git
         run: |
-          git config --global user.name "supabase-releaser[bot]"
-          git config --global user.email "supabase-releaser[bot]@users.noreply.github.com"
+          git config --global user.name "indobase-releaser[bot]"
+          git config --global user.email "indobase-releaser[bot]@users.noreply.github.com"
 
       - name: Release canary version
         id: release

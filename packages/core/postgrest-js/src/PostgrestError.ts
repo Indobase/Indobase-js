@@ -10,8 +10,10 @@ export default class PostgrestError extends Error {
 
   /**
    * @example
-   * ```ts
-   * import PostgrestError from '@supabase/postgrest-js'
+   *
+```
+ts
+   * import PostgrestError from '@indobase/postgrest-js'
    *
    * throw new PostgrestError({
    *   message: 'Row level security prevented the request',
@@ -19,7 +21,8 @@ export default class PostgrestError extends Error {
    *   hint: 'Check your policies',
    *   code: 'PGRST301',
    * })
-   * ```
+   *
+```
    */
   constructor(context: { message: string; details: string; hint: string; code: string }) {
     super(context.message)

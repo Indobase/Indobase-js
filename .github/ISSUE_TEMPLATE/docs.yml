@@ -1,5 +1,5 @@
 name: "\U0001F4DA Documentation"
-description: Suggest an update to the Supabase JS Libraries documentation
+description: Suggest an update to the Indobase JS Libraries documentation
 labels: [documentation]
 body:
   - type: markdown

@@ -133,7 +133,7 @@ function safeExec(cmd: string, opts = {}) {
   })
 
   // Publish gotrue-js as legacy mirror of auth-js
-  console.log('\n📦 Publishing @supabase/gotrue-js (legacy mirror)...')
+  console.log('\n📦 Publishing @indobase/gotrue-js (legacy mirror)...')
   try {
     safeExec('npx tsx scripts/publish-gotrue-legacy.ts --tag=latest')
   } catch (error) {
@@ -168,7 +168,7 @@ function safeExec(cmd: string, opts = {}) {
 
   // Ensure remote is set again before push
   if (process.env.RELEASE_GITHUB_TOKEN) {
-    const remoteUrl = `https://x-access-token:${process.env.RELEASE_GITHUB_TOKEN}@github.com/supabase/supabase-js.git`
+    const remoteUrl = `https://x-access-token:${process.env.RELEASE_GITHUB_TOKEN}@github.com/indobase/indobase-js.git`
     safeExec(`git remote set-url origin "${remoteUrl}"`)
   }
 

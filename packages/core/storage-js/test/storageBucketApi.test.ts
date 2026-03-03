@@ -20,7 +20,7 @@ class MockResponse {
   }
 }
 
-// Supabase CLI local development defaults
+// Indobase CLI local development defaults
 const URL = 'http://127.0.0.1:54321/storage/v1'
 const KEY = 'test-api-key'
 
@@ -36,23 +36,23 @@ describe('Bucket API Error Handling', () => {
   describe('URL Construction', () => {
     const urlTestCases = [
       [
-        'https://blah.supabase.co/storage/v1',
-        'https://blah.storage.supabase.co/storage/v1',
+        'https://blah.indobase.co/storage/v1',
+        'https://blah.storage.indobase.co/storage/v1',
         'update legacy prod host to new host',
       ],
       [
-        'https://blah.supabase.red/storage/v1',
-        'https://blah.storage.supabase.red/storage/v1',
+        'https://blah.indobase.red/storage/v1',
+        'https://blah.storage.indobase.red/storage/v1',
         'update legacy staging host to new host',
       ],
       [
-        'https://blah.storage.supabase.co/storage/v1',
-        'https://blah.storage.supabase.co/storage/v1',
+        'https://blah.storage.indobase.co/storage/v1',
+        'https://blah.storage.indobase.co/storage/v1',
         'accept new host without modification',
       ],
       [
-        'https://blah.supabase.co.example.com/storage/v1',
-        'https://blah.supabase.co.example.com/storage/v1',
+        'https://blah.indobase.co.example.com/storage/v1',
+        'https://blah.indobase.co.example.com/storage/v1',
         'not modify non-platform hosts',
       ],
       [
@@ -85,7 +85,7 @@ describe('Bucket API Error Handling', () => {
       const { data, error } = await storage.listBuckets()
       expect(data).toBeNull()
       expect(error).not.toBeNull()
-      // Supabase CLI returns "Invalid Compact JWS" when no auth header is provided
+      // Indobase CLI returns "Invalid Compact JWS" when no auth header is provided
       expect(error?.message).toBe('Invalid Compact JWS')
 
       // throws when .throwOnError is enabled

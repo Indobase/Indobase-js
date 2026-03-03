@@ -56,7 +56,7 @@ export default class StorageAnalyticsClient extends BaseApiClient<StorageError> 
    *
    * @example Create analytics bucket
    * ```js
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .analytics
    *   .createBucket('analytics-data')
@@ -110,7 +110,7 @@ export default class StorageAnalyticsClient extends BaseApiClient<StorageError> 
    *
    * @example List analytics buckets
    * ```js
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .analytics
    *   .listBuckets({
@@ -184,7 +184,7 @@ export default class StorageAnalyticsClient extends BaseApiClient<StorageError> 
    *
    * @example Delete analytics bucket
    * ```js
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .analytics
    *   .deleteBucket('analytics-data')
@@ -226,7 +226,7 @@ export default class StorageAnalyticsClient extends BaseApiClient<StorageError> 
    * Get an Iceberg REST Catalog client configured for a specific analytics bucket
    * Use this to perform advanced table and namespace operations within the bucket
    * The returned client provides full access to the Apache Iceberg REST Catalog API
-   * with the Supabase `{ data, error }` pattern for consistent error handling on all operations.
+   * with the Indobase `{ data, error }` pattern for consistent error handling on all operations.
    *
    * **Public alpha:** This API is part of a public alpha release and may not be available to your account type.
    *
@@ -238,13 +238,13 @@ export default class StorageAnalyticsClient extends BaseApiClient<StorageError> 
    * @example Get catalog and create table
    * ```js
    * // First, create an analytics bucket
-   * const { data: bucket, error: bucketError } = await supabase
+   * const { data: bucket, error: bucketError } = await indobase
    *   .storage
    *   .analytics
    *   .createBucket('analytics-data')
    *
    * // Get the Iceberg catalog for that bucket
-   * const catalog = supabase.storage.analytics.from('analytics-data')
+   * const catalog = indobase.storage.analytics.from('analytics-data')
    *
    * // Create a namespace
    * const { error: nsError } = await catalog.createNamespace({ namespace: ['default'] })
@@ -281,7 +281,7 @@ export default class StorageAnalyticsClient extends BaseApiClient<StorageError> 
    *
    * @example List tables in namespace
    * ```js
-   * const catalog = supabase.storage.analytics.from('analytics-data')
+   * const catalog = indobase.storage.analytics.from('analytics-data')
    *
    * // List all tables in the default namespace
    * const { data: tables, error: listError } = await catalog.listTables({ namespace: ['default'] })
@@ -296,7 +296,7 @@ export default class StorageAnalyticsClient extends BaseApiClient<StorageError> 
    *
    * @example Working with namespaces
    * ```js
-   * const catalog = supabase.storage.analytics.from('analytics-data')
+   * const catalog = indobase.storage.analytics.from('analytics-data')
    *
    * // List all namespaces
    * const { data: namespaces } = await catalog.listNamespaces()
@@ -310,7 +310,7 @@ export default class StorageAnalyticsClient extends BaseApiClient<StorageError> 
    *
    * @example Cleanup operations
    * ```js
-   * const catalog = supabase.storage.analytics.from('analytics-data')
+   * const catalog = indobase.storage.analytics.from('analytics-data')
    *
    * // Drop table with purge option (removes all data)
    * const { error: dropError } = await catalog.dropTable(
@@ -327,9 +327,9 @@ export default class StorageAnalyticsClient extends BaseApiClient<StorageError> 
    * ```
    *
    * @remarks
-   * This method provides a bridge between Supabase's bucket management and the standard
+   * This method provides a bridge between Indobase's bucket management and the standard
    * Apache Iceberg REST Catalog API. The bucket name maps to the Iceberg warehouse parameter.
-   * All authentication and configuration is handled automatically using your Supabase credentials.
+   * All authentication and configuration is handled automatically using your Indobase credentials.
    *
    * **Error Handling**: Invalid bucket names throw immediately. All catalog
    * operations return `{ data, error }` where errors are `IcebergError` instances from iceberg-js.
@@ -341,10 +341,10 @@ export default class StorageAnalyticsClient extends BaseApiClient<StorageError> 
    *
    * **Library Dependency**: The returned catalog wraps `IcebergRestCatalog` from iceberg-js.
    * For complete API documentation and advanced usage, refer to the
-   * [iceberg-js documentation](https://supabase.github.io/iceberg-js/).
+   * [iceberg-js documentation](https://indobase.github.io/iceberg-js/).
    */
   from(bucketName: string): WrappedIcebergRestCatalog {
-    // Validate bucket name using same rules as Supabase Storage API backend
+    // Validate bucket name using same rules as Indobase Storage API backend
     if (!isValidBucketName(bucketName)) {
       throw new StorageError(
         'Invalid bucket name: File, folder, and bucket names must follow AWS object key naming guidelines ' +
@@ -358,7 +358,7 @@ export default class StorageAnalyticsClient extends BaseApiClient<StorageError> 
     // so we should NOT append /v1 here (it would cause double /v1/v1/ in the URL)
     const catalog = new IcebergRestCatalog({
       baseUrl: this.url,
-      catalogName: bucketName, // Maps to the warehouse parameter in Supabase's implementation
+      catalogName: bucketName, // Maps to the warehouse parameter in Indobase's implementation
       auth: {
         type: 'custom',
         getHeaders: async () => this.headers,

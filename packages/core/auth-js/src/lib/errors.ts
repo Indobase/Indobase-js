@@ -2,11 +2,11 @@ import { WeakPasswordReasons } from './types'
 import { ErrorCode } from './error-codes'
 
 /**
- * Base error thrown by Supabase Auth helpers.
+ * Base error thrown by Indobase Auth helpers.
  *
  * @example
  * ```ts
- * import { AuthError } from '@supabase/auth-js'
+ * import { AuthError } from '@indobase/auth-js'
  *
  * throw new AuthError('Unexpected auth error', 500, 'unexpected')
  * ```
@@ -42,7 +42,7 @@ export function isAuthError(error: unknown): error is AuthError {
  *
  * @example
  * ```ts
- * import { AuthApiError } from '@supabase/auth-js'
+ * import { AuthApiError } from '@indobase/auth-js'
  *
  * throw new AuthApiError('Invalid credentials', 400, 'invalid_credentials')
  * ```
@@ -67,7 +67,7 @@ export function isAuthApiError(error: unknown): error is AuthApiError {
  *
  * @example
  * ```ts
- * import { AuthUnknownError } from '@supabase/auth-js'
+ * import { AuthUnknownError } from '@indobase/auth-js'
  *
  * try {
  *   await someAuthCall()
@@ -91,7 +91,7 @@ export class AuthUnknownError extends AuthError {
  *
  * @example
  * ```ts
- * import { CustomAuthError } from '@supabase/auth-js'
+ * import { CustomAuthError } from '@indobase/auth-js'
  *
  * throw new CustomAuthError('My custom auth error', 'MyAuthError', 400, 'custom_code')
  * ```
@@ -112,7 +112,7 @@ export class CustomAuthError extends AuthError {
  *
  * @example
  * ```ts
- * import { AuthSessionMissingError } from '@supabase/auth-js'
+ * import { AuthSessionMissingError } from '@indobase/auth-js'
  *
  * throw new AuthSessionMissingError()
  * ```
@@ -132,7 +132,7 @@ export function isAuthSessionMissingError(error: any): error is AuthSessionMissi
  *
  * @example
  * ```ts
- * import { AuthInvalidTokenResponseError } from '@supabase/auth-js'
+ * import { AuthInvalidTokenResponseError } from '@indobase/auth-js'
  *
  * throw new AuthInvalidTokenResponseError()
  * ```
@@ -148,7 +148,7 @@ export class AuthInvalidTokenResponseError extends CustomAuthError {
  *
  * @example
  * ```ts
- * import { AuthInvalidCredentialsError } from '@supabase/auth-js'
+ * import { AuthInvalidCredentialsError } from '@indobase/auth-js'
  *
  * throw new AuthInvalidCredentialsError('Email or password is incorrect')
  * ```
@@ -164,7 +164,7 @@ export class AuthInvalidCredentialsError extends CustomAuthError {
  *
  * @example
  * ```ts
- * import { AuthImplicitGrantRedirectError } from '@supabase/auth-js'
+ * import { AuthImplicitGrantRedirectError } from '@indobase/auth-js'
  *
  * throw new AuthImplicitGrantRedirectError('OAuth redirect failed', {
  *   error: 'access_denied',
@@ -200,7 +200,7 @@ export function isAuthImplicitGrantRedirectError(
  *
  * @example
  * ```ts
- * import { AuthPKCEGrantCodeExchangeError } from '@supabase/auth-js'
+ * import { AuthPKCEGrantCodeExchangeError } from '@indobase/auth-js'
  *
  * throw new AuthPKCEGrantCodeExchangeError('PKCE exchange failed')
  * ```
@@ -230,7 +230,7 @@ export class AuthPKCEGrantCodeExchangeError extends CustomAuthError {
  *
  * @example
  * ```ts
- * import { AuthPKCECodeVerifierMissingError } from '@supabase/auth-js'
+ * import { AuthPKCECodeVerifierMissingError } from '@indobase/auth-js'
  *
  * throw new AuthPKCECodeVerifierMissingError()
  * ```
@@ -241,7 +241,7 @@ export class AuthPKCECodeVerifierMissingError extends CustomAuthError {
       'PKCE code verifier not found in storage. ' +
         'This can happen if the auth flow was initiated in a different browser or device, ' +
         'or if the storage was cleared. For SSR frameworks (Next.js, SvelteKit, etc.), ' +
-        'use @supabase/ssr on both the server and client to store the code verifier in cookies.',
+        'use @indobase/ssr on both the server and client to store the code verifier in cookies.',
       'AuthPKCECodeVerifierMissingError',
       400,
       'pkce_code_verifier_not_found'
@@ -260,7 +260,7 @@ export function isAuthPKCECodeVerifierMissingError(
  *
  * @example
  * ```ts
- * import { AuthRetryableFetchError } from '@supabase/auth-js'
+ * import { AuthRetryableFetchError } from '@indobase/auth-js'
  *
  * throw new AuthRetryableFetchError('Service temporarily unavailable', 503)
  * ```
@@ -285,7 +285,7 @@ export function isAuthRetryableFetchError(error: unknown): error is AuthRetryabl
  *
  * @example
  * ```ts
- * import { AuthWeakPasswordError } from '@supabase/auth-js'
+ * import { AuthWeakPasswordError } from '@indobase/auth-js'
  *
  * throw new AuthWeakPasswordError('Password too short', 400, ['min_length'])
  * ```
@@ -312,7 +312,7 @@ export function isAuthWeakPasswordError(error: unknown): error is AuthWeakPasswo
  *
  * @example
  * ```ts
- * import { AuthInvalidJwtError } from '@supabase/auth-js'
+ * import { AuthInvalidJwtError } from '@indobase/auth-js'
  *
  * throw new AuthInvalidJwtError('Token signature is invalid')
  * ```

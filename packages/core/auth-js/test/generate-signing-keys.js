@@ -43,7 +43,7 @@ const signingKey = {
 const signingKeys = [signingKey];
 
 // Write to file
-const outputPath = path.join(__dirname, 'supabase', 'signing_keys.json');
+const outputPath = path.join(__dirname, 'indobase', 'signing_keys.json');
 fs.writeFileSync(outputPath, JSON.stringify(signingKeys, null, 2) + '\n');
 
 console.log('✅ Generated new RSA-2048 signing keys for testing');

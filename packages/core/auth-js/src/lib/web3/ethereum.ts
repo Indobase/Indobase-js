@@ -91,7 +91,7 @@ export type EthereumSignInInput = SiweMessage
 
 export function getAddress(address: string): Address {
   if (!/^0x[a-fA-F0-9]{40}$/.test(address)) {
-    throw new Error(`@supabase/auth-js: Address "${address}" is invalid.`)
+    throw new Error(`@indobase/auth-js: Address "${address}" is invalid.`)
   }
   return address.toLowerCase() as Address
 }
@@ -128,30 +128,30 @@ export function createSiweMessage(parameters: SiweMessage): string {
   {
     if (!Number.isInteger(chainId))
       throw new Error(
-        `@supabase/auth-js: Invalid SIWE message field "chainId". Chain ID must be a EIP-155 chain ID. Provided value: ${chainId}`
+        `@indobase/auth-js: Invalid SIWE message field "chainId". Chain ID must be a EIP-155 chain ID. Provided value: ${chainId}`
       )
 
     if (!domain)
       throw new Error(
-        `@supabase/auth-js: Invalid SIWE message field "domain". Domain must be provided.`
+        `@indobase/auth-js: Invalid SIWE message field "domain". Domain must be provided.`
       )
 
     if (nonce && nonce.length < 8)
       throw new Error(
-        `@supabase/auth-js: Invalid SIWE message field "nonce". Nonce must be at least 8 characters. Provided value: ${nonce}`
+        `@indobase/auth-js: Invalid SIWE message field "nonce". Nonce must be at least 8 characters. Provided value: ${nonce}`
       )
 
     if (!uri)
-      throw new Error(`@supabase/auth-js: Invalid SIWE message field "uri". URI must be provided.`)
+      throw new Error(`@indobase/auth-js: Invalid SIWE message field "uri". URI must be provided.`)
 
     if (version !== '1')
       throw new Error(
-        `@supabase/auth-js: Invalid SIWE message field "version". Version must be '1'. Provided value: ${version}`
+        `@indobase/auth-js: Invalid SIWE message field "version". Version must be '1'. Provided value: ${version}`
       )
 
     if (parameters.statement?.includes('\n'))
       throw new Error(
-        `@supabase/auth-js: Invalid SIWE message field "statement". Statement must not include '\\n'. Provided value: ${parameters.statement}`
+        `@indobase/auth-js: Invalid SIWE message field "statement". Statement must not include '\\n'. Provided value: ${parameters.statement}`
       )
   }
 
@@ -173,7 +173,7 @@ export function createSiweMessage(parameters: SiweMessage): string {
     for (const resource of resources) {
       if (!resource || typeof resource !== 'string')
         throw new Error(
-          `@supabase/auth-js: Invalid SIWE message field "resources". Every resource must be a valid string. Provided value: ${resource}`
+          `@indobase/auth-js: Invalid SIWE message field "resources". Every resource must be a valid string. Provided value: ${resource}`
         )
       content += `\n- ${resource}`
     }

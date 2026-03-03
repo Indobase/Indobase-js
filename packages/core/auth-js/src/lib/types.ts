@@ -81,12 +81,12 @@ export type GoTrueClientOptions = {
   /**
    * Set to "true" if you want to automatically detect OAuth grants in the URL and sign in the user.
    * Set to "false" to disable automatic detection.
-   * Set to a function to provide custom logic for determining if a URL contains a Supabase auth callback.
+   * Set to a function to provide custom logic for determining if a URL contains a Indobase auth callback.
    * The function receives the current URL and parsed parameters, and should return true if the URL
-   * should be processed as a Supabase auth callback, or false to ignore it.
+   * should be processed as a Indobase auth callback, or false to ignore it.
    *
    * This is useful when your app uses other OAuth providers (e.g., Facebook Login) that also return
-   * access_token in the URL fragment, which would otherwise be incorrectly intercepted by Supabase Auth.
+   * access_token in the URL fragment, which would otherwise be incorrectly intercepted by Indobase Auth.
    *
    * @example
    * ```ts
@@ -1547,7 +1547,7 @@ export type RequiredClaims = {
 }
 
 /**
- * JWT Payload containing claims for Supabase authentication tokens.
+ * JWT Payload containing claims for Indobase authentication tokens.
  *
  * Required claims (iss, aud, exp, iat, sub, role, aal, session_id) are inherited from RequiredClaims.
  * All other claims are optional as they can be customized via Custom Access Token Hooks.
@@ -1593,31 +1593,31 @@ export type SignOutScope = (typeof SIGN_OUT_SCOPES)[number]
 
 /**
  * OAuth client grant types supported by the OAuth 2.1 server.
- * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+ * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
  */
 export type OAuthClientGrantType = 'authorization_code' | 'refresh_token'
 
 /**
  * OAuth client response types supported by the OAuth 2.1 server.
- * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+ * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
  */
 export type OAuthClientResponseType = 'code'
 
 /**
  * OAuth client type indicating whether the client can keep credentials confidential.
- * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+ * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
  */
 export type OAuthClientType = 'public' | 'confidential'
 
 /**
  * OAuth client registration type.
- * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+ * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
  */
 export type OAuthClientRegistrationType = 'dynamic' | 'manual'
 
 /**
  * OAuth client token endpoint authentication method.
- * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+ * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
  */
 export type OAuthClientTokenEndpointAuthMethod =
   | 'none'
@@ -1626,7 +1626,7 @@ export type OAuthClientTokenEndpointAuthMethod =
 
 /**
  * OAuth client object returned from the OAuth 2.1 server.
- * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+ * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
  */
 export type OAuthClient = {
   /** Unique identifier for the OAuth client */
@@ -1661,7 +1661,7 @@ export type OAuthClient = {
 
 /**
  * Parameters for creating a new OAuth client.
- * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+ * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
  */
 export type CreateOAuthClientParams = {
   /** Human-readable name of the OAuth client */
@@ -1683,7 +1683,7 @@ export type CreateOAuthClientParams = {
 /**
  * Parameters for updating an existing OAuth client.
  * All fields are optional. Only provided fields will be updated.
- * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+ * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
  */
 export type UpdateOAuthClientParams = {
   /** Human-readable name of the OAuth client */
@@ -1702,13 +1702,13 @@ export type UpdateOAuthClientParams = {
 
 /**
  * Response type for OAuth client operations.
- * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+ * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
  */
 export type OAuthClientResponse = RequestResult<OAuthClient>
 
 /**
  * Response type for listing OAuth clients.
- * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+ * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
  */
 export type OAuthClientListResponse =
   | {
@@ -1722,12 +1722,12 @@ export type OAuthClientListResponse =
 
 /**
  * Contains all OAuth client administration methods.
- * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+ * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
  */
 export interface GoTrueAdminOAuthApi {
   /**
    * Lists all OAuth clients with optional pagination.
-   * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+   * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
    *
    * This function should only be called on a server. Never expose your `service_role` key in the browser.
    */
@@ -1735,7 +1735,7 @@ export interface GoTrueAdminOAuthApi {
 
   /**
    * Creates a new OAuth client.
-   * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+   * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
    *
    * This function should only be called on a server. Never expose your `service_role` key in the browser.
    */
@@ -1743,7 +1743,7 @@ export interface GoTrueAdminOAuthApi {
 
   /**
    * Gets details of a specific OAuth client.
-   * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+   * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
    *
    * This function should only be called on a server. Never expose your `service_role` key in the browser.
    */
@@ -1751,7 +1751,7 @@ export interface GoTrueAdminOAuthApi {
 
   /**
    * Updates an existing OAuth client.
-   * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+   * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
    *
    * This function should only be called on a server. Never expose your `service_role` key in the browser.
    */
@@ -1759,7 +1759,7 @@ export interface GoTrueAdminOAuthApi {
 
   /**
    * Deletes an OAuth client.
-   * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+   * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
    *
    * This function should only be called on a server. Never expose your `service_role` key in the browser.
    */
@@ -1767,7 +1767,7 @@ export interface GoTrueAdminOAuthApi {
 
   /**
    * Regenerates the secret for an OAuth client.
-   * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+   * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
    *
    * This function should only be called on a server. Never expose your `service_role` key in the browser.
    */
@@ -1827,7 +1827,7 @@ export type CustomOAuthProvider = {
   scopes?: string[]
   /** Whether PKCE is enabled */
   pkce_enabled?: boolean
-  /** Mapping of provider attributes to Supabase user attributes */
+  /** Mapping of provider attributes to Indobase user attributes */
   attribute_mapping?: Record<string, any>
   /** Additional parameters sent with the authorization request */
   authorization_params?: Record<string, string>
@@ -1877,7 +1877,7 @@ export type CreateCustomProviderParams = {
   scopes?: string[]
   /** Whether PKCE is enabled */
   pkce_enabled?: boolean
-  /** Mapping of provider attributes to Supabase user attributes */
+  /** Mapping of provider attributes to Indobase user attributes */
   attribute_mapping?: Record<string, any>
   /** Additional parameters sent with the authorization request */
   authorization_params?: Record<string, string>
@@ -1919,7 +1919,7 @@ export type UpdateCustomProviderParams = {
   scopes?: string[]
   /** Whether PKCE is enabled */
   pkce_enabled?: boolean
-  /** Mapping of provider attributes to Supabase user attributes */
+  /** Mapping of provider attributes to Indobase user attributes */
   attribute_mapping?: Record<string, any>
   /** Additional parameters sent with the authorization request */
   authorization_params?: Record<string, string>
@@ -2025,7 +2025,7 @@ export interface GoTrueAdminCustomProvidersApi {
 
 /**
  * OAuth client details in an authorization request.
- * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+ * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
  */
 export type OAuthAuthorizationClient = {
   /** Unique identifier for the OAuth client (UUID) */
@@ -2040,7 +2040,7 @@ export type OAuthAuthorizationClient = {
 
 /**
  * OAuth authorization details when user needs to provide consent.
- * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+ * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
  *
  * This response includes all information needed to display a consent page:
  * client details, user info, requested scopes, and where the user will be redirected.
@@ -2069,7 +2069,7 @@ export type OAuthAuthorizationDetails = {
 
 /**
  * OAuth redirect response when user has already consented or after consent decision.
- * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+ * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
  *
  * This response is returned in three scenarios:
  * 1. User already consented to these scopes (auto-approved)
@@ -2088,11 +2088,11 @@ export type OAuthRedirect = {
 /**
  * Response type for getting OAuth authorization details.
  * Returns either full authorization details (if consent needed) or redirect URL (if already consented).
- * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+ * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
  *
  * @example
  * ```typescript
- * const { data, error } = await supabase.auth.oauth.getAuthorizationDetails(authorizationId)
+ * const { data, error } = await indobase.auth.oauth.getAuthorizationDetails(authorizationId)
  *
  * if (error) {
  *   console.error('Error:', error)
@@ -2113,13 +2113,13 @@ export type AuthOAuthAuthorizationDetailsResponse = RequestResult<
 
 /**
  * Response type for OAuth consent decision (approve/deny).
- * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+ * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
  */
 export type AuthOAuthConsentResponse = RequestResult<OAuthRedirect>
 
 /**
  * An OAuth grant representing a user's authorization of an OAuth client.
- * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+ * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
  */
 export type OAuthGrant = {
   /** OAuth client information */
@@ -2132,19 +2132,19 @@ export type OAuthGrant = {
 
 /**
  * Response type for listing user's OAuth grants.
- * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+ * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
  */
 export type AuthOAuthGrantsResponse = RequestResult<OAuthGrant[]>
 
 /**
  * Response type for revoking an OAuth grant.
- * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+ * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
  */
 export type AuthOAuthRevokeGrantResponse = RequestResult<{}>
 
 /**
  * Contains all OAuth 2.1 authorization server user-facing methods.
- * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+ * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
  *
  * These methods are used to implement the consent page.
  */
@@ -2152,7 +2152,7 @@ export interface AuthOAuthServerApi {
   /**
    * Retrieves details about an OAuth authorization request.
    * Used to display consent information to the user.
-   * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+   * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
    *
    * This method returns one of two response types:
    * - `OAuthAuthorizationDetails`: User needs to consent - show consent page with client info
@@ -2174,7 +2174,7 @@ export interface AuthOAuthServerApi {
 
   /**
    * Approves an OAuth authorization request.
-   * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+   * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
    *
    * After approval, the user's consent is stored and an authorization code is generated.
    * The response contains a complete redirect URL with the authorization code and state.
@@ -2191,7 +2191,7 @@ export interface AuthOAuthServerApi {
 
   /**
    * Denies an OAuth authorization request.
-   * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+   * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
    *
    * After denial, the response contains a redirect URL with an OAuth error
    * (access_denied) to inform the OAuth client that the user rejected the request.
@@ -2208,7 +2208,7 @@ export interface AuthOAuthServerApi {
 
   /**
    * Lists all OAuth grants that the authenticated user has authorized.
-   * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+   * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
    *
    * @returns Response with array of OAuth grants with client information and granted scopes
    */
@@ -2216,7 +2216,7 @@ export interface AuthOAuthServerApi {
 
   /**
    * Revokes a user's OAuth grant for a specific client.
-   * Only relevant when the OAuth 2.1 server is enabled in Supabase Auth.
+   * Only relevant when the OAuth 2.1 server is enabled in Indobase Auth.
    *
    * Revocation marks consent as revoked, deletes active sessions for that OAuth client,
    * and invalidates associated refresh tokens.

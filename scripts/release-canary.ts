@@ -77,7 +77,7 @@ import { execSync } from 'child_process'
   })
 
   // Publish gotrue-js as legacy mirror of auth-js
-  console.log('\n📦 Publishing @supabase/gotrue-js (legacy mirror)...')
+  console.log('\n📦 Publishing @indobase/gotrue-js (legacy mirror)...')
   try {
     execSync('npx tsx scripts/publish-gotrue-legacy.ts --tag=canary', { stdio: 'inherit' })
   } catch (error) {

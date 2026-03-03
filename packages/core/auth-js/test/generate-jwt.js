@@ -13,7 +13,7 @@ const crypto = require('crypto');
 
 // Read the signing key
 const signingKeys = JSON.parse(
-  fs.readFileSync(path.join(__dirname, 'supabase/signing_keys.json'), 'utf8')
+  fs.readFileSync(path.join(__dirname, 'indobase/signing_keys.json'), 'utf8')
 );
 
 const rsaKey = signingKeys[0];
@@ -28,7 +28,7 @@ const privateKey = privateKeyObject.export({ type: 'pkcs8', format: 'pem' });
 // Generate anon key
 const anonToken = jwt.sign(
   {
-    iss: 'supabase-demo',
+    iss: 'indobase-demo',
     role: 'anon',
     exp: 1983812996,
     iat: 1768925145
@@ -40,7 +40,7 @@ const anonToken = jwt.sign(
 // Generate service_role key
 const serviceRoleToken = jwt.sign(
   {
-    iss: 'supabase-demo',
+    iss: 'indobase-demo',
     role: 'service_role',
     exp: 1983812996,
     iat: 1768925145

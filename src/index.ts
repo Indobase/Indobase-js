@@ -1,4 +1,4 @@
-// Main SDK entry point for @indobase/indobase-js
+// Main SDK entry point for @indobase/js
 //
 // This SDK wraps the core @indobase packages:
 // - @indobase/auth-js - Authentication
@@ -8,23 +8,23 @@
 // - @indobase/storage-js - Storage
 //
 // Usage:
-//   import { createIndobaseClient } from '@indobase/indobase-js'
+//   import { createIndobaseClient } from '@indobase/js'
 //   const client = createIndobaseClient('https://your-project.indobase.co', 'your-api-key')
 //
 // For type definitions, the types are re-exported from the core packages.
 
 // Re-export the main client creator
-// The actual implementation is in @indobase/supabase-js which must be built first
-import type { SupabaseClientOptions, QueryResult, QueryData, QueryError } from './types'
+// The actual implementation is in @indobase/indobase-js which must be built first
+import type { IndobaseClientOptions, QueryResult, QueryData, QueryError } from './types'
 
 export type {
-  SupabaseClientOptions,
+  IndobaseClientOptions,
   QueryResult,
   QueryData,
   QueryError
 }
 
-// Note: The createIndobaseClient function is re-exported from @indobase/supabase-js
+// Note: The createIndobaseClient function is re-exported from @indobase/indobase-js
 // which must be built before this package. This is handled by the monorepo build.
 export const createIndobaseClient = (() => {
   // This will be replaced at build time with the actual implementation
@@ -32,12 +32,12 @@ export const createIndobaseClient = (() => {
   return <Database = any, SchemaName extends string = 'public'>(
     indobaseUrl: string,
     indobaseKey: string,
-    options?: SupabaseClientOptions<SchemaName>
+    options?: IndobaseClientOptions<SchemaName>
   ) => {
-    throw new Error('Please build @indobase/supabase-js first: npm run build --workspace=@indobase/supabase-js')
+    throw new Error('Please build @indobase/indobase-js first: npm run build --workspace=@indobase/indobase-js')
   }
 })()
 
 // Version info
 export const SDK_VERSION = '1.0.0'
-export const PACKAGE_NAME = '@indobase/indobase-js'
+export const PACKAGE_NAME = '@indobase/js'

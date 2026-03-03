@@ -53,16 +53,16 @@ jobs:
           mkdir -p ./gh-pages/storage-js/v2
           cp ./packages/core/storage-js/docs/v2/spec.json ./gh-pages/storage-js/v2/spec.json || echo "No spec.json for storage-js"
 
-          # supabase-js
-          mkdir -p ./gh-pages/supabase-js/v2
-          cp ./packages/core/supabase-js/docs/v2/spec.json ./gh-pages/supabase-js/v2/spec.json || echo "No spec.json for supabase-js"
+          # indobase-js
+          mkdir -p ./gh-pages/indobase-js/v2
+          cp ./packages/core/indobase-js/docs/v2/spec.json ./gh-pages/indobase-js/v2/spec.json || echo "No spec.json for indobase-js"
 
           # Create an index.html for the root
           cat > ./gh-pages/index.html << 'EOF'
           <!DOCTYPE html>
           <html>
           <head>
-              <title>Supabase JS Libraries Documentation</title>
+              <title>Indobase JS Libraries Documentation</title>
               <style>
                   body {
                       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -99,40 +99,40 @@ jobs:
               </style>
           </head>
           <body>
-              <h1>Supabase JavaScript Libraries - API Documentation</h1>
-              <p>TypeScript/JavaScript API documentation for all Supabase JS SDKs.</p>
+              <h1>Indobase JavaScript Libraries - API Documentation</h1>
+              <p>TypeScript/JavaScript API documentation for all Indobase JS SDKs.</p>
               
               <h2>Available Documentation:</h2>
               <ul>
                   <li>
-                      <a href="auth-js/v2/spec.json">@supabase/auth-js</a>
+                      <a href="auth-js/v2/spec.json">@indobase/auth-js</a>
                       <div class="description">Authentication SDK</div>
                   </li>
                   <li>
-                      <a href="functions-js/v2/spec.json">@supabase/functions-js</a>
+                      <a href="functions-js/v2/spec.json">@indobase/functions-js</a>
                       <div class="description">Edge Functions SDK</div>
                   </li>
                   <li>
-                      <a href="postgrest-js/v2/spec.json">@supabase/postgrest-js</a>
+                      <a href="postgrest-js/v2/spec.json">@indobase/postgrest-js</a>
                       <div class="description">PostgREST database SDK</div>
                   </li>
                   <li>
-                      <a href="realtime-js/v2/spec.json">@supabase/realtime-js</a>
+                      <a href="realtime-js/v2/spec.json">@indobase/realtime-js</a>
                       <div class="description">Realtime subscriptions SDK</div>
                   </li>
                   <li>
-                      <a href="storage-js/v2/spec.json">@supabase/storage-js</a>
+                      <a href="storage-js/v2/spec.json">@indobase/storage-js</a>
                       <div class="description">File storage SDK</div>
                   </li>
                   <li>
-                      <a href="supabase-js/v2/spec.json">@supabase/supabase-js</a>
+                      <a href="indobase-js/v2/spec.json">@indobase/indobase-js</a>
                       <div class="description">Main isomorphic SDK combining all SDKs</div>
                   </li>
               </ul>
               
               <hr style="margin-top: 50px; border: 1px solid #eee;">
               <p style="color: #999; font-size: 12px;">
-                  Generated from the <a href="https://github.com/supabase/supabase-js">supabase-js</a> monorepo.
+                  Generated from the <a href="https://github.com/indobase/indobase-js">indobase-js</a> monorepo.
               </p>
           </body>
           </html>

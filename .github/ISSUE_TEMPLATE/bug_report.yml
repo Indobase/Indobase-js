@@ -1,5 +1,5 @@
 name: "\U0001F41E Bug report"
-description: Report an issue with a Supabase JS Library
+description: Report an issue with a Indobase JS Library
 labels: [bug]
 type: Bug
 body:
@@ -16,12 +16,12 @@ body:
     validations:
       required: true
   - type: dropdown
-    id: supabase-library
+    id: indobase-library
     attributes:
       label: Library affected
       description: Select the library that you think is affected by the bug
       options:
-        - supabase-js
+        - indobase-js
         - auth-js
         - postgrest-js
         - realtime-js
@@ -48,7 +48,7 @@ body:
     id: system-info
     attributes:
       label: System Info
-      description: Output of `npx envinfo --system --npmPackages '{supabase,@supabase/*}' --binaries --browsers`
+      description: Output of `npx envinfo --system --npmPackages '{indobase,@indobase/*}' --binaries --browsers`
       render: shell
       placeholder: System, Binaries, Browsers
     validations:
@@ -89,17 +89,17 @@ body:
       label: Validations
       description: Before submitting the issue, please make sure you do the following
       options:
-        - label: Follow our [Code of Conduct](https://github.com/supabase/.github/blob/main/CODE_OF_CONDUCT.md)
+        - label: Follow our [Code of Conduct](https://github.com/indobase/.github/blob/main/CODE_OF_CONDUCT.md)
           required: true
-        - label: Read the [Contributing Guidelines](https://github.com/supabase/supabase-js/blob/master/CONTRIBUTING.md).
+        - label: Read the [Contributing Guidelines](https://github.com/indobase/indobase-js/blob/master/CONTRIBUTING.md).
           required: true
-        - label: Read the [docs](https://supabase.com/docs/reference/javascript/introduction).
+        - label: Read the [docs](https://indobase.com/docs/reference/javascript/introduction).
           required: true
-        - label: Check that there isn't [already an issue](https://github.com/supabase/supabase-js/issues) that reports the same bug to avoid creating a duplicate.
+        - label: Check that there isn't [already an issue](https://github.com/indobase/indobase-js/issues) that reports the same bug to avoid creating a duplicate.
           required: true
-        - label: Make sure this is a Supabase JS Library issue and not an issue with the Supabase platform. If it's a Supabase platform related bug, it should likely be reported to [supabase/supabase](https://github.com/supabase/supabase) instead.
+        - label: Make sure this is a Indobase JS Library issue and not an issue with the Indobase platform. If it's a Indobase platform related bug, it should likely be reported to [indobase/indobase](https://github.com/indobase/indobase) instead.
           required: true
-        - label: Check that this is a concrete bug. For Q&A open a [GitHub Discussion](https://github.com/supabase/supabase-js/discussions) or join our [Discord Chat Server](https://discord.supabase.com//).
+        - label: Check that this is a concrete bug. For Q&A open a [GitHub Discussion](https://github.com/indobase/indobase-js/discussions) or join our [Discord Chat Server](https://discord.indobase.com//).
           required: true
         - label: The provided reproduction is a [minimal reproducible example](https://stackoverflow.com/help/minimal-reproducible-example) of the bug.
           required: true

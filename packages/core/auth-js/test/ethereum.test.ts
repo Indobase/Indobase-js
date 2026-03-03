@@ -37,7 +37,7 @@ describe('ethereum', () => {
 
       invalidAddresses.forEach((address) => {
         expect(() => getAddress(address)).toThrow(
-          `@supabase/auth-js: Address "${address}" is invalid.`
+          `@indobase/auth-js: Address "${address}" is invalid.`
         )
       })
     })
@@ -166,7 +166,7 @@ describe('ethereum', () => {
       }
 
       expect(() => createSiweMessage(invalidChainId)).toThrow(
-        '@supabase/auth-js: Invalid SIWE message field "chainId". Chain ID must be a EIP-155 chain ID. Provided value: 1.5'
+        '@indobase/auth-js: Invalid SIWE message field "chainId". Chain ID must be a EIP-155 chain ID. Provided value: 1.5'
       )
     })
 
@@ -177,7 +177,7 @@ describe('ethereum', () => {
       }
 
       expect(() => createSiweMessage(invalidDomain)).toThrow(
-        '@supabase/auth-js: Invalid SIWE message field "domain". Domain must be provided.'
+        '@indobase/auth-js: Invalid SIWE message field "domain". Domain must be provided.'
       )
     })
 
@@ -188,7 +188,7 @@ describe('ethereum', () => {
       }
 
       expect(() => createSiweMessage(shortNonce)).toThrow(
-        '@supabase/auth-js: Invalid SIWE message field "nonce". Nonce must be at least 8 characters. Provided value: 123'
+        '@indobase/auth-js: Invalid SIWE message field "nonce". Nonce must be at least 8 characters. Provided value: 123'
       )
     })
 
@@ -199,7 +199,7 @@ describe('ethereum', () => {
       }
 
       expect(() => createSiweMessage(invalidUri)).toThrow(
-        '@supabase/auth-js: Invalid SIWE message field "uri". URI must be provided.'
+        '@indobase/auth-js: Invalid SIWE message field "uri". URI must be provided.'
       )
     })
 
@@ -210,7 +210,7 @@ describe('ethereum', () => {
       }
 
       expect(() => createSiweMessage(invalidVersion)).toThrow(
-        '@supabase/auth-js: Invalid SIWE message field "version". Version must be \'1\'. Provided value: 2'
+        '@indobase/auth-js: Invalid SIWE message field "version". Version must be \'1\'. Provided value: 2'
       )
     })
 
@@ -221,7 +221,7 @@ describe('ethereum', () => {
       }
 
       expect(() => createSiweMessage(invalidStatement)).toThrow(
-        '@supabase/auth-js: Invalid SIWE message field "statement". Statement must not include \'\\n\'. Provided value: Line 1\nLine 2'
+        '@indobase/auth-js: Invalid SIWE message field "statement". Statement must not include \'\\n\'. Provided value: Line 1\nLine 2'
       )
     })
 
@@ -232,7 +232,7 @@ describe('ethereum', () => {
       }
 
       expect(() => createSiweMessage(invalidResources)).toThrow(
-        '@supabase/auth-js: Invalid SIWE message field "resources". Every resource must be a valid string. Provided value: '
+        '@indobase/auth-js: Invalid SIWE message field "resources". Every resource must be a valid string. Provided value: '
       )
     })
 
@@ -243,7 +243,7 @@ describe('ethereum', () => {
       }
 
       expect(() => createSiweMessage(invalidResources)).toThrow(
-        '@supabase/auth-js: Invalid SIWE message field "resources". Every resource must be a valid string. Provided value: null'
+        '@indobase/auth-js: Invalid SIWE message field "resources". Every resource must be a valid string. Provided value: null'
       )
     })
 

@@ -71,7 +71,7 @@ export const recursiveToCamel = (item: Record<string, any>): unknown => {
 }
 
 /**
- * Validates if a given bucket name is valid according to Supabase Storage API rules
+ * Validates if a given bucket name is valid according to Indobase Storage API rules
  * Mirrors backend validation from: storage/src/storage/limits.ts:isValidBucketName()
  *
  * Rules:

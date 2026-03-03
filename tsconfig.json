@@ -18,7 +18,7 @@
     "rootDir": "./src",
     "baseUrl": ".",
     "paths": {
-      "@indobase/supabase-js": ["./packages/core/supabase-js/src/index.ts"],
+      "@indobase/indobase-js": ["./packages/core/indobase-js/src/index.ts"],
       "@indobase/auth-js": ["./packages/core/auth-js/src/index.ts"],
       "@indobase/postgrest-js": ["./packages/core/postgrest-js/src/index.ts"],
       "@indobase/functions-js": ["./packages/core/functions-js/src/index.ts"],

@@ -193,7 +193,7 @@ export default class PostgrestClient<
    * @example
    * ```ts
    * // For cross-schema functions where type inference fails, use overrideTypes:
-   * const { data } = await supabase
+   * const { data } = await indobase
    *   .schema('schema_b')
    *   .rpc('function_a', {})
    *   .overrideTypes<{ id: string; user_id: string }[]>()

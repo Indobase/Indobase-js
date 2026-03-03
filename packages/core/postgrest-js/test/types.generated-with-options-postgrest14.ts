@@ -4,12 +4,12 @@ export type Json = unknown
 export type Database = OriginalDatabase & {
   // This is a dummy non existent schema to allow automatically passing down options
   // to the instanciated client at type levels from the introspected database
-  __InternalSupabase: {
+  __InternalIndobase: {
     PostgrestVersion: '14.0'
   }
 }
 
-type DatabaseWithoutInternals = Omit<Database, '__InternalSupabase'>
+type DatabaseWithoutInternals = Omit<Database, '__InternalIndobase'>
 
 type DefaultSchema = DatabaseWithoutInternals[Extract<keyof Database, 'public'>]
 

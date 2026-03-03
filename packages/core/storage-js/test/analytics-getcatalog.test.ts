@@ -8,7 +8,7 @@ import { StorageError } from '../src/lib/common/errors'
 
 describe('StorageAnalyticsClient.from()', () => {
   it('should return catalog directly for valid bucket name', () => {
-    const client = new StorageAnalyticsClient('https://example.supabase.co/storage/v1/iceberg', {
+    const client = new StorageAnalyticsClient('https://example.indobase.co/storage/v1/iceberg', {
       Authorization: 'Bearer test-token',
     })
 
@@ -19,7 +19,7 @@ describe('StorageAnalyticsClient.from()', () => {
   })
 
   it('should return different catalog instances for different bucket names', () => {
-    const client = new StorageAnalyticsClient('https://example.supabase.co/storage/v1/iceberg', {})
+    const client = new StorageAnalyticsClient('https://example.indobase.co/storage/v1/iceberg', {})
 
     const catalog1 = client.from('bucket-1')
     const catalog2 = client.from('bucket-2')
@@ -46,7 +46,7 @@ describe('StorageAnalyticsClient.from()', () => {
   })
 
   it('should always throw on invalid bucket name (regardless of throwOnError)', () => {
-    const client = new StorageAnalyticsClient('https://example.supabase.co/storage/v1/iceberg', {})
+    const client = new StorageAnalyticsClient('https://example.indobase.co/storage/v1/iceberg', {})
 
     // Invalid bucket name always throws - it's a programmer error
     expect(() => client.from('bucket/invalid')).toThrow(StorageError)
@@ -54,7 +54,7 @@ describe('StorageAnalyticsClient.from()', () => {
   })
 
   it('should return catalog when called from throwOnError chain with valid bucket', () => {
-    const client = new StorageAnalyticsClient('https://example.supabase.co/storage/v1/iceberg', {})
+    const client = new StorageAnalyticsClient('https://example.indobase.co/storage/v1/iceberg', {})
 
     const catalog = client.throwOnError().from('my-bucket')
 
@@ -65,7 +65,7 @@ describe('StorageAnalyticsClient.from()', () => {
     let client: StorageAnalyticsClient
 
     beforeEach(() => {
-      client = new StorageAnalyticsClient('https://example.supabase.co/storage/v1/iceberg', {})
+      client = new StorageAnalyticsClient('https://example.indobase.co/storage/v1/iceberg', {})
     })
 
     describe('valid bucket names', () => {

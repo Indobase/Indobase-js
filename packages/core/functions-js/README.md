@@ -1,32 +1,32 @@
 <br />
 <p align="center">
-  <a href="https://supabase.io">
+  <a href="https://indobase.io">
         <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/supabase-logo-wordmark--dark.svg">
-      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/supabase-logo-wordmark--light.svg">
-      <img alt="Supabase Logo" width="300" src="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/logo-preview.jpg">
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/indobase/indobase/master/packages/common/assets/images/indobase-logo-wordmark--dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/indobase/indobase/master/packages/common/assets/images/indobase-logo-wordmark--light.svg">
+      <img alt="Indobase Logo" width="300" src="https://raw.githubusercontent.com/indobase/indobase/master/packages/common/assets/images/logo-preview.jpg">
     </picture>
   </a>
 
-  <h1 align="center">Supabase Functions JS SDK</h1>
+  <h1 align="center">Indobase Functions JS SDK</h1>
 
-  <h3 align="center">JavaScript SDK to interact with Supabase Edge Functions.</h3>
+  <h3 align="center">JavaScript SDK to interact with Indobase Edge Functions.</h3>
 
   <p align="center">
     <a href="https://indobase.com/docs/guides/functions">Guides</a>
     ·
     <a href="https://indobase.com/docs/reference/javascript/functions-invoke">Reference Docs</a>
     ·
-    <a href="https://supabase.github.io/supabase-js/functions-js/v2/spec.json">TypeDoc</a>
+    <a href="https://indobase.github.io/indobase-js/functions-js/v2/spec.json">TypeDoc</a>
   </p>
 </p>
 
 <div align="center">
 
-[![Build](https://github.com/supabase/supabase-js/workflows/CI/badge.svg)](https://github.com/supabase/supabase-js/actions?query=branch%3Amaster)
-[![Package](https://img.shields.io/npm/v/@supabase/functions-js)](https://www.npmjs.com/package/@supabase/functions-js)
-[![License: MIT](https://img.shields.io/npm/l/@supabase/supabase-js)](#license)
-[![pkg.pr.new](https://pkg.pr.new/badge/supabase/functions-js)](https://pkg.pr.new/~/supabase/functions-js)
+[![Build](https://github.com/indobase/indobase-js/workflows/CI/badge.svg)](https://github.com/indobase/indobase-js/actions?query=branch%3Amaster)
+[![Package](https://img.shields.io/npm/v/@indobase/functions-js)](https://www.npmjs.com/package/@indobase/functions-js)
+[![License: MIT](https://img.shields.io/npm/l/@indobase/indobase-js)](#license)
+[![pkg.pr.new](https://pkg.pr.new/badge/indobase/functions-js)](https://pkg.pr.new/~/indobase/functions-js)
 
 </div>
 
@@ -37,7 +37,7 @@
 
 > ⚠️ **Node.js 18 Deprecation Notice**
 >
-> Node.js 18 reached end-of-life on April 30, 2025. As announced in [our deprecation notice](https://github.com/orgs/supabase/discussions/37217), support for Node.js 18 was dropped on October 31, 2025.
+> Node.js 18 reached end-of-life on April 30, 2025. As announced in [our deprecation notice](https://github.com/orgs/indobase/discussions/37217), support for Node.js 18 was dropped on October 31, 2025.
 
 ## Quick Start
 
@@ -118,7 +118,7 @@ npx nx test:ci functions-js
 
 - **Node.js 20+** - Required for testcontainers
 - **Docker** - Must be installed and running for relay tests
-- No Supabase instance needed - Tests use mocked services and testcontainers
+- No Indobase instance needed - Tests use mocked services and testcontainers
 
 #### What Gets Tested
 

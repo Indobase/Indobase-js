@@ -11,7 +11,7 @@ export const internals = {
     globalThis &&
     supportsLocalStorage() &&
     globalThis.localStorage &&
-    globalThis.localStorage.getItem('supabase.gotrue-js.locks.debug') === 'true'
+    globalThis.localStorage.getItem('indobase.gotrue-js.locks.debug') === 'true'
   ),
 }
 
@@ -22,7 +22,7 @@ export const internals = {
  *
  * @example
  * ```ts
- * import { LockAcquireTimeoutError } from '@supabase/auth-js'
+ * import { LockAcquireTimeoutError } from '@indobase/auth-js'
  *
  * class CustomLockError extends LockAcquireTimeoutError {
  *   constructor() {
@@ -44,7 +44,7 @@ export abstract class LockAcquireTimeoutError extends Error {
  *
  * @example
  * ```ts
- * import { NavigatorLockAcquireTimeoutError } from '@supabase/auth-js'
+ * import { NavigatorLockAcquireTimeoutError } from '@indobase/auth-js'
  *
  * throw new NavigatorLockAcquireTimeoutError('Lock timed out')
  * ```
@@ -55,7 +55,7 @@ export class NavigatorLockAcquireTimeoutError extends LockAcquireTimeoutError {}
  *
  * @example
  * ```ts
- * import { ProcessLockAcquireTimeoutError } from '@supabase/auth-js'
+ * import { ProcessLockAcquireTimeoutError } from '@indobase/auth-js'
  *
  * throw new ProcessLockAcquireTimeoutError('Lock timed out')
  * ```
@@ -69,7 +69,7 @@ export class ProcessLockAcquireTimeoutError extends LockAcquireTimeoutError {}
  * throw. Make sure you check availablility before configuring {@link
  * GoTrueClient}.
  *
- * You can turn on debugging by setting the `supabase.gotrue-js.locks.debug`
+ * You can turn on debugging by setting the `indobase.gotrue-js.locks.debug`
  * local storage item to `true`.
  *
  * Internals:
@@ -99,7 +99,7 @@ export async function navigatorLock<R>(
   fn: () => Promise<R>
 ): Promise<R> {
   if (internals.debug) {
-    console.log('@supabase/gotrue-js: navigatorLock: acquire lock', name, acquireTimeout)
+    console.log('@indobase/gotrue-js: navigatorLock: acquire lock', name, acquireTimeout)
   }
 
   const abortController = new globalThis.AbortController()
@@ -108,7 +108,7 @@ export async function navigatorLock<R>(
     setTimeout(() => {
       abortController.abort()
       if (internals.debug) {
-        console.log('@supabase/gotrue-js: navigatorLock acquire timed out', name)
+        console.log('@indobase/gotrue-js: navigatorLock acquire timed out', name)
       }
     }, acquireTimeout)
   }
@@ -139,20 +139,20 @@ export async function navigatorLock<R>(
       async (lock) => {
         if (lock) {
           if (internals.debug) {
-            console.log('@supabase/gotrue-js: navigatorLock: acquired', name, lock.name)
+            console.log('@indobase/gotrue-js: navigatorLock: acquired', name, lock.name)
           }
 
           try {
             return await fn()
           } finally {
             if (internals.debug) {
-              console.log('@supabase/gotrue-js: navigatorLock: released', name, lock.name)
+              console.log('@indobase/gotrue-js: navigatorLock: released', name, lock.name)
             }
           }
         } else {
           if (acquireTimeout === 0) {
             if (internals.debug) {
-              console.log('@supabase/gotrue-js: navigatorLock: not immediately available', name)
+              console.log('@indobase/gotrue-js: navigatorLock: not immediately available', name)
             }
 
             throw new NavigatorLockAcquireTimeoutError(
@@ -164,12 +164,12 @@ export async function navigatorLock<R>(
                 const result = await globalThis.navigator.locks.query()
 
                 console.log(
-                  '@supabase/gotrue-js: Navigator LockManager state',
+                  '@indobase/gotrue-js: Navigator LockManager state',
                   JSON.stringify(result, null, '  ')
                 )
               } catch (e: any) {
                 console.warn(
-                  '@supabase/gotrue-js: Error when querying Navigator LockManager state',
+                  '@indobase/gotrue-js: Error when querying Navigator LockManager state',
                   e
                 )
               }
@@ -180,7 +180,7 @@ export async function navigatorLock<R>(
             // pretend the lock is acquired in the name of backward compatibility
             // and user experience and just run the function.
             console.warn(
-              '@supabase/gotrue-js: Navigator LockManager returned a null lock when using #request without ifAvailable set to true, it appears this browser is not following the LockManager spec https://developer.mozilla.org/en-US/docs/Web/API/LockManager/request'
+              '@indobase/gotrue-js: Navigator LockManager returned a null lock when using #request without ifAvailable set to true, it appears this browser is not following the LockManager spec https://developer.mozilla.org/en-US/docs/Web/API/LockManager/request'
             )
 
             return await fn()
@@ -202,16 +202,16 @@ export async function navigatorLock<R>(
       // The previous holder's callback continues running to completion but no
       // longer holds the lock for exclusion purposes.
       //
-      // See: https://github.com/supabase/supabase/issues/42505
+      // See: https://github.com/indobase/indobase/issues/42505
       if (internals.debug) {
         console.log(
-          '@supabase/gotrue-js: navigatorLock: acquire timeout, recovering by stealing lock',
+          '@indobase/gotrue-js: navigatorLock: acquire timeout, recovering by stealing lock',
           name
         )
       }
 
       console.warn(
-        `@supabase/gotrue-js: Lock "${name}" was not released within ${acquireTimeout}ms. ` +
+        `@indobase/gotrue-js: Lock "${name}" was not released within ${acquireTimeout}ms. ` +
           'This may indicate an orphaned lock from a component unmount (e.g., React Strict Mode). ' +
           'Forcefully acquiring the lock to recover.'
       )
@@ -227,7 +227,7 @@ export async function navigatorLock<R>(
             if (lock) {
               if (internals.debug) {
                 console.log(
-                  '@supabase/gotrue-js: navigatorLock: recovered (stolen)',
+                  '@indobase/gotrue-js: navigatorLock: recovered (stolen)',
                   name,
                   lock.name
                 )
@@ -238,7 +238,7 @@ export async function navigatorLock<R>(
               } finally {
                 if (internals.debug) {
                   console.log(
-                    '@supabase/gotrue-js: navigatorLock: released (stolen)',
+                    '@indobase/gotrue-js: navigatorLock: released (stolen)',
                     name,
                     lock.name
                   )
@@ -247,7 +247,7 @@ export async function navigatorLock<R>(
             } else {
               // This should not happen with steal: true, but handle gracefully.
               console.warn(
-                '@supabase/gotrue-js: Navigator LockManager returned null lock even with steal: true'
+                '@indobase/gotrue-js: Navigator LockManager returned null lock even with steal: true'
               )
               return await fn()
             }
@@ -311,7 +311,7 @@ export async function processLock<R>(
           ? new Promise((_, reject) => {
               timeoutId = setTimeout(() => {
                 console.warn(
-                  `@supabase/gotrue-js: Lock "${name}" acquisition timed out after ${acquireTimeout}ms. ` +
+                  `@indobase/gotrue-js: Lock "${name}" acquisition timed out after ${acquireTimeout}ms. ` +
                     'This may be caused by another operation holding the lock. ' +
                     'Consider increasing lockAcquireTimeout or checking for stuck operations.'
                 )

@@ -10,7 +10,7 @@ const defaultUrl = process.env.VERCEL_URL
 export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),
   title: "Realtime Chat",
-  description: "Anonymous chat app powered by Supabase Realtime",
+  description: "Anonymous chat app powered by Indobase Realtime",
 };
 
 const geistSans = Geist({

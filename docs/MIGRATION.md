@@ -1,6 +1,6 @@
-# Migration Guide: Transitioning to the Supabase JS Monorepo
+# Migration Guide: Transitioning to the Indobase JS Monorepo
 
-> **This repository has been restructured.** If you contributed to `supabase-js`, `auth-js`, `postgrest-js`, or any other Supabase JS library, this guide explains what changed and how to work with the new structure.
+> **This repository has been restructured.** If you contributed to `indobase-js`, `auth-js`, `postgrest-js`, or any other Indobase JS library, this guide explains what changed and how to work with the new structure.
 
 > **📦 Note for Package Users:** If you install and use these packages via npm, **nothing changed**. This guide is for contributors who develop and maintain these libraries.
 
@@ -12,7 +12,7 @@
 
 ### What Changed
 
-Starting with version `2.79.0`, all Supabase JavaScript libraries require **Node.js 20 or later**. The `@supabase/node-fetch` polyfill has been removed, and native fetch support is now required.
+Starting with version `2.79.0`, all Indobase JavaScript libraries require **Node.js 20 or later**. The `@indobase/node-fetch` polyfill has been removed, and native fetch support is now required.
 
 ### Why?
 
@@ -20,12 +20,12 @@ Node.js 18 reached end-of-life on April 30, 2025, and no longer receives securit
 
 ### Affected Libraries
 
-- `@supabase/supabase-js`
-- `@supabase/auth-js`
-- `@supabase/postgrest-js`
-- `@supabase/realtime-js`
-- `@supabase/storage-js`
-- `@supabase/functions-js`
+- `@indobase/indobase-js`
+- `@indobase/auth-js`
+- `@indobase/postgrest-js`
+- `@indobase/realtime-js`
+- `@indobase/storage-js`
+- `@indobase/functions-js`
 
 ### Migration Guide
 
@@ -46,9 +46,9 @@ nvm use 20
 **2. Update your package.json** to use the latest version:
 
 ```bash
-npm install @supabase/supabase-js@latest
+npm install @indobase/indobase-js@latest
 # Or for individual packages:
-npm install @supabase/auth-js@latest
+npm install @indobase/auth-js@latest
 ```
 
 **3. No code changes required** - The APIs remain unchanged. Your existing code will work as-is once you upgrade Node.js.
@@ -76,14 +76,14 @@ This means you're running Node.js < 20. Solutions:
 If you must use Node.js 18, install the last version that supported it:
 
 ```bash
-npm install @supabase/supabase-js@2.78.0
+npm install @indobase/indobase-js@2.78.0
 ```
 
 ⚠️ **Warning:** Using Node.js 18 is not recommended as it no longer receives security updates.
 
 ### Discussion
 
-For more details, see the [deprecation announcement](https://github.com/orgs/supabase/discussions/37217).
+For more details, see the [deprecation announcement](https://github.com/orgs/indobase/discussions/37217).
 
 ---
 
@@ -91,7 +91,7 @@ For more details, see the [deprecation announcement](https://github.com/orgs/sup
 
 **This guide is for contributors**, including:
 
-- Contributors to the old `supabase-js` repository (even supabase-js moved)
+- Contributors to the old `indobase-js` repository (even indobase-js moved)
 - Contributors to separate libraries (`auth-js`, `postgrest-js`, `realtime-js`, `storage-js`, `functions-js`)
 - Anyone with open PRs in any of the old repositories
 - New contributors who want to understand the architecture
@@ -102,31 +102,31 @@ For more details, see the [deprecation announcement](https://github.com/orgs/sup
 
 ### The Repository URL Stayed the Same, But Everything Inside Changed
 
-The repository is still at `github.com/supabase/supabase-js`.
+The repository is still at `github.com/indobase/indobase-js`.
 
 **OLD Structure:**
 
 ```tree
-github.com/supabase/supabase-js/
-├── src/              ← supabase-js code was here
+github.com/indobase/indobase-js/
+├── src/              ← indobase-js code was here
 ├── test/
 ├── package.json
 └── README.md
 
-github.com/supabase/auth-js/        ← Separate repo
-github.com/supabase/postgrest-js/   ← Separate repo
-github.com/supabase/realtime-js/    ← Separate repo
-github.com/supabase/storage-js/     ← Separate repo
-github.com/supabase/functions-js/   ← Separate repo
+github.com/indobase/auth-js/        ← Separate repo
+github.com/indobase/postgrest-js/   ← Separate repo
+github.com/indobase/realtime-js/    ← Separate repo
+github.com/indobase/storage-js/     ← Separate repo
+github.com/indobase/functions-js/   ← Separate repo
 ```
 
 **NEW Structure** (what you'll see now):
 
 ```tree
-github.com/supabase/supabase-js/    ← Same URL, different structure!
+github.com/indobase/indobase-js/    ← Same URL, different structure!
 ├── packages/
 │   └── core/
-│       ├── supabase-js/     ← YOUR supabase-js code is HERE now
+│       ├── indobase-js/     ← YOUR indobase-js code is HERE now
 │       │   ├── src/
 │       │   ├── test/
 │       │   └── package.json
@@ -142,7 +142,7 @@ github.com/supabase/supabase-js/    ← Same URL, different structure!
 
 ### Key Point: EVERYTHING Moved
 
-All six libraries, including `supabase-js` itself, now live under `packages/core/`. All libraries were reorganized into a shared monorepo structure.
+All six libraries, including `indobase-js` itself, now live under `packages/core/`. All libraries were reorganized into a shared monorepo structure.
 
 ### 📦 Important: This Only Affects Contributors
 
@@ -152,9 +152,9 @@ The monorepo restructure is a **development workflow change** for maintainers an
 
 ```bash
 # Still works the same
-npm install @supabase/supabase-js
-npm install @supabase/auth-js
-npm install @supabase/storage-js
+npm install @indobase/indobase-js
+npm install @indobase/auth-js
+npm install @indobase/storage-js
 ```
 
 What stayed the same:
@@ -162,7 +162,7 @@ What stayed the same:
 - Packages are still published independently to npm
 - You can still install only what you need
 - Your existing code does not need any changes
-- Package names remain the same (`@supabase/package-name`)
+- Package names remain the same (`@indobase/package-name`)
 
 The only difference is that all packages now share the same version number for compatibility across the ecosystem.
 
@@ -181,7 +181,7 @@ This guide is for contributors who need to understand where code moved and how t
 
 ## Why We Migrated
 
-We converted the `supabase-js` repository into a monorepo and absorbed the other js SDKs to solve several challenges:
+We converted the `indobase-js` repository into a monorepo and absorbed the other js SDKs to solve several challenges:
 
 ### Problems with Separate Repos
 
@@ -209,21 +209,21 @@ We converted the `supabase-js` repository into a monorepo and absorbed the other
 **Before:** 6 separate repositories
 
 ```tree
-github.com/supabase/supabase-js
-github.com/supabase/auth-js
-github.com/supabase/postgrest-js
-github.com/supabase/realtime-js
-github.com/supabase/storage-js
-github.com/supabase/functions-js
+github.com/indobase/indobase-js
+github.com/indobase/auth-js
+github.com/indobase/postgrest-js
+github.com/indobase/realtime-js
+github.com/indobase/storage-js
+github.com/indobase/functions-js
 ```
 
-**After:** The Supabase JS monorepo (absorbed all SDKs)
+**After:** The Indobase JS monorepo (absorbed all SDKs)
 
 ```tree
-github.com/supabase/supabase-js
+github.com/indobase/indobase-js
 ├── packages/
 │   └── core/
-│       ├── supabase-js/
+│       ├── indobase-js/
 │       ├── auth-js/
 │       ├── postgrest-js/
 │       ├── realtime-js/
@@ -235,7 +235,7 @@ github.com/supabase/supabase-js
 
 | Task                     | Old Workflow                     | New Workflow                                 |
 | ------------------------ | -------------------------------- | -------------------------------------------- |
-| **Clone & Setup**        | Clone each repo individually     | Clone once: `git clone supabase/supabase-js` |
+| **Clone & Setup**        | Clone each repo individually     | Clone once: `git clone indobase/indobase-js` |
 | **Install Dependencies** | `npm install` in each repo       | Single `npm install` at root                 |
 | **Build a Library**      | `npm run build` in specific repo | `npx nx build auth-js`                       |
 | **Test a Library**       | `npm test` in specific repo      | `npx nx test postgrest-js`                   |
@@ -256,12 +256,12 @@ Here's where to find your familiar code in the new structure:
 
 | Old Repository          | New Location                  | Package Name (unchanged!) |
 | ----------------------- | ----------------------------- | ------------------------- |
-| `supabase/supabase-js`  | `packages/core/supabase-js/`  | `@supabase/supabase-js`   |
-| `supabase/auth-js`      | `packages/core/auth-js/`      | `@supabase/auth-js`       |
-| `supabase/postgrest-js` | `packages/core/postgrest-js/` | `@supabase/postgrest-js`  |
-| `supabase/realtime-js`  | `packages/core/realtime-js/`  | `@supabase/realtime-js`   |
-| `supabase/storage-js`   | `packages/core/storage-js/`   | `@supabase/storage-js`    |
-| `supabase/functions-js` | `packages/core/functions-js/` | `@supabase/functions-js`  |
+| `indobase/indobase-js`  | `packages/core/indobase-js/`  | `@indobase/indobase-js`   |
+| `indobase/auth-js`      | `packages/core/auth-js/`      | `@indobase/auth-js`       |
+| `indobase/postgrest-js` | `packages/core/postgrest-js/` | `@indobase/postgrest-js`  |
+| `indobase/realtime-js`  | `packages/core/realtime-js/`  | `@indobase/realtime-js`   |
+| `indobase/storage-js`   | `packages/core/storage-js/`   | `@indobase/storage-js`    |
+| `indobase/functions-js` | `packages/core/functions-js/` | `@indobase/functions-js`  |
 
 ### Important Files
 
@@ -282,13 +282,13 @@ If you have uncommitted changes or an active branch in an old repository, you'll
 #### Step 1: Set up the new monorepo
 
 ```bash
-# Fork github.com/supabase/supabase-js on GitHub, then:
-git clone https://github.com/YOUR_USERNAME/supabase-js.git
-cd supabase-js
+# Fork github.com/indobase/indobase-js on GitHub, then:
+git clone https://github.com/YOUR_USERNAME/indobase-js.git
+cd indobase-js
 npm install
 
 # Add upstream remote
-git remote add upstream https://github.com/supabase/supabase-js.git
+git remote add upstream https://github.com/indobase/indobase-js.git
 git fetch upstream
 
 # Create your feature branch
@@ -311,7 +311,7 @@ git checkout -b feature/your-feature-name
 
 If you have an open PR, reach out to maintainers in your existing PR. We will help you merge it quickly or assist with porting to the monorepo.
 
-### For Projects Depending on Supabase Libraries
+### For Projects Depending on Indobase Libraries
 
 **Zero changes for package users.** If you use these packages in your project, everything works as before. The monorepo is an internal development change.
 
@@ -320,9 +320,9 @@ Packages are still published independently.
 ```json
 {
   "dependencies": {
-    "@supabase/supabase-js": "^2.0.0",
-    "@supabase/auth-js": "^2.0.0",
-    "@supabase/storage-js": "^2.0.0"
+    "@indobase/indobase-js": "^2.0.0",
+    "@indobase/auth-js": "^2.0.0",
+    "@indobase/storage-js": "^2.0.0"
   }
 }
 ```
@@ -339,7 +339,7 @@ npm run commit  # Use interactive commit tool
 # Select: fix > postgrest > "resolve filter issue"
 ```
 
-### Scenario 2: "I need to update auth-js and test it with supabase-js"
+### Scenario 2: "I need to update auth-js and test it with indobase-js"
 
 ```bash
 # Before: required npm link or multiple PRs
@@ -351,15 +351,15 @@ edit packages/core/auth-js/src/GoTrueClient.ts
 # Test auth-js alone
 npx nx test auth-js
 
-# Test with supabase-js integration
-npx nx test supabase-js
+# Test with indobase-js integration
+npx nx test indobase-js
 
 # Build both to ensure compatibility
-npx nx run-many --target=build --projects=auth-js,supabase-js
+npx nx run-many --target=build --projects=auth-js,indobase-js
 
 # Commit both changes atomically
 npm run commit
-# feat(auth): add new auth feature with supabase-js integration
+# feat(auth): add new auth feature with indobase-js integration
 ```
 
 ### Scenario 3: "I want to add a feature that touches multiple packages"
@@ -370,7 +370,7 @@ git checkout -b feature/multi-package-update
 
 # Make changes across packages
 edit packages/core/auth-js/src/lib/feature.ts
-edit packages/core/supabase-js/src/SupabaseClient.ts
+edit packages/core/indobase-js/src/IndobaseClient.ts
 edit packages/core/realtime-js/src/RealtimeClient.ts
 
 # Build all affected packages
@@ -378,7 +378,7 @@ npx nx affected --target=build
 
 # Commit with appropriate scope
 npm run commit
-# feat(supabase): add cross-package feature for X functionality
+# feat(indobase): add cross-package feature for X functionality
 ```
 
 ## Command Reference
@@ -408,7 +408,7 @@ Use these names with Nx commands:
 - `postgrest-js` - PostgREST library
 - `realtime-js` - Realtime library
 - `storage-js` - Storage library
-- `supabase-js` - Main SDK
+- `indobase-js` - Main SDK
 
 ### Useful New Commands
 
@@ -440,31 +440,31 @@ npx nx run-many --target=docs --all
 
 ## FAQ
 
-### Q: I contributed to the old supabase-js repo. Where did my code go?
+### Q: I contributed to the old indobase-js repo. Where did my code go?
 
-**A:** Your code is now in `packages/core/supabase-js/`. The repository URL (`github.com/supabase/supabase-js`) stayed the same, but the internal structure changed. What used to be in the root (`src/`, `test/`, etc.) is now nested under `packages/core/supabase-js/`.
+**A:** Your code is now in `packages/core/indobase-js/`. The repository URL (`github.com/indobase/indobase-js`) stayed the same, but the internal structure changed. What used to be in the root (`src/`, `test/`, etc.) is now nested under `packages/core/indobase-js/`.
 
 Example:
 
-- **Old:** `src/SupabaseClient.ts`
-- **New:** `packages/core/supabase-js/src/SupabaseClient.ts`
+- **Old:** `src/IndobaseClient.ts`
+- **New:** `packages/core/indobase-js/src/IndobaseClient.ts`
 
 This structure accommodates all the libraries in one repository.
 
-### Q: Why does it say supabase-js "absorbed" other libraries if supabase-js also moved?
+### Q: Why does it say indobase-js "absorbed" other libraries if indobase-js also moved?
 
 **A:** What happened:
 
-- The `supabase-js` **repository URL** stayed the same (`github.com/supabase/supabase-js`)
-- All libraries (including supabase-js itself) moved into a `packages/core/` structure
+- The `indobase-js` **repository URL** stayed the same (`github.com/indobase/indobase-js`)
+- All libraries (including indobase-js itself) moved into a `packages/core/` structure
 - Other library repositories (`auth-js`, `postgrest-js`, etc.) were archived
-- The repository now contains all libraries, but supabase-js code also relocated
+- The repository now contains all libraries, but indobase-js code also relocated
 
-The **repository** absorbed other libraries. The **supabase-js package code** also moved.
+The **repository** absorbed other libraries. The **indobase-js package code** also moved.
 
 ### Q: Why fixed versioning instead of independent versions?
 
-**A:** Fixed versioning ensures all Supabase JS libraries are compatible with each other. You do not need to worry about compatibility matrices or which version of auth-js works with which version of supabase-js.
+**A:** Fixed versioning ensures all Indobase JS libraries are compatible with each other. You do not need to worry about compatibility matrices or which version of auth-js works with which version of indobase-js.
 
 ### Q: Can I still work on just one library?
 
@@ -488,7 +488,7 @@ npx nx test auth-js --watch
 **A:** The structure within each package is the same as before. Examples:
 
 - **Old auth-js repo:** `src/GoTrueClient.ts` → **New:** `packages/core/auth-js/src/GoTrueClient.ts`
-- **Old supabase-js repo:** `src/SupabaseClient.ts` → **New:** `packages/core/supabase-js/src/SupabaseClient.ts`
+- **Old indobase-js repo:** `src/IndobaseClient.ts` → **New:** `packages/core/indobase-js/src/IndobaseClient.ts`
 
 The internal structure of each library is unchanged. Only the top-level location changed.
 
@@ -511,23 +511,23 @@ git log --follow packages/core/auth-js/src/GoTrueClient.ts
 You can install any package individually:
 
 ```bash
-npm install @supabase/auth-js
-npm install @supabase/supabase-js
-npm install @supabase/storage-js
+npm install @indobase/auth-js
+npm install @indobase/indobase-js
+npm install @indobase/storage-js
 ```
 
 The monorepo is an internal development tool. It makes it easier for contributors to work across packages. It does not affect package distribution or how you use them.
 
 ### Q: What if I find a bug in the migration?
 
-**A:** [Open an issue](https://github.com/supabase/supabase-js/issues/new/choose) and add `[migration]` in the title. We are actively monitoring these during the transition period.
+**A:** [Open an issue](https://github.com/indobase/indobase-js/issues/new/choose) and add `[migration]` in the title. We are actively monitoring these during the transition period.
 
 ## Getting Help
 
 ### Migration Support
 
-- **Migration Issues**: Create a [new GitHub issue](https://github.com/supabase/supabase-js/issues/new/choose) and add `[migration]` in the title
-- **Questions**: Check out the [GitHub Discussion](https://github.com/orgs/supabase/discussions/39197) on the monorepo transition
+- **Migration Issues**: Create a [new GitHub issue](https://github.com/indobase/indobase-js/issues/new/choose) and add `[migration]` in the title
+- **Questions**: Check out the [GitHub Discussion](https://github.com/orgs/indobase/discussions/39197) on the monorepo transition
 - **Discord**: [Indobase Discord](https://discord.indobase.fun) in #contributing channel
 
 ### Resources
@@ -539,11 +539,11 @@ The monorepo is an internal development tool. It makes it easier for contributor
 
 - **Indobase JS Monorepo**: <https://github.com/indobase/indobase-js>
 - **Old Repos** (archived/read-only):
-  - <https://github.com/supabase/auth-js>
-  - <https://github.com/supabase/postgrest-js>
-  - <https://github.com/supabase/realtime-js>
-  - <https://github.com/supabase/storage-js>
-  - <https://github.com/supabase/functions-js>
+  - <https://github.com/indobase/auth-js>
+  - <https://github.com/indobase/postgrest-js>
+  - <https://github.com/indobase/realtime-js>
+  - <https://github.com/indobase/storage-js>
+  - <https://github.com/indobase/functions-js>
 
 ---
 

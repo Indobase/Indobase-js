@@ -81,7 +81,7 @@ export interface SortBy {
 
 export interface FileOptions {
   /**
-   * The number of seconds the asset is cached in the browser and in the Supabase CDN. This is set in the `Cache-Control: max-age=<seconds>` header. Defaults to 3600 seconds.
+   * The number of seconds the asset is cached in the browser and in the Indobase CDN. This is set in the `Cache-Control: max-age=<seconds>` header. Defaults to 3600 seconds.
    */
   cacheControl?: string
   /**

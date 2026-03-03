@@ -236,7 +236,7 @@ export const toArray = (value: RecordValue, type: string): RecordValue => {
 
 /**
  * Fixes timestamp to be ISO-8601. Swaps the space between the date and time for a 'T'
- * See https://github.com/supabase/supabase/issues/18
+ * See https://github.com/indobase/indobase/issues/18
  *
  * @example toTimestampString('2019-09-10 00:00:00')
  * //=> '2019-09-10T00:00:00'

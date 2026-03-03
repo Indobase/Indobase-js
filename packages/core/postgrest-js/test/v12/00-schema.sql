@@ -3,7 +3,7 @@
 -- Based on original postgrest-js test schema (simplified)
 
 -- Create the Replication publication
-CREATE PUBLICATION supabase_realtime FOR ALL TABLES;
+CREATE PUBLICATION indobase_realtime FOR ALL TABLES;
 
 -- Create a second schema
 CREATE SCHEMA personal;

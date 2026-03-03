@@ -134,14 +134,14 @@ declare namespace EdgeRuntime {
   export function scheduleTermination(): void
   export function waitUntil<T>(promise: Promise<T>): Promise<T>
   export function getRuntimeMetrics(): Promise<RuntimeMetrics>
-  export function applySupabaseTag(src: Request, dest: Request): void
+  export function applyIndobaseTag(src: Request, dest: Request): void
   export function systemMemoryInfo(): MemInfo
   export function raiseSegfault(): void
 
   export { UserWorker as userWorkers }
 }
 
-declare namespace Supabase {
+declare namespace Indobase {
   export namespace ai {
     interface ModelOptions {
       /**

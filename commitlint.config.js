@@ -30,7 +30,7 @@ module.exports = {
         'postgrest',
         'realtime',
         'storage',
-        'supabase',
+        'indobase',
 
         // Workspace-level scopes
         'repo',
@@ -107,12 +107,12 @@ module.exports = {
       scope: {
         description: 'What is the scope of this change',
         enum: {
-          auth: { description: 'Anything @supabase/auth-js specific' },
-          functions: { description: 'Anything @supabase/functions-js specific' },
-          postgrest: { description: 'Anything @supabase/postgrest-js specific' },
-          realtime: { description: 'Anything @supabase/realtime-js specific' },
-          storage: { description: 'Anything @supabase/storage-js specific' },
-          supabase: { description: 'Anything @supabase/supabase-js specific' },
+          auth: { description: 'Anything @indobase/auth-js specific' },
+          functions: { description: 'Anything @indobase/functions-js specific' },
+          postgrest: { description: 'Anything @indobase/postgrest-js specific' },
+          realtime: { description: 'Anything @indobase/realtime-js specific' },
+          storage: { description: 'Anything @indobase/storage-js specific' },
+          indobase: { description: 'Anything @indobase/indobase-js specific' },
           repo: { description: 'Repository-level changes' },
           deps: { description: 'Dependencies' },
           ci: { description: 'Changes to CI' },

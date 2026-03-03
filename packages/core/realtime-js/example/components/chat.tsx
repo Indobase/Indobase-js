@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { createClient } from "@/lib/supabase/client";
+import { createClient } from "@/lib/indobase/client";
 import { getUsername } from "@/lib/username";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import type { RealtimeChannel } from "@supabase/supabase-js";
+import type { RealtimeChannel } from "@indobase/indobase-js";
 
 const ROOMS = ["general", "random", "tech", "off-topic"] as const;
 type Room = (typeof ROOMS)[number];
@@ -32,7 +32,7 @@ export function Chat() {
   const [username, setUsername] = useState("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const channelRef = useRef<RealtimeChannel | null>(null);
-  const supabase = createClient();
+  const indobase = createClient();
 
   // Get username on mount
   useEffect(() => {
@@ -45,12 +45,12 @@ export function Chat() {
 
     // Cleanup previous channel
     if (channelRef.current) {
-      supabase.removeChannel(channelRef.current);
+      indobase.removeChannel(channelRef.current);
     }
 
     // Fetch existing messages
     const fetchMessages = async () => {
-      const { data } = await supabase
+      const { data } = await indobase
         .from("messages")
         .select("*")
         .eq("room", room)
@@ -63,7 +63,7 @@ export function Chat() {
     fetchMessages();
 
     // Subscribe to new messages and presence
-    const channel = supabase
+    const channel = indobase
       .channel(`room:${room}`)
       .on("broadcast", { event: "message" }, ({ payload }) => {
         setMessages((prev) => [...prev, payload as Message]);
@@ -82,9 +82,9 @@ export function Chat() {
     channelRef.current = channel;
 
     return () => {
-      supabase.removeChannel(channel);
+      indobase.removeChannel(channel);
     };
-  }, [room, username, supabase]);
+  }, [room, username, indobase]);
 
   // Auto-scroll to bottom
   useEffect(() => {
@@ -114,7 +114,7 @@ export function Chat() {
     setMessages((prev) => [...prev, message]);
 
     // Persist to database
-    await supabase.from("messages").insert(message);
+    await indobase.from("messages").insert(message);
 
     setInput("");
   };

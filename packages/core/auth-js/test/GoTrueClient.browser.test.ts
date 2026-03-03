@@ -430,7 +430,7 @@ describe('Callback URL handling', () => {
     expect(client).toBeDefined()
   })
 
-  it('should use custom detectSessionInUrl function to filter out non-Supabase OAuth callbacks', async () => {
+  it('should use custom detectSessionInUrl function to filter out non-Indobase OAuth callbacks', async () => {
     // Simulate Facebook OAuth redirect with access_token in fragment
     window.location.href =
       'http://localhost:9999/facebook/redirect#access_token=facebook-token&data_access_expiration_time=1658889585'
@@ -464,10 +464,10 @@ describe('Callback URL handling', () => {
     expect(data.session).toBeNull()
   })
 
-  it('should process Supabase callbacks when custom detectSessionInUrl returns true', async () => {
-    // Simulate Supabase OAuth redirect
+  it('should process Indobase callbacks when custom detectSessionInUrl returns true', async () => {
+    // Simulate Indobase OAuth redirect
     window.location.href =
-      'http://localhost:9999/auth/callback#access_token=supabase-token&refresh_token=test-refresh&expires_in=3600&token_type=bearer&type=implicit'
+      'http://localhost:9999/auth/callback#access_token=indobase-token&refresh_token=test-refresh&expires_in=3600&token_type=bearer&type=implicit'
 
     // Mock fetch for user info
     mockFetch.mockImplementation((url: string) => {
@@ -486,7 +486,7 @@ describe('Callback URL handling', () => {
         ok: true,
         json: () =>
           Promise.resolve({
-            access_token: 'supabase-token',
+            access_token: 'indobase-token',
             refresh_token: 'test-refresh',
             expires_in: 3600,
             token_type: 'bearer',
@@ -495,7 +495,7 @@ describe('Callback URL handling', () => {
       })
     })
 
-    // Custom predicate that allows Supabase callbacks but not Facebook
+    // Custom predicate that allows Indobase callbacks but not Facebook
     const detectSessionInUrlFn = jest.fn((url: URL, params: { [key: string]: string }) => {
       if (url.pathname === '/facebook/redirect') return false
       return Boolean(params.access_token || params.error_description)
@@ -517,7 +517,7 @@ describe('Callback URL handling', () => {
     // Session should be set because we allowed this callback
     const { data } = await client.getSession()
     expect(data.session).toBeDefined()
-    expect(data.session?.access_token).toBe('supabase-token')
+    expect(data.session?.access_token).toBe('indobase-token')
   })
 
   it('should return error when custom detectSessionInUrl function throws', async () => {

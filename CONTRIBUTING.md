@@ -1,8 +1,8 @@
-# Contributing to Supabase JS Libraries
+# Contributing to Indobase JS Libraries
 
-Thank you for your interest in contributing to the Supabase JavaScript SDK! This guide will help you get started with contributing to the Supabase JS monorepo.
+Thank you for your interest in contributing to the Indobase JavaScript SDK! This guide will help you get started with contributing to the Indobase JS monorepo.
 
-> **Repository Structure Changed:** This repository has been restructured as a monorepo. **All libraries, including `supabase-js`, are now under `packages/core/`**. If you previously contributed to `supabase-js`, `auth-js`, `postgrest-js`, `realtime-js`, `storage-js`, or `functions-js`, please read our **[Migration Guide](docs/MIGRATION.md)** to understand:
+> **Repository Structure Changed:** This repository has been restructured as a monorepo. **All libraries, including `indobase-js`, are now under `packages/core/`**. If you previously contributed to `indobase-js`, `auth-js`, `postgrest-js`, `realtime-js`, `storage-js`, or `functions-js`, please read our **[Migration Guide](docs/MIGRATION.md)** to understand:
 >
 > - Where your code moved (everything is now in `packages/core/<library-name>/`)
 > - How commands changed (`npm test` → `npx nx test <library-name>`)
@@ -34,8 +34,8 @@ Thank you for your interest in contributing to the Supabase JavaScript SDK! This
 2. **Clone your fork** locally:
 
    ```bash
-   git clone git@github.com:YOUR_USERNAME/supabase-js.git
-   cd supabase-js
+   git clone git@github.com:YOUR_USERNAME/indobase-js.git
+   cd indobase-js
    ```
 
 3. **Install dependencies**:
@@ -151,12 +151,12 @@ All commits must follow this format:
 
 #### Library-Specific Scopes
 
-- `auth` - Changes to `@supabase/auth-js`
-- `functions` - Changes to `@supabase/functions-js`
-- `postgrest` - Changes to `@supabase/postgrest-js`
-- `realtime` - Changes to `@supabase/realtime-js`
-- `storage` - Changes to `@supabase/storage-js`
-- `supabase` - Changes to `@supabase/supabase-js`
+- `auth` - Changes to `@indobase/auth-js`
+- `functions` - Changes to `@indobase/functions-js`
+- `postgrest` - Changes to `@indobase/postgrest-js`
+- `realtime` - Changes to `@indobase/realtime-js`
+- `storage` - Changes to `@indobase/storage-js`
+- `indobase` - Changes to `@indobase/indobase-js`
 
 #### Workspace-Level Scopes
 
@@ -247,7 +247,7 @@ Each package has its own testing requirements and infrastructure. For comprehens
 
 - **[TESTING.md](./docs/TESTING.md)** - Overview of testing across all packages
 - **Package-specific guides** - Detailed testing instructions in each package's README:
-  - [`supabase-js`](./packages/core/supabase-js/README.md)
+  - [`indobase-js`](./packages/core/indobase-js/README.md)
   - [`auth-js`](./packages/core/auth-js/README.md)
   - [`functions-js`](./packages/core/functions-js/README.md)
   - [`postgrest-js`](./packages/core/postgrest-js/README.md)
@@ -276,9 +276,9 @@ npx nx test <package> --coverage
 | postgrest-js | ✅ Yes          | [See README](packages/core/postgrest-js/README.md#testing) |
 | realtime-js  | ❌ No           | [See README](packages/core/realtime-js/README.md#testing)  |
 | storage-js   | ✅ Yes          | [See README](packages/core/storage-js/README.md#testing)   |
-| supabase-js  | ❌ No\*         | [See README](packages/core/supabase-js/README.md#testing)  |
+| indobase-js  | ❌ No\*         | [See README](packages/core/indobase-js/README.md#testing)  |
 
-\*supabase-js integration tests require additional setup
+\*indobase-js integration tests require additional setup
 
 ## Documentation
 
@@ -288,7 +288,7 @@ We automatically generate TypeScript API documentation that is used by the main 
 
 1. **TypeDoc generates JSON specifications** from TypeScript source code
 2. **GitHub Actions publishes** these specs to GitHub Pages on every push to `master`
-3. **Main Supabase repository** uses these JSON files to generate the official API docs via `make` commands
+3. **Main Indobase repository** uses these JSON files to generate the official API docs via `make` commands
 
 #### Available Documentation Commands
 
@@ -334,9 +334,9 @@ Official releases are handled by maintainers using Nx Release. You can read more
 ### Resources
 
 - **Documentation**: [indobase.fun/docs](https://indobase.fun/docs)
-- **Community**: [GitHub Discussions](https://github.com/supabase/supabase/discussions)
-- **Issues**: [GitHub Issues](https://github.com/supabase/supabase-js/issues)
-- **Discord**: [Supabase Discord](https://discord.supabase.com)
+- **Community**: [GitHub Discussions](https://github.com/indobase/indobase/discussions)
+- **Issues**: [GitHub Issues](https://github.com/indobase/indobase-js/issues)
+- **Discord**: [Indobase Discord](https://discord.indobase.com)
 
 ### Reporting Issues
 
@@ -350,18 +350,18 @@ When reporting issues, please include:
 
 ### Asking Questions
 
-- **General questions**: Use [GitHub Discussions](https://github.com/supabase/supabase/discussions)
-- **Bug reports**: Use [GitHub Issues](https://github.com/supabase/supabase-js/issues)
-- **Feature requests**: Use [GitHub Issues](https://github.com/supabase/supabase-js/issues) with the "enhancement" label
+- **General questions**: Use [GitHub Discussions](https://github.com/indobase/indobase/discussions)
+- **Bug reports**: Use [GitHub Issues](https://github.com/indobase/indobase-js/issues)
+- **Feature requests**: Use [GitHub Issues](https://github.com/indobase/indobase-js/issues) with the "enhancement" label
 
 ## 🤝 Code of Conduct
 
-We are committed to providing a welcoming and inspiring community for all. Please review our [Code of Conduct](https://github.com/supabase/.github/blob/main/CODE_OF_CONDUCT.md) before participating.
+We are committed to providing a welcoming and inspiring community for all. Please review our [Code of Conduct](https://github.com/indobase/.github/blob/main/CODE_OF_CONDUCT.md) before participating.
 
 ## 📄 License
 
-By contributing to Supabase JS Libraries, you agree that your contributions will be licensed under the [MIT License](./LICENSE).
+By contributing to Indobase JS Libraries, you agree that your contributions will be licensed under the [MIT License](./LICENSE).
 
 ---
 
-Thank you for contributing to Supabase! 💚
+Thank you for contributing to Indobase! 💚

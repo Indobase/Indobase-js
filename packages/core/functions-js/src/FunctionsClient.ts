@@ -10,7 +10,7 @@ import {
 } from './types'
 
 /**
- * Client for invoking Supabase Edge Functions.
+ * Client for invoking Indobase Edge Functions.
  */
 export class FunctionsClient {
   protected url: string

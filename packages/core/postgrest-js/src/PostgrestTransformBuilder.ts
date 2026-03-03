@@ -225,7 +225,7 @@ export default class PostgrestTransformBuilder<
   maybeSingle<
     ResultOne = Result extends (infer ResultOne)[] ? ResultOne : never,
   >(): PostgrestBuilder<ClientOptions, ResultOne | null> {
-    // Temporary partial fix for https://github.com/supabase/postgrest-js/issues/361
+    // Temporary partial fix for https://github.com/indobase/postgrest-js/issues/361
     // Issue persists e.g. for `.insert([...]).select().maybeSingle()`
     if (this.method === 'GET') {
       this.headers.set('Accept', 'application/json')

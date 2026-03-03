@@ -368,7 +368,7 @@ const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12
 
 export function validateUUID(str: string) {
   if (!UUID_REGEX.test(str)) {
-    throw new Error('@supabase/auth-js: Expected parameter to be UUID but is not')
+    throw new Error('@indobase/auth-js: Expected parameter to be UUID but is not')
   }
 }
 
@@ -394,17 +394,17 @@ export function userNotAvailableProxy(): User {
         }
       }
       throw new Error(
-        `@supabase/auth-js: client was created with userStorage option and there was no user stored in the user storage. Accessing the "${prop}" property of the session object is not supported. Please use getUser() instead.`
+        `@indobase/auth-js: client was created with userStorage option and there was no user stored in the user storage. Accessing the "${prop}" property of the session object is not supported. Please use getUser() instead.`
       )
     },
     set: (_target: any, prop: string) => {
       throw new Error(
-        `@supabase/auth-js: client was created with userStorage option and there was no user stored in the user storage. Setting the "${prop}" property of the session object is not supported. Please use getUser() to fetch a user object you can manipulate.`
+        `@indobase/auth-js: client was created with userStorage option and there was no user stored in the user storage. Setting the "${prop}" property of the session object is not supported. Please use getUser() to fetch a user object you can manipulate.`
       )
     },
     deleteProperty: (_target: any, prop: string) => {
       throw new Error(
-        `@supabase/auth-js: client was created with userStorage option and there was no user stored in the user storage. Deleting the "${prop}" property of the session object is not supported. Please use getUser() to fetch a user object you can manipulate.`
+        `@indobase/auth-js: client was created with userStorage option and there was no user stored in the user storage. Deleting the "${prop}" property of the session object is not supported. Please use getUser() to fetch a user object you can manipulate.`
       )
     },
   })
@@ -444,7 +444,7 @@ export function insecureUserWarningProxy(user: User, suppressWarningRef: { value
       // Emit warning on first property access
       if (!suppressWarningRef.value && typeof prop === 'string') {
         console.warn(
-          'Using the user object as returned from supabase.auth.getSession() or from some supabase.auth.onAuthStateChange() events could be insecure! This value comes directly from the storage medium (usually cookies on the server) and may not be authentic. Use supabase.auth.getUser() instead which authenticates the data by contacting the Supabase Auth server.'
+          'Using the user object as returned from indobase.auth.getSession() or from some indobase.auth.onAuthStateChange() events could be insecure! This value comes directly from the storage medium (usually cookies on the server) and may not be authentic. Use indobase.auth.getUser() instead which authenticates the data by contacting the Indobase Auth server.'
         )
         suppressWarningRef.value = true
       }

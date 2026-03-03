@@ -20,7 +20,7 @@ export type SelectQueryError<Message extends string> = { error: true } & Message
  ** Because of pg-meta types generation there is some cases where a same relationship can be duplicated
  ** if the relation is across schemas and views this ensure that we dedup those relations and treat them
  ** as postgrest would.
- ** This is no longer the case and has been patched here: https://github.com/supabase/postgres-meta/pull/809
+ ** This is no longer the case and has been patched here: https://github.com/indobase/postgres-meta/pull/809
  ** But we still need this for retro-compatibilty with older generated types
  ** TODO: Remove this in next major version
  */

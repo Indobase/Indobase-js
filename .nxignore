@@ -11,6 +11,6 @@ packages/core/*/examples
 # Ignore test directories that have their own package.json
 # These are test fixtures, not actual projects
 packages/core/auth-js/test
-packages/core/supabase-js/test/integration/next
-packages/core/supabase-js/test/integration/expo
-packages/core/supabase-js/test/deno
+packages/core/indobase-js/test/integration/next
+packages/core/indobase-js/test/integration/expo
+packages/core/indobase-js/test/deno

@@ -47,13 +47,13 @@ export interface StorageVectorsClientOptions {
  * **Usage Patterns:**
  *
  * ```typescript
- * const { data, error } = await supabase
+ * const { data, error } = await indobase
  *  .storage
  *  .vectors
  *  .createBucket('embeddings-prod')
  *
  * // Access index operations via buckets
- * const bucket = supabase.storage.vectors.from('embeddings-prod')
+ * const bucket = indobase.storage.vectors.from('embeddings-prod')
  * await bucket.createIndex({
  *   indexName: 'documents',
  *   dataType: 'float32',
@@ -114,7 +114,7 @@ export class StorageVectorsClient extends VectorBucketApi {
    *
    * @example
    * ```typescript
-   * const bucket = supabase.storage.vectors.from('embeddings-prod')
+   * const bucket = indobase.storage.vectors.from('embeddings-prod')
    * ```
    */
   from(vectorBucketName: string): VectorBucketScope {
@@ -136,7 +136,7 @@ export class StorageVectorsClient extends VectorBucketApi {
    *
    * @example
    * ```typescript
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .vectors
    *   .createBucket('embeddings-prod')
@@ -160,7 +160,7 @@ export class StorageVectorsClient extends VectorBucketApi {
    *
    * @example
    * ```typescript
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .vectors
    *   .getBucket('embeddings-prod')
@@ -186,7 +186,7 @@ export class StorageVectorsClient extends VectorBucketApi {
    *
    * @example
    * ```typescript
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .vectors
    *   .listBuckets({ prefix: 'embeddings-' })
@@ -217,7 +217,7 @@ export class StorageVectorsClient extends VectorBucketApi {
    *
    * @example
    * ```typescript
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .vectors
    *   .deleteBucket('embeddings-old')
@@ -250,7 +250,7 @@ export class VectorBucketScope extends VectorIndexApi {
    * @category Vector Buckets
    * @example
    * ```typescript
-   * const bucket = supabase.storage.vectors.from('embeddings-prod')
+   * const bucket = indobase.storage.vectors.from('embeddings-prod')
    * ```
    */
   constructor(
@@ -278,7 +278,7 @@ export class VectorBucketScope extends VectorIndexApi {
    *
    * @example
    * ```typescript
-   * const bucket = supabase.storage.vectors.from('embeddings-prod')
+   * const bucket = indobase.storage.vectors.from('embeddings-prod')
    * await bucket.createIndex({
    *   indexName: 'documents-openai',
    *   dataType: 'float32',
@@ -312,7 +312,7 @@ export class VectorBucketScope extends VectorIndexApi {
    *
    * @example
    * ```typescript
-   * const bucket = supabase.storage.vectors.from('embeddings-prod')
+   * const bucket = indobase.storage.vectors.from('embeddings-prod')
    * const { data } = await bucket.listIndexes({ prefix: 'documents-' })
    * ```
    */
@@ -338,7 +338,7 @@ export class VectorBucketScope extends VectorIndexApi {
    *
    * @example
    * ```typescript
-   * const bucket = supabase.storage.vectors.from('embeddings-prod')
+   * const bucket = indobase.storage.vectors.from('embeddings-prod')
    * const { data } = await bucket.getIndex('documents-openai')
    * console.log('Dimension:', data?.index.dimension)
    * ```
@@ -362,7 +362,7 @@ export class VectorBucketScope extends VectorIndexApi {
    *
    * @example
    * ```typescript
-   * const bucket = supabase.storage.vectors.from('embeddings-prod')
+   * const bucket = indobase.storage.vectors.from('embeddings-prod')
    * await bucket.deleteIndex('old-index')
    * ```
    */
@@ -385,7 +385,7 @@ export class VectorBucketScope extends VectorIndexApi {
    *
    * @example
    * ```typescript
-   * const index = supabase.storage.vectors.from('embeddings-prod').index('documents-openai')
+   * const index = indobase.storage.vectors.from('embeddings-prod').index('documents-openai')
    *
    * // Insert vectors
    * await index.putVectors({
@@ -436,7 +436,7 @@ export class VectorIndexScope extends VectorDataApi {
    * @category Vector Buckets
    * @example
    * ```typescript
-   * const index = supabase.storage.vectors.from('embeddings-prod').index('documents-openai')
+   * const index = indobase.storage.vectors.from('embeddings-prod').index('documents-openai')
    * ```
    */
   constructor(
@@ -466,7 +466,7 @@ export class VectorIndexScope extends VectorDataApi {
    *
    * @example
    * ```typescript
-   * const index = supabase.storage.vectors.from('embeddings-prod').index('documents-openai')
+   * const index = indobase.storage.vectors.from('embeddings-prod').index('documents-openai')
    * await index.putVectors({
    *   vectors: [
    *     {
@@ -501,7 +501,7 @@ export class VectorIndexScope extends VectorDataApi {
    *
    * @example
    * ```typescript
-   * const index = supabase.storage.vectors.from('embeddings-prod').index('documents-openai')
+   * const index = indobase.storage.vectors.from('embeddings-prod').index('documents-openai')
    * const { data } = await index.getVectors({
    *   keys: ['doc-1', 'doc-2'],
    *   returnMetadata: true
@@ -531,7 +531,7 @@ export class VectorIndexScope extends VectorDataApi {
    *
    * @example
    * ```typescript
-   * const index = supabase.storage.vectors.from('embeddings-prod').index('documents-openai')
+   * const index = indobase.storage.vectors.from('embeddings-prod').index('documents-openai')
    * const { data } = await index.listVectors({
    *   maxResults: 500,
    *   returnMetadata: true
@@ -563,7 +563,7 @@ export class VectorIndexScope extends VectorDataApi {
    *
    * @example
    * ```typescript
-   * const index = supabase.storage.vectors.from('embeddings-prod').index('documents-openai')
+   * const index = indobase.storage.vectors.from('embeddings-prod').index('documents-openai')
    * const { data } = await index.queryVectors({
    *   queryVector: { float32: [0.1, 0.2, ...] },
    *   topK: 5,
@@ -598,7 +598,7 @@ export class VectorIndexScope extends VectorDataApi {
    *
    * @example
    * ```typescript
-   * const index = supabase.storage.vectors.from('embeddings-prod').index('documents-openai')
+   * const index = indobase.storage.vectors.from('embeddings-prod').index('documents-openai')
    * await index.deleteVectors({
    *   keys: ['doc-1', 'doc-2', 'doc-3']
    * })

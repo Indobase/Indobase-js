@@ -1,14 +1,14 @@
 <br />
 <p align="center">
-  <a href="https://supabase.io">
+  <a href="https://indobase.io">
         <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/supabase-logo-wordmark--dark.svg">
-      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/supabase-logo-wordmark--light.svg">
-      <img alt="Supabase Logo" width="300" src="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/logo-preview.jpg">
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/indobase/indobase/master/packages/common/assets/images/indobase-logo-wordmark--dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/indobase/indobase/master/packages/common/assets/images/indobase-logo-wordmark--light.svg">
+      <img alt="Indobase Logo" width="300" src="https://raw.githubusercontent.com/indobase/indobase/master/packages/common/assets/images/logo-preview.jpg">
     </picture>
   </a>
 
-  <h1 align="center">Supabase Realtime JS SDK</h1>
+  <h1 align="center">Indobase Realtime JS SDK</h1>
 
   <h3 align="center">Send ephemeral messages with <b>Broadcast</b>, track and synchronize state with <b>Presence</b>, and listen to database changes with <b>Postgres Change Data Capture (CDC)</b>.</h3>
 
@@ -23,16 +23,16 @@
 
 <div align="center">
 
-[![Build](https://github.com/supabase/supabase-js/workflows/CI/badge.svg)](https://github.com/supabase/supabase-js/actions?query=branch%3Amaster)
-[![Package](https://img.shields.io/npm/v/@supabase/realtime-js)](https://www.npmjs.com/package/@supabase/realtime-js)
-[![License: MIT](https://img.shields.io/npm/l/@supabase/supabase-js)](#license)
-[![pkg.pr.new](https://pkg.pr.new/badge/supabase/realtime-js)](https://pkg.pr.new/~/supabase/realtime-js)
+[![Build](https://github.com/indobase/indobase-js/workflows/CI/badge.svg)](https://github.com/indobase/indobase-js/actions?query=branch%3Amaster)
+[![Package](https://img.shields.io/npm/v/@indobase/realtime-js)](https://www.npmjs.com/package/@indobase/realtime-js)
+[![License: MIT](https://img.shields.io/npm/l/@indobase/indobase-js)](#license)
+[![pkg.pr.new](https://pkg.pr.new/badge/indobase/realtime-js)](https://pkg.pr.new/~/indobase/realtime-js)
 
 </div>
 
 # Overview
 
-This SDK enables you to use the following Supabase Realtime's features:
+This SDK enables you to use the following Indobase Realtime's features:
 
 - **Broadcast**: send ephemeral messages from client to clients with minimal latency. Use cases include sharing cursor positions between users.
 - **Presence**: track and synchronize shared state across clients with the help of CRDTs. Use cases include tracking which users are currently viewing a specific webpage.
@@ -130,7 +130,7 @@ const twelveHoursAgo = Date.now() - twelveHours
 
 const config = { private: true, broadcast: { replay: { since: twelveHoursAgo, limit: 10 } } }
 
-supabase
+indobase
   .channel('main:room', { config })
   .on('broadcast', { event: 'my_event' }, (payload) => {
     if (payload?.meta?.replayed) {
@@ -250,7 +250,7 @@ client.disconnect()
 
 ## Development
 
-This package is part of the [Supabase JavaScript monorepo](https://github.com/supabase/supabase-js). To work on this package:
+This package is part of the [Indobase JavaScript monorepo](https://github.com/indobase/indobase-js). To work on this package:
 
 ### Building
 
@@ -290,7 +290,7 @@ This command uses ["Are the types wrong?"](https://github.com/arethetypeswrong/a
 
 ### Testing
 
-**No Docker or Supabase instance required!** The realtime-js tests use mocked WebSocket connections, so they're completely self-contained.
+**No Docker or Indobase instance required!** The realtime-js tests use mocked WebSocket connections, so they're completely self-contained.
 
 ```bash
 # Run unit tests (from monorepo root)

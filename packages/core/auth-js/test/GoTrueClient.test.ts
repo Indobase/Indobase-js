@@ -515,7 +515,7 @@ describe('GoTrueClient', () => {
 
       expect(error).toBeInstanceOf(AuthPKCECodeVerifierMissingError)
       expect(error?.message).toContain('PKCE code verifier not found in storage')
-      expect(error?.message).toContain('@supabase/ssr')
+      expect(error?.message).toContain('@indobase/ssr')
       expect(error?.code).toEqual('pkce_code_verifier_not_found')
     })
   })
@@ -2164,7 +2164,7 @@ describe('GoTrueClient with storageisServer = true', () => {
     expect(warnSpy).toHaveBeenCalledTimes(1)
     expect(
       warnings[0][0].startsWith(
-        'Using the user object as returned from supabase.auth.getSession() '
+        'Using the user object as returned from indobase.auth.getSession() '
       )
     ).toEqual(true)
 
@@ -2484,7 +2484,7 @@ describe('Web3 Authentication', () => {
     }
 
     await expect(authClient.signInWithWeb3(credentials)).rejects.toThrow(
-      '@supabase/auth-js: Unsupported chain "polygon"'
+      '@indobase/auth-js: Unsupported chain "polygon"'
     )
   })
 
@@ -2509,7 +2509,7 @@ describe('Web3 Authentication', () => {
     }
 
     await expect(authClient.signInWithWeb3(credentials)).rejects.toThrow(
-      '@supabase/auth-js: Both wallet and url must be specified in non-browser environments.'
+      '@indobase/auth-js: Both wallet and url must be specified in non-browser environments.'
     )
   })
 
@@ -2527,7 +2527,7 @@ describe('Web3 Authentication', () => {
     }
 
     await expect(authClient.signInWithWeb3(credentials)).rejects.toThrow(
-      '@supabase/auth-js: Wallet does not have a compatible signMessage() and publicKey.toBase58() API'
+      '@indobase/auth-js: Wallet does not have a compatible signMessage() and publicKey.toBase58() API'
     )
   })
 
@@ -2545,7 +2545,7 @@ describe('Web3 Authentication', () => {
     }
 
     await expect(authClient.signInWithWeb3(credentials)).rejects.toThrow(
-      '@supabase/auth-js: Wallet does not have a compatible signMessage() and publicKey.toBase58() API'
+      '@indobase/auth-js: Wallet does not have a compatible signMessage() and publicKey.toBase58() API'
     )
   })
 
@@ -2570,7 +2570,7 @@ describe('Web3 Authentication', () => {
     }
 
     await expect(authClient.signInWithWeb3(credentials)).rejects.toThrow(
-      '@supabase/auth-js: Both wallet and url must be specified in non-browser environments.'
+      '@indobase/auth-js: Both wallet and url must be specified in non-browser environments.'
     )
   })
 
@@ -2595,7 +2595,7 @@ describe('Web3 Authentication', () => {
           url: 'https://example.com',
         },
       })
-    ).rejects.toThrow('@supabase/auth-js: Wallet method eth_requestAccounts is missing or invalid')
+    ).rejects.toThrow('@indobase/auth-js: Wallet method eth_requestAccounts is missing or invalid')
   })
 
   test('signInWithWeb3 should fail ethereum chain without publicKey', async () => {
@@ -2613,7 +2613,7 @@ describe('Web3 Authentication', () => {
         },
       })
     ).rejects.toThrow(
-      '@supabase/auth-js: No accounts available. Please ensure the wallet is connected.'
+      '@indobase/auth-js: No accounts available. Please ensure the wallet is connected.'
     )
   })
 
@@ -3496,7 +3496,7 @@ describe('userNotAvailableProxy behavior', () => {
     expect((session?.user as any).__isUserNotAvailableProxy).toBe(true)
 
     expect(() => session?.user?.id).toThrow(
-      '@supabase/auth-js: client was created with userStorage option'
+      '@indobase/auth-js: client was created with userStorage option'
     )
   })
 })

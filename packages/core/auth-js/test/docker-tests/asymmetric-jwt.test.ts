@@ -2,7 +2,7 @@
  * Docker-only tests: Asymmetric JWT (RS256)
  *
  * These tests require a GoTrue instance configured with RS256 signing keys.
- * Supabase CLI uses HS256 by default, so these tests require Docker.
+ * Indobase CLI uses HS256 by default, so these tests require Docker.
  *
  * Run with: npx nx test:docker auth-js
  */

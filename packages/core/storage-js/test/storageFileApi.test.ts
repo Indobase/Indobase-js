@@ -7,7 +7,7 @@ import { StorageApiError, StorageError } from '../src/lib/common/errors'
 import BlobDownloadBuilder from '../src/packages/BlobDownloadBuilder'
 import StreamDownloadBuilder from '../src/packages/StreamDownloadBuilder'
 
-// Supabase CLI local development defaults
+// Indobase CLI local development defaults
 const URL = 'http://127.0.0.1:54321/storage/v1'
 // service_role key - bypasses RLS for testing
 const KEY =

@@ -242,7 +242,7 @@ describe('GoTrueAdminApi', () => {
       const { email, password } = mockUserCredentials()
 
       // Use Admin API to create user with email_confirm: false
-      // This works with both Docker (autoconfirm off) and Supabase CLI (autoconfirm on)
+      // This works with both Docker (autoconfirm off) and Indobase CLI (autoconfirm on)
       const { error: createError, data } = await serviceRoleApiClient.createUser({
         email,
         password,
@@ -473,7 +473,7 @@ describe('GoTrueAdminApi', () => {
 
         await expect(
           authClientWithSession.signOut({ scope: 'invalid_scope' as any })
-        ).rejects.toThrow('@supabase/auth-js: Parameter scope must be one of global, local, others')
+        ).rejects.toThrow('@indobase/auth-js: Parameter scope must be one of global, local, others')
       })
     })
   })

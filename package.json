@@ -1,5 +1,5 @@
 {
-  "name": "@indobase/indobase-js",
+  "name": "@indobase/js",
   "version": "1.0.0",
   "description": "Official Indobase JavaScript/TypeScript SDK",
   "license": "MIT",
@@ -41,7 +41,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/indobase/indobase-js.git",
+    "url": "https://github.com/Indobase/Indobase-js.git",
     "directory": "."
   },
   "keywords": [
@@ -55,6 +55,6 @@
     "functions"
   ],
   "author": "Indobase",
-  "bugs": "https://github.com/indobase/indobase-js/issues",
-  "homepage": "https://github.com/indobase/indobase-js"
+  "bugs": "https://github.com/Indobase/Indobase-js/issues",
+  "homepage": "https://github.com/Indobase/Indobase-js"
 }

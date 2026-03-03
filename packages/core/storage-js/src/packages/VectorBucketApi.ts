@@ -12,7 +12,7 @@ import {
 /**
  * @hidden
  * Base implementation for vector bucket operations.
- * Use {@link StorageVectorsClient} via `supabase.storage.vectors` instead.
+ * Use {@link StorageVectorsClient} via `indobase.storage.vectors` instead.
  */
 export default class VectorBucketApi extends BaseApiClient<StorageError> {
   /** Creates a new VectorBucketApi instance */

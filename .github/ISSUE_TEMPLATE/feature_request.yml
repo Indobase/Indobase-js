@@ -1,5 +1,5 @@
 name: "\U0001F680 New feature proposal"
-description: Propose a new feature to be added to the Supabase JS Libraries
+description: Propose a new feature to be added to the Indobase JS Libraries
 labels: ['enhancement']
 type: Feature
 body:
@@ -12,7 +12,7 @@ body:
     attributes:
       label: Description
       description: 'Clear and concise description of the problem. Please make the reason and usecases as detailed as possible. If you intend to submit a PR for this issue, tell us in the description. Thanks!'
-      placeholder: As a developer using the Supabase JS Libraries I want [goal / wish] so that [benefit].
+      placeholder: As a developer using the Indobase JS Libraries I want [goal / wish] so that [benefit].
     validations:
       required: true
   - type: textarea
@@ -38,11 +38,11 @@ body:
       label: Validations
       description: Before submitting the issue, please make sure you do the following
       options:
-        - label: Follow our [Code of Conduct](https://github.com/supabase/.github/blob/main/CODE_OF_CONDUCT.md)
+        - label: Follow our [Code of Conduct](https://github.com/indobase/.github/blob/main/CODE_OF_CONDUCT.md)
           required: true
-        - label: Read the [Contributing Guidelines](https://github.com/supabase/supabase-js/blob/master/CONTRIBUTING.md).
+        - label: Read the [Contributing Guidelines](https://github.com/indobase/indobase-js/blob/master/CONTRIBUTING.md).
           required: true
-        - label: Read the [docs](https://supabase.com/docs/reference/javascript/introduction).
+        - label: Read the [docs](https://indobase.com/docs/reference/javascript/introduction).
           required: true
         - label: Check that there isn't already an issue that request the same feature to avoid creating a duplicate.
           required: true

@@ -27,7 +27,7 @@ This monorepo uses a fixed release model where all packages share a single versi
 3. **Build** - Rebuilds all packages with updated versions
 4. **Changelog** - Generates changelogs from conventional commits
 5. **NPM Publish** - Publishes all packages to npm with `canary` dist-tag (marked as prerelease)
-6. **Legacy Package** - Publishes `@supabase/gotrue-js` as legacy mirror of `auth-js`
+6. **Legacy Package** - Publishes `@indobase/gotrue-js` as legacy mirror of `auth-js`
 
 #### Example flow
 
@@ -44,10 +44,10 @@ git commit -m "fix(auth): resolve token refresh issue"
 #### Install canary versions
 
 ```bash
-npm install @supabase/supabase-js@canary
+npm install @indobase/indobase-js@canary
 # or install specific packages
-npm install @supabase/auth-js@canary
-npm install @supabase/storage-js@canary
+npm install @indobase/auth-js@canary
+npm install @indobase/storage-js@canary
 ```
 
 **Note:** Canary releases are skipped if no conventional commits are detected that warrant a release.
@@ -57,7 +57,7 @@ npm install @supabase/storage-js@canary
 **Workflow:** `publish.yml` (manual trigger)  
 **Script:** `scripts/release-stable.ts`  
 **Trigger:** Manual workflow dispatch by maintainers  
-**Permission:** Members of `@supabase/admin` or `@supabase/sdk` teams only  
+**Permission:** Members of `@indobase/admin` or `@indobase/sdk` teams only  
 **Purpose:** Production-ready releases for end users
 
 #### How it works
@@ -67,7 +67,7 @@ npm install @supabase/storage-js@canary
 3. **Build**: Rebuilds all packages with updated versions
 4. **Changelog Update**: Generates changelogs from conventional commits (since last stable tag)
 5. **NPM Publish**: Publishes all packages with `latest` dist-tag
-6. **Legacy Package**: Publishes `@supabase/gotrue-js` as legacy mirror
+6. **Legacy Package**: Publishes `@indobase/gotrue-js` as legacy mirror
 7. **Release Branch**: Creates a release branch with changelog updates
 8. **PR Creation**: Automatically creates and auto-merges a PR with changelog updates
 9. **Documentation**: Triggers documentation update workflow
@@ -111,7 +111,7 @@ You can specify the version in two ways:
 # 3. Maintainer adds 'trigger: preview' label
 # 4. Workflow publishes preview packages
 # 5. Install with:
-npm install https://pkg.pr.new/@supabase/supabase-js@[pr-number]
+npm install https://pkg.pr.new/@indobase/indobase-js@[pr-number]
 ```
 
 ## Usage Instructions
@@ -124,7 +124,7 @@ Canary releases are **fully automated**. Simply:
 2. Use conventional commits with type and scope (e.g., `fix(auth):`, `feat(realtime):`, `chore(repo):`)
 3. Create and merge PR to `master` branch
 4. Workflow automatically:
-   - Runs CI checks (`ci-core` and `ci-supabase-js`)
+   - Runs CI checks (`ci-core` and `ci-indobase-js`)
    - Checks for conventional commits that warrant a release
    - Creates pre-release version (skips if no commits warrant release)
    - Publishes to npm with `canary` tag
@@ -142,7 +142,7 @@ Canary releases are **fully automated**. Simply:
    - For specific version: `v2.81.0` or `2.81.0`
 5. **Click "Run workflow"**
 6. **Workflow automatically:**
-   - Validates you're a member of `@supabase/admin` or `@supabase/sdk`
+   - Validates you're a member of `@indobase/admin` or `@indobase/sdk`
    - Bumps version for all packages
    - Generates changelogs since last stable tag
    - Publishes to npm with `latest` tag
@@ -177,7 +177,7 @@ Canary releases are **fully automated**. Simply:
 ### 🔐 Security & Permissions
 
 - Canary releases use GitHub App token for automation
-- Stable releases restricted to `@supabase/admin` or `@supabase/sdk` team members
+- Stable releases restricted to `@indobase/admin` or `@indobase/sdk` team members
 - NPM publishing uses OIDC trusted publishing
 - All releases signed and traceable
 

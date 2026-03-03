@@ -209,7 +209,7 @@ export default class RealtimeClient {
 
     // Trigger auth if needed and not already in progress
     // This ensures auth is called for standalone RealtimeClient usage
-    // while avoiding race conditions with SupabaseClient's immediate setAuth call
+    // while avoiding race conditions with IndobaseClient's immediate setAuth call
     if (this.accessToken && !this._authPromise) {
       this._setAuthSafely('connect')
     }

@@ -295,11 +295,11 @@ const postgrestWithOptions = new PostgrestClient<DatabaseWithOptions>(REST_URL)
   >(true)
 }
 
-// Check that client options __InternalSupabase isn't considered like the other schemas
+// Check that client options __InternalIndobase isn't considered like the other schemas
 {
   await postgrestWithOptions
-    // @ts-expect-error Argument of type '"__InternalSupabase"' is not assignable to parameter of type '"personal" | "public"'
-    .schema('__InternalSupabase')
+    // @ts-expect-error Argument of type '"__InternalIndobase"' is not assignable to parameter of type '"personal" | "public"'
+    .schema('__InternalIndobase')
 }
 
 // Json string Accessor with custom types overrides

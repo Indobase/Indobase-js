@@ -16,7 +16,7 @@ export interface FunctionsResponseFailure {
 export type FunctionsResponse<T> = FunctionsResponseSuccess<T> | FunctionsResponseFailure
 
 /**
- * Base error for Supabase Edge Function invocations.
+ * Base error for Indobase Edge Function invocations.
  *
  * @example
  * ```ts
@@ -53,7 +53,7 @@ export class FunctionsFetchError extends FunctionsError {
 }
 
 /**
- * Error thrown when the Supabase relay cannot reach the Edge Function.
+ * Error thrown when the Indobase relay cannot reach the Edge Function.
  *
  * @example
  * ```ts

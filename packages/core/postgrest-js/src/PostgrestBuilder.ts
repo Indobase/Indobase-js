@@ -34,7 +34,7 @@ export default abstract class PostgrestBuilder<
    *
    * @example
    * ```ts
-   * import PostgrestQueryBuilder from '@supabase/postgrest-js'
+   * import PostgrestQueryBuilder from '@indobase/postgrest-js'
    *
    * const builder = new PostgrestQueryBuilder(
   *   new URL('https://xyzcompany.indobase.fun/rest/v1/users'),
@@ -75,7 +75,7 @@ export default abstract class PostgrestBuilder<
    * If there's an error with the query, throwOnError will reject the promise by
    * throwing the error instead of returning it as part of a successful response.
    *
-   * {@link https://github.com/supabase/supabase-js/issues/92}
+   * {@link https://github.com/indobase/indobase-js/issues/92}
    */
   throwOnError(): this & PostgrestBuilder<ClientOptions, Result, true> {
     this.shouldThrowOnError = true
@@ -120,7 +120,7 @@ export default abstract class PostgrestBuilder<
     }
 
     // NOTE: Invoke w/o `this` to avoid illegal invocation error.
-    // https://github.com/supabase/postgrest-js/pull/247
+    // https://github.com/indobase/postgrest-js/pull/247
     const _fetch = this.fetch
     let res = _fetch(this.url.toString(), {
       method: this.method,
@@ -157,7 +157,7 @@ export default abstract class PostgrestBuilder<
           count = parseInt(contentRange[1])
         }
 
-        // Temporary partial fix for https://github.com/supabase/postgrest-js/issues/361
+        // Temporary partial fix for https://github.com/indobase/postgrest-js/issues/361
         // Issue persists e.g. for `.insert([...]).select().maybeSingle()`
         if (this.isMaybeSingle && this.method === 'GET' && Array.isArray(data)) {
           if (data.length > 1) {
@@ -184,7 +184,7 @@ export default abstract class PostgrestBuilder<
         try {
           error = JSON.parse(body)
 
-          // Workaround for https://github.com/supabase/postgrest-js/issues/295
+          // Workaround for https://github.com/indobase/postgrest-js/issues/295
           if (Array.isArray(error) && res.status === 404) {
             data = []
             error = null
@@ -192,7 +192,7 @@ export default abstract class PostgrestBuilder<
             statusText = 'OK'
           }
         } catch {
-          // Workaround for https://github.com/supabase/postgrest-js/issues/295
+          // Workaround for https://github.com/indobase/postgrest-js/issues/295
           if (res.status === 404 && body === '') {
             status = 204
             statusText = 'No Content'
@@ -323,13 +323,13 @@ export default abstract class PostgrestBuilder<
    * @example
    * ```typescript
    * // Merge with existing types (default behavior)
-   * const query = supabase
+   * const query = indobase
    *   .from('users')
    *   .select()
    *   .overrideTypes<{ custom_field: string }>()
    *
    * // Replace existing types completely
-   * const replaceQuery = supabase
+   * const replaceQuery = indobase
    *   .from('users')
    *   .select()
    *   .overrideTypes<{ id: number; name: string }, { merge: false }>()

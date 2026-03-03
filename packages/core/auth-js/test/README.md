@@ -57,7 +57,7 @@ cd packages/core/auth-js/test
 node generate-signing-keys.js
 ```
 
-This creates `test/supabase/signing_keys.json` (gitignored).
+This creates `test/indobase/signing_keys.json` (gitignored).
 
 ### JWT Token Generation
 

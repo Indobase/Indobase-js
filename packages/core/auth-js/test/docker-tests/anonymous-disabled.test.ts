@@ -2,7 +2,7 @@
  * Docker-only tests: Anonymous Sign-in Disabled
  *
  * These tests require a GoTrue instance with anonymous sign-ins disabled.
- * Supabase CLI has anonymous sign-ins enabled by default.
+ * Indobase CLI has anonymous sign-ins enabled by default.
  *
  * Run with: npx nx test:docker auth-js
  */

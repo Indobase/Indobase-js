@@ -1,26 +1,26 @@
 #!/usr/bin/env node
 
 /**
- * Sync common type definitions from postgrest-js to supabase-js
+ * Sync common type definitions from postgrest-js to indobase-js
  *
- * This script copies shared type definitions from @supabase/postgrest-js
- * to @supabase/supabase-js to ensure type compatibility across complex
+ * This script copies shared type definitions from @indobase/postgrest-js
+ * to @indobase/indobase-js to ensure type compatibility across complex
  * generic types and conditional types.
  *
  * Source of truth: packages/core/postgrest-js/src/types/common/
- * Destination: packages/core/supabase-js/src/lib/rest/types/common/
+ * Destination: packages/core/indobase-js/src/lib/rest/types/common/
  */
 
 const fs = require('fs')
 const path = require('path')
 
 const SOURCE_DIR = path.join(__dirname, '../packages/core/postgrest-js/src/types/common')
-const DEST_DIR = path.join(__dirname, '../packages/core/supabase-js/src/lib/rest/types/common')
+const DEST_DIR = path.join(__dirname, '../packages/core/indobase-js/src/lib/rest/types/common')
 
 const HEADER_COMMENT = `/**
  * AUTO-GENERATED FILE - DO NOT EDIT
  *
- * This file is automatically synchronized from @supabase/postgrest-js
+ * This file is automatically synchronized from @indobase/postgrest-js
  * Source: packages/core/postgrest-js/src/types/common/
  *
  * To update this file, modify the source in postgrest-js and run:
@@ -63,7 +63,7 @@ function syncFile(fileName) {
 }
 
 function main() {
-  console.log('🔄 Syncing common types from postgrest-js to supabase-js...\n')
+  console.log('🔄 Syncing common types from postgrest-js to indobase-js...\n')
 
   // Ensure destination directory exists
   if (!fs.existsSync(DEST_DIR)) {

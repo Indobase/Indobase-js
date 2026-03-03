@@ -15,11 +15,11 @@ export default class StorageBucketApi extends BaseApiClient<StorageError> {
     const baseUrl = new URL(url)
 
     // if legacy uri is used, replace with new storage host (disables request buffering to allow > 50GB uploads)
-    // "project-ref.supabase.co" becomes "project-ref.storage.supabase.co"
+    // "project-ref.indobase.co" becomes "project-ref.storage.indobase.co"
     if (opts?.useNewHostname) {
-      const isSupabaseHost = /supabase\.(co|in|red)$/.test(baseUrl.hostname)
-      if (isSupabaseHost && !baseUrl.hostname.includes('storage.supabase.')) {
-        baseUrl.hostname = baseUrl.hostname.replace('supabase.', 'storage.supabase.')
+      const isIndobaseHost = /indobase\.(co|in|red)$/.test(baseUrl.hostname)
+      if (isIndobaseHost && !baseUrl.hostname.includes('storage.indobase.')) {
+        baseUrl.hostname = baseUrl.hostname.replace('indobase.', 'storage.indobase.')
       }
     }
 
@@ -43,14 +43,14 @@ export default class StorageBucketApi extends BaseApiClient<StorageError> {
    *
    * @example List buckets
    * ```js
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .listBuckets()
    * ```
    *
    * @example List buckets with options
    * ```js
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .listBuckets({
    *     limit: 10,
@@ -88,7 +88,7 @@ export default class StorageBucketApi extends BaseApiClient<StorageError> {
    *
    * @example Get bucket
    * ```js
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .getBucket('avatars')
    * ```
@@ -145,7 +145,7 @@ export default class StorageBucketApi extends BaseApiClient<StorageError> {
    *
    * @example Create bucket
    * ```js
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .createBucket('avatars', {
    *     public: false,
@@ -217,7 +217,7 @@ export default class StorageBucketApi extends BaseApiClient<StorageError> {
    *
    * @example Update bucket
    * ```js
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .updateBucket('avatars', {
    *     public: false,
@@ -278,7 +278,7 @@ export default class StorageBucketApi extends BaseApiClient<StorageError> {
    *
    * @example Empty bucket
    * ```js
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .emptyBucket('avatars')
    * ```
@@ -318,7 +318,7 @@ export default class StorageBucketApi extends BaseApiClient<StorageError> {
    *
    * @example Delete bucket
    * ```js
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .storage
    *   .deleteBucket('avatars')
    * ```

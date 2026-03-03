@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Publishes @supabase/gotrue-js as a legacy mirror of @supabase/auth-js
+ * Publishes @indobase/gotrue-js as a legacy mirror of @indobase/auth-js
  * This maintains backward compatibility for projects using the old package name
  */
 
@@ -49,7 +49,7 @@ async function publishGotrueLegacy(): Promise<void> {
     const tag = getArg('tag') || 'latest'
     const dryRun = process.argv.includes('--dry-run')
 
-    log(`\n📦 Publishing @supabase/gotrue-js (legacy mirror of auth-js)`, colors.blue)
+    log(`\n📦 Publishing @indobase/gotrue-js (legacy mirror of auth-js)`, colors.blue)
     log(`   Tag: ${tag}`, colors.blue)
     if (dryRun) log(`   DRY RUN MODE - No actual publish will occur`, colors.yellow)
 
@@ -85,16 +85,16 @@ async function publishGotrueLegacy(): Promise<void> {
     // Using sed-like approach from the original CI
     const packageJsonContent = fs.readFileSync(authJsPackageJson, 'utf8')
     const modifiedPackageJson = packageJsonContent.replace(
-      /"name":\s*"@supabase\/auth-js"/g,
-      '"name": "@supabase/gotrue-js"'
+      /"name":\s*"@indobase\/auth-js"/g,
+      '"name": "@indobase/gotrue-js"'
     )
     fs.writeFileSync(authJsPackageJson, modifiedPackageJson)
 
     if (fs.existsSync(authJsPackageLockJson)) {
       const packageLockContent = fs.readFileSync(authJsPackageLockJson, 'utf8')
       const modifiedPackageLock = packageLockContent.replace(
-        /"name":\s*"@supabase\/auth-js"/g,
-        '"name": "@supabase/gotrue-js"'
+        /"name":\s*"@indobase\/auth-js"/g,
+        '"name": "@indobase/gotrue-js"'
       )
       fs.writeFileSync(authJsPackageLockJson, modifiedPackageLock)
     }
@@ -119,7 +119,7 @@ async function publishGotrueLegacy(): Promise<void> {
         execSync(publishCommand, { stdio: 'inherit' })
 
         log(
-          `\n✅ Successfully published @supabase/gotrue-js@${version} with tag '${tag}'`,
+          `\n✅ Successfully published @indobase/gotrue-js@${version} with tag '${tag}'`,
           colors.green
         )
       } catch (error) {
@@ -149,7 +149,7 @@ async function publishGotrueLegacy(): Promise<void> {
       }
 
       log(
-        `\n✅ Dry run complete - would have published @supabase/gotrue-js@${version} with tag '${tag}'`,
+        `\n✅ Dry run complete - would have published @indobase/gotrue-js@${version} with tag '${tag}'`,
         colors.yellow
       )
     }

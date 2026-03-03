@@ -13,9 +13,9 @@ npx nx test:storage storage-js              # Complete storage-js test suite
 npx nx test:ci:postgrest postgrest-js      # Complete postgrest-js test suite
 npx nx test functions-js                    # Standard test (uses testcontainers)
 npx nx test realtime-js                     # Standard test (no Docker needed)
-npx nx test supabase-js                    # Standard test (unit tests only)
+npx nx test indobase-js                    # Standard test (unit tests only)
 
-# E2E tests (require local Supabase running — see E2E section below)
+# E2E tests (require local Indobase running — see E2E section below)
 npx nx test:e2e auth-js                     # Auth-js Playwright e2e tests
 npx nx test:e2e realtime-js                 # Realtime-js Playwright e2e tests
 ```
@@ -33,39 +33,39 @@ Each package has unique testing requirements. Please refer to the individual REA
 | **postgrest-js** | ✅ Yes (PostgREST + PostgreSQL)          | `npx nx test:ci:postgrest postgrest-js` | [Testing Guide](../packages/core/postgrest-js/README.md#testing) |
 | **realtime-js**  | ❌ No (uses mock WebSockets)             | `npx nx test realtime-js`               | [Testing Guide](../packages/core/realtime-js/README.md#testing)  |
 | **storage-js**   | ✅ Yes (Storage API + PostgreSQL + Kong) | `npx nx test:storage storage-js`        | [Testing Guide](../packages/core/storage-js/README.md#testing)   |
-| **supabase-js**  | ❌ No (unit tests only)                  | `npx nx test supabase-js`               | [Testing Guide](../packages/core/supabase-js/TESTING.md)         |
+| **indobase-js**  | ❌ No (unit tests only)                  | `npx nx test indobase-js`               | [Testing Guide](../packages/core/indobase-js/TESTING.md)         |
 
 ### Coverage Commands
 
 ```bash
 # Run tests with coverage
-npx nx test supabase-js --coverage
+npx nx test indobase-js --coverage
 npx nx test:coverage realtime-js
 npx nx test:ci functions-js                 # Includes coverage
 ```
 
 ## E2E Tests (Playwright)
 
-The `auth-js` and `realtime-js` packages include Playwright end-to-end tests that run against their example apps and a local Supabase instance.
+The `auth-js` and `realtime-js` packages include Playwright end-to-end tests that run against their example apps and a local Indobase instance.
 
 ### Prerequisites
 
-- **Supabase running locally** — Start the local Supabase stack via the `supabase-js` setup target:
+- **Indobase running locally** — Start the local Indobase stack via the `indobase-js` setup target:
   ```bash
-  npx nx test:supabase:setup supabase-js
+  npx nx test:indobase:setup indobase-js
   ```
 - **Playwright Chromium** — Installed automatically by the `test:e2e` target (no separate install needed).
 
 ### Environment Variables
 
-Each example directory ships with a `.env.local.ci` file pre-configured for the default local Supabase instance (`http://127.0.0.1:54321`). The `test:e2e` target copies this file to `.env.local` automatically.
+Each example directory ships with a `.env.local.ci` file pre-configured for the default local Indobase instance (`http://127.0.0.1:54321`). The `test:e2e` target copies this file to `.env.local` automatically.
 
-If you're using a custom local Supabase setup, create `.env.local` manually in the example directory:
+If you're using a custom local Indobase setup, create `.env.local` manually in the example directory:
 
 | Package       | Directory                              | Variables                                                          |
 | ------------- | -------------------------------------- | ------------------------------------------------------------------ |
-| `auth-js`     | `packages/core/auth-js/example/react/` | `VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_DEFAULT_KEY`       |
-| `realtime-js` | `packages/core/realtime-js/example/`   | `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` |
+| `auth-js`     | `packages/core/auth-js/example/react/` | `VITE_INDOBASE_URL`, `VITE_INDOBASE_PUBLISHABLE_DEFAULT_KEY`       |
+| `realtime-js` | `packages/core/realtime-js/example/`   | `NEXT_PUBLIC_INDOBASE_URL`, `NEXT_PUBLIC_INDOBASE_PUBLISHABLE_KEY` |
 
 ### Running E2E Tests
 
@@ -78,7 +78,7 @@ npx nx test:e2e realtime-js
 npx nx run-many --target=test:e2e --projects=auth-js,realtime-js --parallel=1
 ```
 
-> **Note:** Run with `--parallel=1` when running both together — the apps use different ports (5173 and 3000) but share the same local Supabase, and sequential execution avoids potential resource conflicts.
+> **Note:** Run with `--parallel=1` when running both together — the apps use different ports (5173 and 3000) but share the same local Indobase, and sequential execution avoids potential resource conflicts.
 
 ### What the Tests Cover
 

@@ -13,7 +13,7 @@ export const AUTO_REFRESH_TICK_THRESHOLD = 3
 export const EXPIRY_MARGIN_MS = AUTO_REFRESH_TICK_THRESHOLD * AUTO_REFRESH_TICK_DURATION_MS
 
 export const GOTRUE_URL = 'http://localhost:9999'
-export const STORAGE_KEY = 'supabase.auth.token'
+export const STORAGE_KEY = 'indobase.auth.token'
 export const AUDIENCE = ''
 export const DEFAULT_HEADERS = { 'X-Client-Info': `gotrue-js/${version}` }
 export const NETWORK_FAILURE = {
@@ -21,7 +21,7 @@ export const NETWORK_FAILURE = {
   RETRY_INTERVAL: 2, // in deciseconds
 }
 
-export const API_VERSION_HEADER_NAME = 'X-Supabase-Api-Version'
+export const API_VERSION_HEADER_NAME = 'X-Indobase-Api-Version'
 export const API_VERSIONS = {
   '2024-01-01': {
     timestamp: Date.parse('2024-01-01T00:00:00.0Z'),

@@ -14,7 +14,7 @@ const config: Config.InitialOptions = {
   testTimeout: 30000,
   globals: {
     // For consistency between VSCode and type-check
-    // https://github.com/supabase/postgrest-js/pull/627#discussion_r2236995331
+    // https://github.com/indobase/postgrest-js/pull/627#discussion_r2236995331
     'ts-jest': {
       tsconfig: 'tsconfig.test.json',
     },

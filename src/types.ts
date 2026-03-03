@@ -1,6 +1,6 @@
-// Type definitions for @indobase/indobase-js
+// Type definitions for @indobase/js
 
-export interface SupabaseClientOptions<SchemaName extends string = 'public'> {
+export interface IndobaseClientOptions<SchemaName extends string = 'public'> {
   auth?: {
     persistSession?: boolean;
     storageKey?: string;

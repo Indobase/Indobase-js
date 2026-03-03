@@ -1,32 +1,32 @@
 <br />
 <p align="center">
-  <a href="https://supabase.io">
+  <a href="https://indobase.io">
         <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/supabase-logo-wordmark--dark.svg">
-      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/supabase-logo-wordmark--light.svg">
-      <img alt="Supabase Logo" width="300" src="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/logo-preview.jpg">
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/indobase/indobase/master/packages/common/assets/images/indobase-logo-wordmark--dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/indobase/indobase/master/packages/common/assets/images/indobase-logo-wordmark--light.svg">
+      <img alt="Indobase Logo" width="300" src="https://raw.githubusercontent.com/indobase/indobase/master/packages/common/assets/images/logo-preview.jpg">
     </picture>
   </a>
 
-  <h1 align="center">Supabase Storage JS SDK</h1>
+  <h1 align="center">Indobase Storage JS SDK</h1>
 
-  <h3 align="center">JavaScript SDK to interact with Supabase Storage, including file storage and vector embeddings.</h3>
+  <h3 align="center">JavaScript SDK to interact with Indobase Storage, including file storage and vector embeddings.</h3>
 
   <p align="center">
     <a href="https://indobase.com/docs/guides/storage">Guides</a>
     ·
     <a href="https://indobase.com/docs/reference/javascript/storage-createbucket">Reference Docs</a>
     ·
-    <a href="https://supabase.github.io/supabase-js/storage-js/v2/spec.json">TypeDoc</a>
+    <a href="https://indobase.github.io/indobase-js/storage-js/v2/spec.json">TypeDoc</a>
   </p>
 </p>
 
 <div align="center">
 
-[![Build](https://github.com/supabase/supabase-js/workflows/CI/badge.svg)](https://github.com/supabase/supabase-js/actions?query=branch%3Amaster)
-[![Package](https://img.shields.io/npm/v/@supabase/storage-js)](https://www.npmjs.com/package/@supabase/storage-js)
-[![License: MIT](https://img.shields.io/npm/l/@supabase/supabase-js)](#license)
-[![pkg.pr.new](https://pkg.pr.new/badge/supabase/storage-js)](https://pkg.pr.new/~/supabase/storage-js)
+[![Build](https://github.com/indobase/indobase-js/workflows/CI/badge.svg)](https://github.com/indobase/indobase-js/actions?query=branch%3Amaster)
+[![Package](https://img.shields.io/npm/v/@indobase/storage-js)](https://www.npmjs.com/package/@indobase/storage-js)
+[![License: MIT](https://img.shields.io/npm/l/@indobase/indobase-js)](#license)
+[![pkg.pr.new](https://pkg.pr.new/badge/indobase/storage-js)](https://pkg.pr.new/~/indobase/storage-js)
 
 </div>
 
@@ -37,7 +37,7 @@
 
 > ⚠️ **Node.js 18 Deprecation Notice**
 >
-> Node.js 18 reached end-of-life on April 30, 2025. As announced in [our deprecation notice](https://github.com/orgs/supabase/discussions/37217), support for Node.js 18 was dropped on October 31, 2025.
+> Node.js 18 reached end-of-life on April 30, 2025. As announced in [our deprecation notice](https://github.com/orgs/indobase/discussions/37217), support for Node.js 18 was dropped on October 31, 2025.
 
 ## Features
 
@@ -60,18 +60,18 @@ npm install @indobase/storage-js
 
 There are two ways to use the Storage SDK:
 
-#### Option 1: Via Supabase Client (Recommended)
+#### Option 1: Via Indobase Client (Recommended)
 
-If you're already using `@indobase/supabase-js`, access storage through the client:
+If you're already using `@indobase/indobase-js`, access storage through the client:
 
 ```js
-import { createClient } from '@indobase/supabase-js'
+import { createClient } from '@indobase/indobase-js'
 
 // Use publishable/anon key for frontend applications
-const supabase = createClient('https://<project_ref>.indobase.fun', '<your-publishable-key>')
+const indobase = createClient('https://<project_ref>.indobase.fun', '<your-publishable-key>')
 
 // Access storage
-const storage = supabase.storage
+const storage = indobase.storage
 
 // Access different bucket types
 const regularBucket = storage.from('my-bucket')
@@ -102,14 +102,14 @@ const analyticsBucket = storageClient.analytics // Analytics API
 
 > **When to use each approach:**
 >
-> - Use `supabase.storage` when working with other Supabase features (auth, database, etc.) in frontend applications
+> - Use `indobase.storage` when working with other Indobase features (auth, database, etc.) in frontend applications
 > - Use `new StorageClient()` for backend applications, Edge Functions, or when you need to bypass RLS policies
 
 > **Note:** Refer to the [Storage Access Control guide](https://indobase.com/docs/guides/storage/access-control) for detailed information on creating RLS policies.
 
 ### Understanding Bucket Types
 
-Supabase Storage supports three types of buckets, each optimized for different use cases:
+Indobase Storage supports three types of buckets, each optimized for different use cases:
 
 #### 1. Regular Storage Buckets (File Storage)
 
@@ -305,7 +305,7 @@ await storageClient.analytics.deleteBucket('analytics-data')
 
 ## Analytics Buckets
 
-Supabase Storage provides specialized analytics buckets using Apache Iceberg table format, optimized for analytical workloads and large-scale data processing. These buckets are designed for data lake architectures, time-series data, and business intelligence applications.
+Indobase Storage provides specialized analytics buckets using Apache Iceberg table format, optimized for analytical workloads and large-scale data processing. These buckets are designed for data lake architectures, time-series data, and business intelligence applications.
 
 ### What are Analytics Buckets?
 
@@ -338,15 +338,15 @@ Analytics buckets use the Apache Iceberg open table format, providing:
 
 You can access analytics functionality through the `analytics` property on your storage client:
 
-#### Via Supabase Client
+#### Via Indobase Client
 
 ```typescript
-import { createClient } from '@indobase/supabase-js'
+import { createClient } from '@indobase/indobase-js'
 
-const supabase = createClient('https://your-project.indobase.fun', 'your-publishable-key')
+const indobase = createClient('https://your-project.indobase.fun', 'your-publishable-key')
 
 // Access analytics operations
-const analytics = supabase.storage.analytics
+const analytics = indobase.storage.analytics
 
 // Create an analytics bucket
 const { data, error } = await analytics.createBucket('analytics-data')
@@ -490,7 +490,7 @@ if (error) {
 
 #### Get Iceberg Catalog for Advanced Operations
 
-For advanced operations like creating tables, namespaces, and querying Iceberg metadata, use the `from()` method to get a configured [iceberg-js](https://github.com/supabase/iceberg-js) client:
+For advanced operations like creating tables, namespaces, and querying Iceberg metadata, use the `from()` method to get a configured [iceberg-js](https://github.com/indobase/iceberg-js) client:
 
 ```typescript
 // Get an Iceberg REST Catalog client for your analytics bucket
@@ -548,9 +548,9 @@ await catalog.dropTable({ namespace: ['default'], name: 'events' })
 await catalog.dropNamespace({ namespace: ['default'] })
 ```
 
-**Returns:** `IcebergRestCatalog` instance from [iceberg-js](https://github.com/supabase/iceberg-js)
+**Returns:** `IcebergRestCatalog` instance from [iceberg-js](https://github.com/indobase/iceberg-js)
 
-> **Note:** The `from()` method returns an Iceberg REST Catalog client that provides full access to the Apache Iceberg REST API. For complete documentation of available operations, see the [iceberg-js documentation](https://supabase.github.io/iceberg-js/).
+> **Note:** The `from()` method returns an Iceberg REST Catalog client that provides full access to the Apache Iceberg REST API. For complete documentation of available operations, see the [iceberg-js documentation](https://indobase.github.io/iceberg-js/).
 
 ### Error Handling
 
@@ -687,9 +687,9 @@ async function getAllAnalyticsBuckets() {
 
 ## Vector Embeddings
 
-Supabase Storage provides built-in support for storing and querying high-dimensional vector embeddings, powered by S3 Vectors. This enables semantic search, similarity matching, and AI-powered applications without needing a separate vector database.
+Indobase Storage provides built-in support for storing and querying high-dimensional vector embeddings, powered by S3 Vectors. This enables semantic search, similarity matching, and AI-powered applications without needing a separate vector database.
 
-> **Note:** Vector embeddings functionality is available in `@supabase/storage-js` v2.76 and later.
+> **Note:** Vector embeddings functionality is available in `@indobase/storage-js` v2.76 and later.
 
 ### Features
 
@@ -706,17 +706,17 @@ Supabase Storage provides built-in support for storing and querying high-dimensi
 
 You can access vector functionality in three ways, depending on your use case:
 
-#### Option 1: Via Supabase Client (Most Common)
+#### Option 1: Via Indobase Client (Most Common)
 
-If you're using the full Supabase client:
+If you're using the full Indobase client:
 
 ```typescript
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@indobase/indobase-js'
 
-const supabase = createClient('https://your-project.indobase.fun', 'your-publishable-key')
+const indobase = createClient('https://your-project.indobase.fun', 'your-publishable-key')
 
 // Access vector operations through storage
-const vectors = supabase.storage.vectors
+const vectors = indobase.storage.vectors
 
 // Create a vector bucket
 await vectors.createBucket('embeddings-prod')
@@ -799,7 +799,7 @@ const bucket = vectorClient.from('embeddings-prod')
 
 > **When to use each approach:**
 >
-> - **Option 1**: When using other Supabase features (auth, database, realtime)
+> - **Option 1**: When using other Indobase features (auth, database, realtime)
 > - **Option 2**: When working with both file storage and vectors
 > - **Option 3**: For dedicated vector-only applications without file storage
 
@@ -1146,12 +1146,12 @@ import type {
   DistanceMetric,
   ApiResponse,
   StorageVectorsError,
-} from '@supabase/storage-js'
+} from '@indobase/storage-js'
 ```
 
 ## Development
 
-This package is part of the [Supabase JavaScript monorepo](https://github.com/supabase/supabase-js). To work on this package:
+This package is part of the [Indobase JavaScript monorepo](https://github.com/indobase/indobase-js). To work on this package:
 
 ### Building
 
@@ -1170,7 +1170,7 @@ npx nx docs storage-js
 
 ### Testing
 
-**Important:** The storage-js tests require a local test infrastructure running in Docker. This is **NOT** the same as a regular Supabase instance - it's a specialized test setup with its own storage API, database, and Kong gateway.
+**Important:** The storage-js tests require a local test infrastructure running in Docker. This is **NOT** the same as a regular Indobase instance - it's a specialized test setup with its own storage API, database, and Kong gateway.
 
 #### Prerequisites
 
@@ -1252,7 +1252,7 @@ The test infrastructure (`infra/docker-compose.yml`) includes:
   - Contains bucket configurations and permissions
 
 - **Storage API** (port 5050, internal 5000)
-  - Supabase Storage service for handling file operations
+  - Indobase Storage service for handling file operations
   - Configured with test authentication keys
 
 - **Kong Gateway** (port 8000)
@@ -1278,15 +1278,15 @@ The test infrastructure (`infra/docker-compose.yml`) includes:
 - **Port binding errors**: Ports are already in use by other services
 - **Snapshot failures**: Expected test data has changed - review and update snapshots if needed
 
-#### What About Supabase CLI?
+#### What About Indobase CLI?
 
-**No**, you don't need `supabase start` or a regular Supabase instance for these tests. The storage-js tests use their own specialized Docker setup that's lighter and focused specifically on testing the storage SDK. This test infrastructure:
+**No**, you don't need `indobase start` or a regular Indobase instance for these tests. The storage-js tests use their own specialized Docker setup that's lighter and focused specifically on testing the storage SDK. This test infrastructure:
 
-- Is completely independent from any Supabase CLI projects
+- Is completely independent from any Indobase CLI projects
 - Uses fixed test authentication keys
 - Has predictable test data and bucket configurations
-- Runs faster than a full Supabase stack
-- Doesn't interfere with your local Supabase development projects
+- Runs faster than a full Indobase stack
+- Doesn't interfere with your local Indobase development projects
 
 ### Contributing
 

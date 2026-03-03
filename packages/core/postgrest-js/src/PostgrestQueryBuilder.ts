@@ -27,7 +27,7 @@ export default class PostgrestQueryBuilder<
    *
    * @example
    * ```ts
-   * import PostgrestQueryBuilder from '@supabase/postgrest-js'
+   * import PostgrestQueryBuilder from '@indobase/postgrest-js'
    *
    * const query = new PostgrestQueryBuilder(
   *   new URL('https://xyzcompany.indobase.fun/rest/v1/users'),
@@ -329,7 +329,7 @@ export default class PostgrestQueryBuilder<
    * @example Upsert a single row using a unique key
    * ```ts
    * // Upserting a single row, overwriting based on the 'username' unique column
-   * const { data, error } = await supabase
+   * const { data, error } = await indobase
    *   .from('users')
    *   .upsert({ username: 'supabot' }, { onConflict: 'username' })
    *
@@ -345,7 +345,7 @@ export default class PostgrestQueryBuilder<
    * @example Upsert with conflict resolution and exact row counting
    * ```ts
    * // Upserting and returning exact count
-   * const { data, error, count } = await supabase
+   * const { data, error, count } = await indobase
    *   .from('users')
    *   .upsert(
    *     {

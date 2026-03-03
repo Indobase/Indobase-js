@@ -2,7 +2,7 @@ const MAILPIT_URL = 'http://127.0.0.1:54324'
 
 /**
  * Fetch the latest email from Mailpit for a given address.
- * Mailpit ships with Supabase CLI — captures all emails locally.
+ * Mailpit ships with Indobase CLI — captures all emails locally.
  */
 export async function getLatestEmail(emailAddress: string) {
   const res = await fetch(

@@ -1,11 +1,11 @@
-# Supabase `auth-js` example
+# Indobase `auth-js` example
 
 - Created based on the [Quickstart example](https://indobase.com/docs/guides/auth/quickstarts/react) in the Indobase docs.
 - Bootstrapped with Vite CLI
 
 ## Setup
 
-### With a Supabase project
+### With a Indobase project
 
 ### 1. Create new project
 

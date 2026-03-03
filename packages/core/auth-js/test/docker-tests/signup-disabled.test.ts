@@ -2,7 +2,7 @@
  * Docker-only tests: Signup Disabled
  *
  * These tests require a GoTrue instance with signup disabled.
- * This configuration is not possible with a single Supabase CLI instance.
+ * This configuration is not possible with a single Indobase CLI instance.
  *
  * Run with: npx nx test:docker auth-js
  */

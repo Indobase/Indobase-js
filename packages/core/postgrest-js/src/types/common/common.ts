@@ -1,4 +1,4 @@
-// Types that are shared between supabase-js and postgrest-js
+// Types that are shared between indobase-js and postgrest-js
 
 export type Fetch = typeof fetch
 

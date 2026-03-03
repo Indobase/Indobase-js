@@ -61,19 +61,19 @@ jobs:
           # Install Playwright browsers for WebSocket tests
           npx playwright install --with-deps
 
-      - name: Setup Supabase
-        run: npx nx test:supabase:setup supabase-js
+      - name: Setup Indobase
+        run: npx nx test:indobase:setup indobase-js
 
       - name: Export auth keys
         run: |
-          cd packages/core/supabase-js
-          echo SUPABASE_ANON_KEY="$(npx supabase status --output json | jq -r '.ANON_KEY')" >> $GITHUB_ENV
-          echo SUPABASE_SERVICE_ROLE_KEY="$(npx supabase status --output json | jq -r '.SERVICE_ROLE_KEY')" >> $GITHUB_ENV
+          cd packages/core/indobase-js
+          echo INDOBASE_ANON_KEY="$(npx indobase status --output json | jq -r '.ANON_KEY')" >> $GITHUB_ENV
+          echo INDOBASE_SERVICE_ROLE_KEY="$(npx indobase status --output json | jq -r '.SERVICE_ROLE_KEY')" >> $GITHUB_ENV
           echo "✅ Keys exported"
 
       - name: Verify edge functions
         run: |
-          cd packages/core/supabase-js
+          cd packages/core/indobase-js
           MAX_ATTEMPTS=10
           RETRY_DELAY=3
           HTTP_CODE=""
@@ -86,7 +86,7 @@ jobs:
               --connect-timeout 5 \
               --max-time 10 \
               -X POST \
-              -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
+              -H "Authorization: Bearer $INDOBASE_ANON_KEY" \
               -H "Content-Type: application/json" \
               -d '{"name":"CI"}' \
               http://127.0.0.1:54321/functions/v1/hello 2>/dev/null) || true
@@ -109,7 +109,7 @@ jobs:
           if [ "$HTTP_CODE" != "200" ]; then
             echo "❌ Edge functions not responding after $MAX_ATTEMPTS attempts (final status: $HTTP_CODE)"
             echo "--- Edge functions log ---"
-            cat /tmp/supabase-functions.log 2>/dev/null || echo "(no log available)"
+            cat /tmp/indobase-functions.log 2>/dev/null || echo "(no log available)"
             echo "--- End of log ---"
             exit 1
           fi
@@ -121,15 +121,15 @@ jobs:
           echo "   which doesn't satisfy peer dependency requirements like ^2.76.1"
           echo ""
 
-          cd packages/core/supabase-js/test/integration/next
+          cd packages/core/indobase-js/test/integration/next
           npm install --legacy-peer-deps
           cd "$GITHUB_WORKSPACE"
 
-          cd packages/core/supabase-js/test/integration/expo
+          cd packages/core/indobase-js/test/integration/expo
           npm install --legacy-peer-deps
           cd "$GITHUB_WORKSPACE"
 
-          cd packages/core/supabase-js/test/integration/bun
+          cd packages/core/indobase-js/test/integration/bun
           bun install
           cd "$GITHUB_WORKSPACE"
 
@@ -137,7 +137,7 @@ jobs:
         run: |
           PGPASSWORD=postgres psql -h 127.0.0.1 -p 54322 -U postgres -d postgres \
             -v ON_ERROR_STOP=1 --single-transaction \
-            -f packages/core/realtime-js/example/supabase/migrations/001_create_messages_table.sql
+            -f packages/core/realtime-js/example/indobase/migrations/001_create_messages_table.sql
 
       - name: Run all tests in parallel
         run: |
@@ -148,7 +148,7 @@ jobs:
           echo "🧪 Running core tests..."
           npx nx run-many \
             -t test:deno:all,test:integration,test:integration:browser \
-            -p supabase-js \
+            -p indobase-js \
             --parallel=3 \
             --verbose
 
@@ -156,13 +156,13 @@ jobs:
           echo "🧪 Running platform tests..."
           npx nx run-many \
             -t test:next,test:expo,test:bun \
-            -p supabase-js \
+            -p indobase-js \
             --parallel=3 \
             --verbose
 
           # WebSocket tests (requires completed platforms)
           echo "🧪 Running WebSocket tests..."
-          npx nx test:node:playwright supabase-js
+          npx nx test:node:playwright indobase-js
 
           echo "✅ All tests passed"
 
@@ -184,9 +184,9 @@ jobs:
           echo "=== All Mailpit messages ==="
           curl -s "http://127.0.0.1:54324/api/v1/messages" || echo "Could not list messages"
           echo "=== GoTrue container logs (last 50 lines) ==="
-          docker logs $(docker ps -q --filter "name=supabase_auth") --tail=50 2>&1 || echo "Could not get GoTrue logs"
+          docker logs $(docker ps -q --filter "name=indobase_auth") --tail=50 2>&1 || echo "Could not get GoTrue logs"
           echo "=== Mailpit container logs (last 20 lines) ==="
-          docker logs $(docker ps -q --filter "name=supabase_mail") --tail=20 2>&1 || echo "Could not get Mailpit logs"
+          docker logs $(docker ps -q --filter "name=indobase_mail") --tail=20 2>&1 || echo "Could not get Mailpit logs"
 
       - name: Upload Playwright reports
         if: failure()
@@ -198,6 +198,6 @@ jobs:
             packages/core/realtime-js/example/playwright-report/
           retention-days: 7
 
-      - name: Stop Supabase
+      - name: Stop Indobase
         if: always()
-        run: npx nx test:supabase:stop supabase-js
+        run: npx nx test:indobase:stop indobase-js

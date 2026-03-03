@@ -2,7 +2,7 @@
  * Docker-only tests: Phone OTP / SMS
  *
  * These tests require a GoTrue instance with an SMS provider (Twilio) configured.
- * Supabase CLI doesn't have an SMS provider enabled by default.
+ * Indobase CLI doesn't have an SMS provider enabled by default.
  *
  * Run with: npx nx test:docker auth-js
  */

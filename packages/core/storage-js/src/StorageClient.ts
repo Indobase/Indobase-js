@@ -40,7 +40,7 @@ export class StorageClient extends StorageBucketApi {
    *
    * @example
    * ```typescript
-   * const avatars = supabase.storage.from('avatars')
+   * const avatars = indobase.storage.from('avatars')
    * ```
    */
   from(id: string): StorageFileApi {

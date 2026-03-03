@@ -4,7 +4,7 @@ This document explains how JSR (JavaScript Registry) publishing is configured in
 
 ## Overview
 
-Supabase JavaScript packages are published to npm, and select packages with explicit return types are also published to JSR. JSR publishing happens automatically after npm publishing in both stable and canary releases.
+Indobase JavaScript packages are published to npm, and select packages with explicit return types are also published to JSR. JSR publishing happens automatically after npm publishing in both stable and canary releases.
 
 Currently, only packages with complete TypeScript typing (explicit return types) are published to JSR to maintain high quality standards and optimal type-checking performance.
 
@@ -14,8 +14,8 @@ Currently, only packages with complete TypeScript typing (explicit return types)
 
 The following packages are currently published to JSR:
 
-- @supabase/functions-js (has explicit return types)
-- @supabase/supabase-js (has explicit return types)
+- @indobase/functions-js (has explicit return types)
+- @indobase/indobase-js (has explicit return types)
 
 ## Authentication
 
@@ -47,7 +47,7 @@ permissions:
 Published packages (with explicit return types):
 
 - `functions-js` - Has explicit return types
-- `supabase-js` - Has explicit return types (aggregates other packages)
+- `indobase-js` - Has explicit return types (aggregates other packages)
 
 4. **Failure Handling**: JSR publishing failures don't fail the entire release - npm releases will still succeed.
 
