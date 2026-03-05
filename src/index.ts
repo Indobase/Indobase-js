@@ -24,19 +24,7 @@ export type {
   QueryError
 }
 
-// Note: The createIndobaseClient function is re-exported from @indobase/indobase-js
-// which must be built before this package. This is handled by the monorepo build.
-export const createIndobaseClient = (() => {
-  // This will be replaced at build time with the actual implementation
-  // For now, we provide a type-safe stub
-  return <Database = any, SchemaName extends string = 'public'>(
-    indobaseUrl: string,
-    indobaseKey: string,
-    options?: IndobaseClientOptions<SchemaName>
-  ) => {
-    throw new Error('Please build @indobase/indobase-js first: npm run build --workspace=@indobase/indobase-js')
-  }
-})()
+export * from '@indobase/indobase-js'
 
 // Version info
 export const SDK_VERSION = '1.0.0'
