@@ -38,6 +38,9 @@
   "dependencies": {
     "@indobase/indobase-js": "*"
   },
+  "workspaces": [
+    "packages/core/*"
+  ],
   "private": false,
   "publishConfig": {
     "access": "public"
