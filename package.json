@@ -1,8 +1,9 @@
 {
-  "name": "@indobase/js",
+  "name": "indobase-js",
   "version": "1.0.0",
-  "description": "Official Indobase JavaScript/TypeScript SDK",
+  "description": "Official JavaScript client for Indobase",
   "license": "MIT",
+  "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -13,10 +14,9 @@
     "node": ">=18"
   },
   "files": [
-    "dist",
-    "README.md",
-    "LICENSE"
+    "dist"
   ],
+  "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -36,7 +36,8 @@
     "tsup": "^8.5.1"
   },
   "dependencies": {
-    "@indobase/indobase-js": "*"
+    "@indobase/indobase-js": "*",
+    "indobase-js": "^1.0.0"
   },
   "workspaces": [
     "packages/core/*"

@@ -6,23 +6,23 @@ Official JavaScript client for Indobase.
 
 **npm:**
 ```bash
-npm install @indobase/js
+npm install indobase-js
 ```
 
 **yarn:**
 ```bash
-yarn add @indobase/js
+yarn add indobase-js
 ```
 
 **pnpm:**
 ```bash
-pnpm add @indobase/js
+pnpm add indobase-js
 ```
 
 ## Usage
 
 ```typescript
-import { createClient } from "@indobase/js"
+import { createClient } from "indobase-js"
 
 const client = createClient("https://your-project.indobase.co", "public-anon-key")
 ```
@@ -33,7 +33,7 @@ const client = createClient("https://your-project.indobase.co", "public-anon-key
 - **Unified SDK**: Provides access to Authentication, Database, Realtime, Storage, and Edge Functions.
 
 ## TypeScript Support
-`@indobase/js` provides first-class TypeScript support. Types are automatically inferred when you provide your database schema.
+`indobase-js` provides first-class TypeScript support. Types are automatically inferred when you provide your database schema.
 
 ## Node + Browser Support
 Works in modern browsers, Node.js (>=18), Deno, Bun, Edge Functions (Cloudflare Workers), and React Native.
