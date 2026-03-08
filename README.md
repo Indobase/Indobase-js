@@ -8,7 +8,6 @@ Official JavaScript client for Indobase.
 ```bash
 npm install indobase-js
 ```
-
 **yarn:**
 ```bash
 yarn add indobase-js

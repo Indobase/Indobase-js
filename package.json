@@ -8,7 +8,7 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "bin": {
-    "indobase": "dist/cli.js"
+    "indobase": "dist/cli.cjs"
   },
   "engines": {
     "node": ">=18"
@@ -35,10 +35,7 @@
     "@types/node": "^20.19.9",
     "tsup": "^8.5.1"
   },
-  "dependencies": {
-    "@indobase/indobase-js": "*",
-    "indobase-js": "^1.0.0"
-  },
+  "dependencies": {},
   "workspaces": [
     "packages/core/*"
   ],
